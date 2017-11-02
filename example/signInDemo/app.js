@@ -1,8 +1,13 @@
+/**
+ * 整个项目参考地址如下
+ * http://blog.csdn.net/piratest/article/details/54584182
+ */
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');  
 var app = express();
 
+// http://www.cnblogs.com/qingbin-bai/p/6271388.html  node 静态文件处理
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function(request, response){  
