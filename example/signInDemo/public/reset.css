@@ -103,7 +103,9 @@ menu,
 nav,
 section {
     display: block;
-    box-sizing: border-box; }
+    /*让元素设定的宽度和高度不被内边距撑开*/
+    box-sizing: border-box;
+}
 
 ol,
 ul {
