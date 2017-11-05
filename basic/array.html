@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组练习和理解</title>
+</head>
+<body>
+
+
+<script>
+
+    /**
+     * 实例1 数组的基本概念
+    /*
+    var a = [];
+    a[0] = 1;
+    a[1] = 2;
+
+    for (let i=0;i< a.length;i++) {
+        console.log(a[i]);
+    }
+     console.log(i);*/
+
+    /**
+     * 实例2 数组和函数
+     * @type {Array}
+     */
+    /*var arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr[i] = function () {
+            console.log(i);
+        };
+    }
+    arr[0](); // a[1]->a[10]的值都是10
+    arr[6](); // a[1]->a[10]的值都是10
+    arr;*/
+
+    /**
+     * 实例3 添加函数到数组，取出数组，调用函数
+     * @type {Array}
+     */
+    var arr = [];
+
+    arr[0] = function (a,b) {
+        return a+b;
+    };
+    arr[1] = function (a,b) {
+     return a-b;
+    }
+
+    a[0](5,2);
+    a[1](5,2);
+
+    arr;
+
+</script>
+</body>
+</html>

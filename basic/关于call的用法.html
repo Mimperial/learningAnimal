@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 1;
+    var  b = 2;
+    var addTest = {
+        a :2,
+        b :2
+    }
+
+    var add = function () {
+        return this.a + this.b;
+    }
+
+    console.log("这是直接调用add方法的输出结果:"+add()) // 3
+    console.log("这是应用call方法:"+add.call(addTest)) // 4
+
+</script>
+</body>
+</html>
