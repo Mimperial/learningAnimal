@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="#" id="myDiv" onclick= cc() data-title="">kkk</a>
+<script>
+    var id = 'windowId';
+    document.getElementById('myDiv').onclick = function() {
+        console.log("通过this获取id属性:"+this.id); //输出myDiv
+        var el = document.getElementById('myDiv');
+        console.log("通过再次获取当前被点击元素，再次获取id的值："+el.id); //输出myDiv
+        var fn = function() {
+            console.log(this.id); //输出windowId
+        };
+        fn(); //普通函数调用
+    };
+
+   /* var cc = function() {
+        console.log(this.id); //输出myDiv
+        var fn = function() {
+            console.log(this.id); //输出windowId
+        };
+        fn(); //普通函数调用
+    };*/
+
+</script>
+</body>
+</html>
