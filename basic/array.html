@@ -25,23 +25,33 @@
      * 实例2 数组和函数
      * @type {Array}
      */
-/*    var arr = [];
+    /*var arr = [];
     for (let i = 0; i < 10; i++) {
         arr[i] = function () {
             console.log(i);
         };
     }
     arr[0](); // a[1]->a[10]的值都是10
-    arr[6](); // a[1]->a[10]的值都是10*/
+    arr[6](); // a[1]->a[10]的值都是10
+    arr;*/
 
+    /**
+     * 实例3 添加函数到数组，取出数组，调用函数
+     * @type {Array}
+     */
+    var arr = [];
 
-    {
-        let a=10;
-        var b=1;
+    arr[0] = function (a,b) {
+        return a+b;
+    };
+    arr[1] = function (a,b) {
+     return a-b;
     }
-    a//a is not defined
 
-    b//1
+    a[0](5,2);
+    a[1](5,2);
+
+    arr;
 
 </script>
 </body>
