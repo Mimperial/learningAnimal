@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo" class="demo"></div>
+<div id="black" class="demo">设置其字体颜色为红色</div>
+<input type="checkbox">姓名
+<input type="checkbox">性别
+
+<script>
+    var domobj = document.getElementById("black");
+    domobj.innerHTML = "我是内容";
+    domobj.style.color = "red";
+
+//    获取页面所有CheckBox
+    var domlist = document.getElementsByTagName('input');
+    var checkboxlist = [];
+    var len = domlist.length;
+    while (len--){
+        if (domlist[len].type == 'checkbox'){
+            checkboxlist.push(domlist[len]);
+        }
+    }
+//    checkboxlist.toString();
+    alert(checkboxlist.toString());
+
+    var obj1 = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }');
+ document.getElementById("demo").innerText = obj1.name +":" + obj1.alexa;
+
+    var obj2 = { "name":"rb", "alexa":100, "site":"www.runoob.com"};
+    var myJSON = JSON.stringify(obj2);
+    document.getElementById("demo").innerHTML = myJSON;
+
+//搭建服务器（apache或者node均可），通过向服务器端请求文件，获取数据。
+
+//  首先 要考虑服务器版本的问题
+    function CreatXHR() {
+        if (window.XMLHttpRequest){
+            return new XMLHttpRequest();
+        }else {
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+//    创建ajax对象
+    var xmlhttp;
+    xmlhttp = CreatXHR();
+//    请求服务器端文件test.json,并输出。
+    xmlhttp.open("GET","test.json",true); //同一目录下文件
+    xmlhttp.send();
+//    响应函数，返回发送出去返回回来的状态；
+//    获取来自服务器的响应，可使用XMLHttpRequest对象的responseText属性
+    xmlhttp.onreadystatechange = function () {
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            var  jsonstr = xmlhttp.responseText;
+            console.log(jsonstr);
+
+//            转化成对象
+            var obj = json.parse(jsonstr);
+            console.log(obj)
+        }
+    }
+
+
+
+    xmlhttp.open("GET","test.xml",true); //同一目录下文件
+    xmlhttp.send();
+    //    响应函数，返回发送出去返回回来的状态；
+    //    获取来自服务器的响应，可使用XMLHttpRequest对象的responseText属性
+    xmlhttp.onreadystatechange = function () {
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            var  xmlroot = xmlhttp.responseXML;
+            console.log(xmlroot);
+
+//            转化成对象
+            var friends = xmlroot.getElementsByTagName("friends");
+            console.log(friends);//得到对象
+        }
+    }
+
+</script>
+</body>
+</html>
