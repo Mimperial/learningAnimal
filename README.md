@@ -36,4 +36,4 @@ el.attachEvent("on" + type, function() { listener.apply(el); });
 }
 ```
 
-2.请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目(可能有多个)，返回值是一个包含被删除的重复条目的新数组
+

@@ -8,7 +8,7 @@
 
 <script>
     var arr =  ["a","b","c","d"];
-
+/*
 //    增
     var unshift = arr.unshift('kuaidi');//头添加
     var push = arr.push("kd");//    尾添加
@@ -23,17 +23,66 @@
     var slicetoend = arr.slice(2);
 //    排序
     var sort = arr.sort();
-    alert(sort);
+    alert(arr);
 //    反转
     var reverse = arr.reverse();
-    alert(reverse);
-//    万能方法
-    arr.splice(2,1,"qu");
-//    两个数组的拼接/合并
+    alert(arr);
+    万能方法(从第几个开始，删除个数，"添加的元素")
+    var splice = arr.splice(2,1,"我是添加的元素");
+    alert(arr);
+    两个数组的拼接/合并
 
 //    指定的字符串连接
     var j = arr.join("-");
     alert(j);
+*/
+
+/*
+ *给array本地对象增加一个方法，用于删除数组中的重复条目，返回新数组
+ */
+
+/*    方法一：（不起作用）
+    var array = ['a','b','c','a','d','b'];
+    array.prototype.removeCount = function () {
+        var ret = [];
+        for (var i = 0; i<this.length;i++){
+            for (var j = i+1;j<this.length;){
+                if(this[i] === this[j]){
+                    ret.push(this.splice(j,1)[0]);
+                }else {
+                    j++;
+                }
+            }
+        }
+        return ret;
+    };
+    alert(['a','b','c','a','d','b'].removeCount());
+    alert(ret);
+    alert(array);
+*/
+//    方法二：(有效)
+    Array.prototype.delRepeat=function() {
+        //tempRepeat保存重复数组项
+        var tempRepeat = [];
+        var obj = {}; //保存数组中每项，及其出现的次数
+        //遍历数组
+        for (var i = 0; i < this.length; i++) {
+            if (obj[this[i]]) {
+                if(obj[this[i]]==1) {
+                    tempRepeat.push(this[i]);
+                    obj[this[i]]++;
+                    delete(this[i]);
+                }
+            }
+            else {
+                obj[this[i]] = 1;
+            }
+        }
+        this.filter(function(){ return true;});
+        return tempRepeat;
+    };
+    var a=[1,3,"eirkgm",4,6,"eirkgm",3,3,"eirkgm",3,3,3,"eirkgm",4];
+    alert(a.delRepeat());
 </script>
 
 </body>
