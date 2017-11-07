@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6字符串</title>
+</head>
+<body>
+<script>
+//   alert( `这是一个
+//    多行
+//    字符串`);
+   var name = "xiaoming";
+   var age = 20;
+
+//   es5
+//   var message = "你好"+ name +",你今年" + age + "岁了！";
+//   alert(message);
+
+//   es6
+     alert(`你好${name},你今年${age}岁了！`);
+    name.length;
+    name[0];
+    name[1];
+    name[3];
+
+//特别注意,字符串不可变,对字符串的某个索引赋值，不会有任何错误，但是，也没有任何效果
+//    name[0] = "X";
+//    alert(name);
+
+//   把一个字符串全部变为大写/小写
+    var upper = name.toUpperCase();
+//  var lower = name.toLowerCase();
+    alert(upper);
+//    alert(lower);
+
+//    搜索指定字符串出现的位置
+    var index = name.indexOf("xi");
+    alert(index);
+
+//      返回指定索引区间的子串
+    var sub = name.substring(0,5);
+    alert(sub);
+    var subs = name.substring(5);
+    alert(subs);
+
+
+</script>
+</body>
+</html>
