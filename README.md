@@ -3,7 +3,8 @@
 
 1.阅读以下JavaScript代码：
 
-`if (window.addEventListener) {
+```javascript
+if (window.addEventListener) {
      var addListener = function(el, type, listener, useCapture) {
            el.addEventListener(type, listener, useCapture);
        };
@@ -13,7 +14,8 @@
                listener.apply(el);
            });
        };
-   }`
+   }
+   ```
 
 请阐述 a) 代码的功能; b) 代码的优点和缺点; c) listener.apply(el) 在此处的作用; d) 如果有可改进之处，请给出改进后的代码，并说明理由。
 
@@ -21,7 +23,9 @@
 a) 增加组件监听事件功能。
 b）优点是能快速的给组件增加新的事件的功能。缺点是第二个addListener声明应当写在外面，或是加上var，否则成了全局函数。还没考虑其它的浏览器的兼容性，并且上下定义的函数参数个数不一样。
 c）作用是让el做为调用者执行listener函数。
-D) `addListener = function(el,type, listener, useCapture ) {
+D) 
+```javascript
+addListener = function(el,type, listener, useCapture ) {
   if (window.addEventListener) {
 1
 el.addEventListener(type, listener, useCapture);
@@ -29,6 +33,7 @@ el.addEventListener(type, listener, useCapture);
  1
 el.attachEvent("on" + type, function() { listener.apply(el); });
     }  
-}`
+}
+```
 
 2.请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目(可能有多个)，返回值是一个包含被删除的重复条目的新数组
