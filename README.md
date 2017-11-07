@@ -1,5 +1,5 @@
 # learningAnimal
-前端面试题汇总-javascript
+前端面试题及分析-javascript
 
 1.阅读以下JavaScript代码：
 
