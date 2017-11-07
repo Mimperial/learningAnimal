@@ -8,7 +8,7 @@
 
 <script>
     var arr =  ["a","b","c","d"];
-
+/*
 //    增
     var unshift = arr.unshift('kuaidi');//头添加
     var push = arr.push("kd");//    尾添加
@@ -17,7 +17,7 @@
     var shift = arr.shift();
     var pop = arr.pop();
 //    改（）
-    var change = arr[2] = 33;
+    arr[2] = 33;
 //    查(截取)
     var slice = arr.slice(1,3);
     var slicetoend = arr.slice(2);
@@ -64,6 +64,7 @@
     alert(ret);
     alert(array);
 */
+
 //    方法二：(有效)
     Array.prototype.delRepeat=function() {
         //tempRepeat保存重复数组项
@@ -86,7 +87,7 @@
         return tempRepeat;
     };
     var a=[1,3,"eirkgm",4,6,"eirkgm",3,3,"eirkgm",3,3,3,"eirkgm",4];
-    alert(a.delRepeat());
+    console.log(a.delRepeat());
 </script>
 
 </body>
