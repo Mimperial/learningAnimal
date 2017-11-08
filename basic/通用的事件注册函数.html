@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>通用的事件注册函数</title>
+
 </head>
 <body>
 <script>
@@ -27,12 +28,43 @@
         alert('test2');
     }
 
+
 </script>
 
 <div id="hi" onclick="MyTest();">on click</div>
 <script>
     addObjectEvent('hi','onclick',test1);
     addObjectEvent('hi','onclick',test2);//先执行test2(队列)
+</script>
+
+<!-------------------------------------------------------------->
+
+
+
+<!--添加一个简单的 listener-->
+<table id="outside">
+    <tr><td id="t1">one</td></tr>
+    <tr><td id="t2">two</td></tr>
+</table>
+
+<script>
+    /*
+    * 语法：target.addEventListener(type, listener[, options]);
+    * https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
+    * */
+    // 改变t2的函数，在表格中任何位置单击都会触动事件并执行modifyText()。
+    function modifyText() {//modifyText()是一个click 类型的 listener
+        var t2 = document.getElementById("t2");
+        if (t2.firstChild.nodeValue == "three") {
+            t2.firstChild.nodeValue = "two";
+        } else {
+            t2.firstChild.nodeValue = "three";
+        }
+    }
+
+    //使用addEventListenter注册到table对象上,即为table添加事件监听器
+    var el = document.getElementById("outside");
+    el.addEventListener("click", modifyText, false);//
 </script>
 </body>
 </html>
