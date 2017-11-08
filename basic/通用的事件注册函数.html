@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>通用的事件注册函数</title>
+</head>
+<body>
+<script>
+    function addObjectEvent(objId,eventName,eventFunc)
+    {
+        var targetObj = document.getElementById(objId);
+        if(targetObj) {
+            if(targetObj.attachEvent) {
+                targetObj.attachEvent(eventName,eventFunc);
+            }
+            else if(targetObj.addEventListener) {
+                eventName = eventName.toString().replace(/on(.*)/i,'$1');
+                targetObj.addEventListener(eventName,eventFunc,true);
+            }
+        }
+    }
+
+    function test1() {
+        alert('test1');
+    }
+    function test2() {
+        alert('test2');
+    }
+
+</script>
+
+<div id="hi" onclick="MyTest();">on click</div>
+<script>
+    addObjectEvent('hi','onclick',test1);
+    addObjectEvent('hi','onclick',test2);//先执行test2(队列)
+</script>
+</body>
+</html>

@@ -5,11 +5,15 @@
     <title>array</title>
 </head>
 <body>
+<p>最小年龄: <input type="number" id="ageToCheck" value="18"></p>
+<button onclick="myFunction()">点我</button>
+
+<p>所有大于指定数组的元素有？ <span id="demo"></span></p>
 
 <script>
 
     var arr =  ["a","b","c","d"];
-/*
+
 //    增
     var unshift = arr.unshift('kuaidi');//头添加
     var push = arr.push("kd");//    尾添加
@@ -66,7 +70,7 @@
     alert(array);
 
 */
-/*
+
 //    方法二：(有效)
     Array.prototype.delRepeat=function() {
         //tempRepeat保存重复数组项
@@ -86,7 +90,8 @@
                 }
             }
             else {
-                obj[this[i]] = 1;//1为出现的次数，在这里是组成对象键值对中的value
+                //1为出现的次数，在这里是组成对象键值对中的value
+                obj[this[i]] = 1;
             }
         }
         this.filter(function(){ return true;});
@@ -106,7 +111,7 @@
     /**
      * 数组常用方法
      * **/
-/*
+
 //    indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
     var arr2 = ['apple','orange','pear'],
         found = false;
@@ -123,22 +128,22 @@
 
 //    filter()方法创建一个新的匹配过滤条件的数组。
 //    不用fliter
-//    var arr3 = [
-//        {"name":"apple", "count": 2},
-//        {"name":"orange", "count": 5},
-//        {"name":"pear", "count": 3},
-//        {"name":"orange", "count": 16},
-//    ];
-//
-//    var newArr3 = [];
-//
-//    for(var i= 0, l = arr.length; i< l; i++){
-//        if(arr3[i].name === "orange" ){
-//            newArr3.push(arr3[i]);
-//        }
-//    }
+    var arr3 = [
+        {"name":"apple", "count": 2},
+        {"name":"orange", "count": 5},
+        {"name":"pear", "count": 3},
+        {"name":"orange", "count": 16},
+    ];
 
-//    console.log("Filter results:",newArr3);
+    var newArr3 = [];
+
+    for(var i= 0, l = arr.length; i< l; i++){
+        if(arr3[i].name === "orange" ){
+            newArr3.push(arr3[i]);
+        }
+    }
+//  用fliter
+    console.log("Filter results:",newArr3);
     var arr4 = [
         {"name":"apple", "count": 2},
         {"name":"orange", "count": 5},
@@ -151,7 +156,16 @@
     });
 
     console.log("Filter results:",newArr);
-    */
+
+    var ages = [32, 33, 12, 40];
+
+    function checkAdult(age) {
+        return age >= document.getElementById("ageToCheck").value;
+    }
+
+    function myFunction() {
+        document.getElementById("demo").innerHTML = ages.filter(checkAdult);
+    }
 //    forEach为每个元素执行对应的方法，forEach是用来替换for循环的
 
     var arr5 = [1,2,3,4,5,6,7,8];
