@@ -65,6 +65,13 @@
     //使用addEventListenter注册到table对象上,即为table添加事件监听器
     var el = document.getElementById("outside");
     el.addEventListener("click", modifyText, false);//
+
+/*
+http://www.jb51.net/article/18220.htm
+    一、浏览器不同：attachEvent方法 按钮onclick IE中使用 ；addEventListener方法 按钮click fox中使用
+    二、使用方法不同：btn1Obj.attachEvent("onclick",method1); btn1Obj.addEventListener("click",method1,false);
+    三、新的DOM2 用法可以addEventListener()这个函数来观察到
+    */
 </script>
 </body>
 </html>

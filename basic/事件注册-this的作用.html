@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>事件注册-this的作用及apply/call使其指向改变 实例</title>
 </head>
 <body>
 <a href="#" id="myDiv" onclick= cc() data-title="">kkk</a>
@@ -26,6 +26,18 @@
         fn(); //普通函数调用
     };
 
+
+
+    function introduce(country,hobby){
+        return "大家好，我叫"+this.name+", 今年"+this.age+"岁, 来自"+country+", 喜欢"+hobby;
+    }
+        var xiaoming={name:"小明",age:20};
+        var dahong = {name:"大红",age:23};
+        console.log(introduce.apply(dahong ,["中国","读书"]));
+        //或者下面这个
+        console.log(introduce.call(xiaoming,"中国","打球"));
 </script>
+
+
 </body>
 </html>
