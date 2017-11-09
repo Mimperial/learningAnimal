@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var str = '{"name":"hq","age":18}' ;
+    var obj = JSON.parse(str);
+    console.log(obj);
+    var jasonstr = JSON.stringify(obj);
+    console.log(jasonstr);
+//    工厂模式:创建对象
+    function createPerson(name,age,job) {
+        var o = new Object();
+        o.age = age;
+        o.name = name;
+        o.job = job;
+        sayName = function () {
+            alert(this.name);
+        };
+        return o;
+    }
+    var person1 = createPerson('z',23,"se");
+    var person2 = createPerson('l',25,"he");
+//    构造函数
+    function createPerson(name,age,job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        sayName = function () {
+            alert(this.name);
+        }
+    }
+</script>
+</body>
+</html>
