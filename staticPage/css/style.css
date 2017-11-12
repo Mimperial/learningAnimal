@@ -144,7 +144,7 @@ img{
     background: url("../images/nav_hover.jpg")repeat-x;
 }
 
-/*中间内容*/
+/*------中间内容------*/
 /*简介*/
 .ad{
     margin-bottom: 10px;
@@ -230,9 +230,99 @@ img{
 
 .product{
     width: 100%;
-    height: 360px;
+    height: 280px;
 }
 .product li{
     float: left;
     margin: 0 8px 10px 0;
+    width: 151px;
+    height: 96px;
+    overflow: hidden;
+    position: relative;/*父元素正常定位*/
 }
+.product li span{
+    display: none;/*正常看不见，只有在鼠标放上去时候才看得见，所以首先需要隐藏，hover时候显示*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 16px;
+    width: 131px;/*与父元素保持一致，流出padding的大小*/
+    padding: 0 10px;
+    background-color: darkred;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;/*溢出部分隐藏*/
+}
+.product li a:hover span{/*hover时候显示谁就在hover后边写哪个标签，此处显示span*/
+    display: block;
+}
+
+
+/*------footer--------*/
+/*.footer:before{*/
+    /*content: '';*/
+    /*clear: both;*/
+/*}*/
+.footer{
+    height: 103px;
+    width: 100%;
+    background: url("../images/footer_bg.jpg") repeat-x;
+    position: relative;
+}
+.footer_top{
+    /*padding: 10px;*/
+    color: #fff;
+    line-height: 82px;
+    height: 85px;
+}
+.footer_top a,.footer_bottom span,.footer_bottom a{
+    color: #fff;
+}
+/*用左右浮动代替padding-right: 109px;*/
+/*.footer_top .f_t_l{*/
+    /*padding-right: 109px;*/
+/*}*/
+.footer_bottom a{
+    padding: 0 10px;
+}
+
+.footer_bottom p,.footer_bottom a:hover{
+    color: #f60;
+
+}
+
+.share{
+    position: fixed;
+    bottom: 150px;
+    right:60px;
+}
+/*.share-top{*/
+    /*position: absolute;*/
+    /*top:  0;*/
+    /*left: 0;*/
+
+/*}*/
+/*.share-sina{*/
+    /*position: absolute;*/
+    /*top:  -50px;*/
+    /*left: 0;*/
+/*}*/
+.share-tx{
+    background-position: 0 -100px;
+}
+.share-wx{
+    background-position: 0 -150px;
+}
+.share a{
+    display: block;
+    width: 40px;
+    height: 53px;
+    line-height: 999px;
+    /*overflow: hidden;*/
+     /*background: url("../images/top_tool.jpg") no-repeat;*/
+}
+
+.share {
+    background: url("../images/top_tool.jpg") no-repeat;
+}
+
