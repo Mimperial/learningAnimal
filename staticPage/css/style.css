@@ -20,15 +20,20 @@ ol, ul {
 blockquote, q {
     quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+.clear{
+    clear: both;
 }
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+a{
+    text-decoration: none;
 }
+/*ie6兼容问题，图片外出现外边框*/
+img{
+    border: none;
+}
+/*table {*/
+    /*border-collapse: collapse;*/
+    /*border-spacing: 0;*/
+/*}*/
 
 .l{float: left}
 .r{float: right}
@@ -36,6 +41,7 @@ table {
     width: 960px;
     margin: 0 auto}
 
+/*---------------------------------------------------*/
 /*header*/
 .top{
     width: 100%;
@@ -54,4 +60,81 @@ table {
 }
 .top a:hover{
     color: #f60;
+}
+
+
+/*搜索*/
+.logos{
+    margin: 15px 0;
+    height: 59px;
+    /*通过logo图片的高度定义局部高度*/
+}
+.research{
+    width: 400px;
+    height: 41px;
+    margin-top: 8px
+}
+.research td{
+    height: 41px;
+}
+.research-l{
+    width: 6px;
+    background:url("../images/s_z.jpg")no-repeat;
+}
+.research-m{
+    width: 300px;
+    background: url("../images/s_c.jpg")repeat-x;
+}
+.research-r{
+    width: 78px;
+    background: url("../images/s_r.jpg")no-repeat;
+}
+.research-input{
+    margin-top: 2px;
+    width: 298px;
+    height: 35px;
+}
+.research-btn{
+    background: none;
+    border: 0;
+    width: 78px;
+    height: 41px;
+    cursor: pointer;
+}
+
+
+/*客服*/
+.custom-sever{
+    font-size: 25px;
+    height: 59px;
+    line-height: 59px;
+    color: darkred;
+    margin-left: 20px;
+}
+
+/*导航*/
+.nav{
+    height: 39px;
+    /*因为是通栏，所以宽度为100%；因为通栏里边的内容整体居中，所以要在nav内部写wp*/
+    width: 100%;
+    background: url("../images/nav_bg.jpg") repeat-x;
+}
+.nav ul{
+
+}
+.nav li{
+    /*此处为什么不用margin，二用padding*/
+    /*margin-right: 56px;*/
+    padding: 0 28px;
+    height: 39px;
+    line-height: 39px;
+    float: left;
+}
+.nav li a {
+    color: #fff;
+    /*font-size: ;*/
+
+}
+.nav .shadow,.nav li:hover{
+    background: url("../images/nav_hover.jpg")repeat-x;
 }

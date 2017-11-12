@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cssReset.css">
+    <!--<link rel="stylesheet" href="css/cssReset.css">-->
+    <!--总结：div 是一层套一层才不会散-->
 
 </head>
 <body>
@@ -21,16 +22,50 @@
             </div>
         </div>
     </div>
-        <div class="logo">
-            <div class="wp">
-                <div>
+        <div class="wp">
+            <div class="logos clear">
+                <div class="logo l">
+                    <h1><a href="index.html"><img src="images/logo.jpg" alt=""></a></h1>
+                </div>
+
+                <div class="phone r">
+                    <span class="custom-sever">客服电话：400888888</span>
+                </div>
+
+                <div class="research r"><!--收索需要传输数据，因此需要提交表单form,（表单固定写法）-->
+                    <form action="index.html" method="get">
+                        <!--解决ie7兼容问题：图片之间出现1像素空隙，用cellpadding="0" cellspacing="0" border="0-->
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td class="research-l l"></td>
+                                <td class="research-m l">
+                                    <input class="research-input" type="text" name="container" id="research-m-txt" />
+                                </td>
+                                <td class="research-r l">
+                                    <button class="research-btn" type="submit" name="submit"></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
 
                 </div>
-                <div></div>
-                <div></div>
+
             </div>
         </div>
-        <div class="nav"></div>
+        <div class="nav clear ">
+            <div class="wp">
+                <ul class="">
+                    <li class="shadow"><a href="">网站首页</a></li>
+                    <li ><a href="">公司简介</a></li>
+                    <li ><a href="">业务描述</a></li>
+                    <li ><a href="">服务范围</a></li>
+                    <li ><a href="">产品中心</a></li>
+                    <li ><a href="">人才管理</a></li>
+                    <li ><a href="">在线留言</a></li>
+                    <li ><a href="">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
 
 </div>
 <div class="center">
