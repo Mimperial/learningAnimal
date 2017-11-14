@@ -50,7 +50,7 @@ a{
 .nav a{
     color: black;
 }
-.nav li{
+.nav-1 li{
     float: left;
     margin-right: 16px;
     height: 44px;
