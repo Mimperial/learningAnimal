@@ -63,5 +63,22 @@ a{
     font-size: 16px;
 
 }
+.nav-2 li{
+    border: 1px solid #960;
+    width: 80px;
+    line-height: 30px;
+    font-size: 12px;
+    background: pink;
+    text-align: center;
+}
+.nav2{
+    position: relative;
+}
+.nav-2 {
+    position: absolute;
+    top: 0;
+    left: 185px;
+    display: none;
+}
 
 
