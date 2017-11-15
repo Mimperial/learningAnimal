@@ -1,4 +1,10 @@
 # learningAnimal
+
+## 网站实例
+
+https://mimperial.github.io/learningAnimal/staticPage/
+
+
 前端面试题及分析-javascript
 
 1.阅读以下JavaScript代码：
