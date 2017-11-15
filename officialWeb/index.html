@@ -5,7 +5,7 @@
     <title>高级官网首页</title>
     <link rel="stylesheet" href="style.css">
     <script>
-//        为什么不起作用呢？？？o'yo
+//        为什么不起作用呢？？？
 //        <!--显示元素标签二级菜单-->
         function showobj(id) {
             var obj = document.getElementById(id);
@@ -17,6 +17,42 @@
             obj.style.display = "none";
 
         }
+//        定义一个数组，用于存放路径
+        var arr = [];
+        arr[0] = "images/banner1.jpg";
+        arr[1] = "images/banner2.jpg";
+        arr[2] = "images/banner3.jpg";
+        arr[3] = "images/banner4.jpg";
+
+        var count = 0;  //var定义一个数组的全局索引，并赋初始值
+        function autoPlayBanner() {
+            if (count === arr.length) {//判断数组长度和图片索引，如果图片索引等于数组的长度，将索引至为第一张图片
+                count = 0;
+            }
+                document.getElementById("banner1").src = arr[count];
+                count++;//索引递增
+        }
+
+        var Timer = setInterval(autoPlayBanner,2000);
+
+//        清除定时器对象,
+function clearTimer() {
+    clearInterval(Timer);
+}
+//鼠标悬停时指定图片播放，需要清除定时器.需要传参，所以函数定义时需要定义形参；通过传进来的参数给要显示图片的索引，然后将图片的索引再赋值给
+        function showBannerById(num) {
+        clearTimer();
+
+        var index = parseInt(num);
+            document.getElementById("banner1").src = arr[index-1];
+            count = index;
+}
+
+//鼠标移除时恢复自动播放，恢复定时器
+        function btnMouseout(num) {
+            Timer = setInterval(autoPlayBanner,2000);
+        }
+
     </script>
 </head>
 <body>
@@ -58,12 +94,25 @@
                 </div>
             </div>
             <!--二级菜单-->
-            <div class="wp nav2">
+            <div class="wp navbox2">
                 <ul class="nav-2" id="navtwoid" onmouseover="showobj('navtwoid')" onmouseout="hiddenobj('navtwoid')">
                     <li><a href="">公司新闻</a></li>
                     <li><a href="">行业新闻</a></li>
                     <li><a href="">国内新闻</a></li>
                 </ul>
+            </div>
+
+        </div>
+        <!--Banner 部分-->
+        <div class="bannerbox">
+            <div class="wp banner-par">
+                <img src="images/banner1.jpg"  id="banner1" alt="">
+                <div class="banner-page">
+                    <span onmouseover="showBannerById(1)" onmouseout="btnMouseout(1)">1</span>
+                    <span onmouseover="showBannerById(2)" onmouseout="btnMouseout(2)">2</span>
+                    <span onmouseover="showBannerById(3)" onmouseout="btnMouseout(3)">3</span>
+                    <span onmouseover="showBannerById(4)" onmouseout="btnMouseout(4)">4</span>
+                </div>
             </div>
 
         </div>
@@ -74,10 +123,61 @@
     <div class="middlebox">
         <!--中间的上边-->
         <div class="midtop">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="mid-up-l l">
+                <div class="mid-top-tit">
+                    <span class="tit-img"></span>
+                    <span>新闻动态 News</span>
+                </div>
+                <div class="toplist-l">
+                    <div class="toplist-img">
+                        <img src="images/newsimg.jpg" alt="">
+                    </div>
+                    <ul class="company-news">
+                        <li>撸起袖子加油干</li>
+                        <li>撸起袖子加油干</li>
+                        <li>撸起袖子加油干</li>
+                        <li>撸起袖子加油干</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mid-up-m l">
+                <div class="mid-top-tit">
+                    <span class="tit-img"></span>
+                    <span>公司动态 Company</span>
+                </div>
+                <div class="toplist-l">
+                    <div class="toplist-img">
+                        <img src="images/companyimg.jpg" alt="">
+                    </div>
+                    <div class="campany-intro">
+                        <p> 要把时间用在自己有意思的地方，让时间勒住自己，也许更快乐.财务自由，不作不行,角色的自由。我用了这样一张面目模糊的照片，就是想跟大家说，人生只活一次，尽量的去多体会一些角色，可能会增强心中的幸福感。</p><p>我远比你更懂生活，你体会不到，就只剩批判——被误会是所有表达者的宿命</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mid-up-r l">
+                <div class="mid-top-tit">
+                    <span class="tit-img"></span>
+                    <span>联系我们 Contact s</span>
+                </div>
+                <div class="toplist-l">
+                    <div class="toplist-img">
+                        <img src="images/Contactimg.jpg" alt="">
+                    </div>
+                    <ul class="companydetial">
+                        <li>公司名称：天之骄子股份有限公司</li>
+                        <li>公司地址：北京前门大街88号</li>
+                        <li>公司电话：01066888866</li>
+                        <li>业务负责人：黄巧</li>
+                        <li style="font-size: 10px">公司网址：https://mimperial.github.io/learningAnimal/officialWeb/</li>
+
+                    </ul>
+                </div>
+
+            </div>
         </div>
+
         <!--中间的下边-->
         <div class="midbottom">
             <div></div>

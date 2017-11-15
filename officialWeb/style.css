@@ -5,7 +5,7 @@
 .l{float: left}
 .r{float: right}
 .wp{
-    width: 960px;
+    width: 1113px;
     margin: 0 auto}
 ol, ul {
     list-style: none;
@@ -56,7 +56,7 @@ a{
     margin-right: 16px;
     height: 44px;
     background: url("images/nav1.jpg")no-repeat center right;
-    width: 80px;
+    width: 95px;
     text-align: center;
     line-height: 44px;
     font-weight: bold;
@@ -71,7 +71,7 @@ a{
     background: pink;
     text-align: center;
 }
-.nav2{
+.navbox2{
     position: relative;
 }
 .nav-2 {
@@ -79,6 +79,103 @@ a{
     top: 0;
     left: 185px;
     display: none;
+    z-index: 10000;
 }
+/*Banner*/
+.bannerbox img{
+    width:1113px;
+    height: 388px;
+}
+.banner-par{
+    position: relative;
+    height: 388px;
+}
+.banner-page{
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+}
+.banner-page span{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+/*中间内容*/
+/*中间内容上边*/
+.midtop{
+    background: url("images/content_bg.jpg");
+    height: 360px;
+
+}
+.mid-up-l,.mid-up-r,.mid-up-m{
+    margin-right:8px ;
+    margin-left:8px ;
+    border: 1px solid gainsboro;
+    height: 345px;
+}
+.mid-up-l{
+    width:325px;
+}
+.mid-up-r{
+    width: 337px;
+}
+.mid-up-m{
+    width: 397px;
+}
+.mid-top-tit{
+    background: url("images/content_sm_bg.jpg");
+    /*height: 336px;*/
+    width:100%;
+}
+.mid-top-tit span{
+    font: bold 18px "微软雅黑";
+    line-height: 55px;
+    color: #c60;
+}
+.tit-img{
+    background: url("images/plus.jpg")no-repeat left center;
+    margin-left: 20px;
+    text-indent: 20px;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+}
+.toplist-img{
+    text-align: center;
+    /*内容居中和盒子居中不能都用0 auto*/
+    margin: 15px;
+}
+.toplist-l .company-news li{
+    margin-left: 20px;
+    font-size: 12px;
+    color: #5d5a5a;
+    line-height: 30px;
+    background: url("images/triangle.jpg")no-repeat center left;
+    text-indent: 20px;
+    border-bottom: 1px dashed #5d5a5a;
+}
+.mid-up-m img{
+    margin: 15px 25px;
+}
+.mid-up-m .campany-intro{
+    margin: 10px 20px 20px;
+    color: #5d5a5a;
+    font-size: 12px;
+    text-indent: 24px;
+}
+.toplist-l .companydetial li{
+    margin-left: 25px;
+    font-size: 12px;
+    color: #5d5a5a;
+    line-height: 30px;
+    text-indent: 20px;
+    border: none;
+}
+
 
 
