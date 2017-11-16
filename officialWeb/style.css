@@ -124,8 +124,8 @@ a{
     border: 1px solid gainsboro;
     height: 345px;
 }
-.mid-up-l,.mb-l{
-    width:325px;
+.mid-b-l,.mb-l{
+    width:315px;
 }
 .mid-up-r{
     width: 337px;
@@ -187,14 +187,28 @@ a{
     width: 752px;
 
 }
+.mb-video{
+    margin: 25px 8px;
+}
 
 /*滚动效果内容部分*/
 .mb-scroll{
     overflow: hidden;
-    margin: 68px auto;
+    margin: 45px auto;
 
     height: 161px;
     width: 762px;
     line-height: 161px;
 
+}
+
+
+/*底部*/
+.footerbox{
+    height: 50px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
 }
