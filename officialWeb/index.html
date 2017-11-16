@@ -4,82 +4,7 @@
     <meta charset="UTF-8">
     <title>高级官网首页</title>
     <link rel="stylesheet" href="style.css">
-    <script>
 
-//        <!--显示元素标签二级菜单-->
-        function showobj(id) {
-            var obj = document.getElementById(id);
-            obj.style.display = "";
-        }
-//        <!--隐藏元素标签二级菜单-->
-        function hiddenobj(id) {
-            var obj = document.getElementById(id);
-            obj.style.display = "none";
-
-        }
-//------------------------Banner图片轮换效果---------------------------------------
-//        定义一个数组，用于存放路径
-        var arr = [];
-        arr[0] = "images/banner1.jpg";
-        arr[1] = "images/banner2.jpg";
-        arr[2] = "images/banner3.jpg";
-        arr[3] = "images/banner4.jpg";
-
-        var count = 0;  //var定义一个数组的全局索引，并赋初始值
-        function autoPlayBanner() {
-            if (count === arr.length) {//判断数组长度和图片索引，如果图片索引等于数组的长度，将索引至为第一张图片
-                count = 0;
-            }
-                document.getElementById("banner1").src = arr[count];
-                count++;//索引递增
-        }
-
-        var Timer = setInterval(autoPlayBanner,2000);
-
-//        清除定时器对象,
-function clearTimer() {
-    clearInterval(Timer);
-}
-//鼠标悬停时指定图片播放，需要清除定时器.需要传参，所以函数定义时需要定义形参；通过传进来的参数给要显示图片的索引，然后将图片的索引再赋值给
-        function showBannerById(num) {
-        clearTimer();
-
-        var index = parseInt(num);
-            document.getElementById("banner1").src = arr[index-1];
-            count = index;
-}
-
-//鼠标移除时恢复自动播放，恢复定时器
-        function btnMouseout(num) {
-            Timer = setInterval(autoPlayBanner,2000);
-        }
-
-
-
-//------------------------无缝滚动效果---------------------------------------
-
-        var speed = 10;//控制速度
-        var tab = document.getElementById("demo");
-        var tab1 = document.getElementById("demo1");
-        var tab2 = document.getElementById("demo2");
-
-        tab2.innerHTML = tab1.innerHTML;
-        function Marquee() {
-            if(tab2.offsetWidth - tab.scrollLeft <= 0){
-                tab.scrollLeft -= tab2.offsetWidth;
-            }else {
-                tab.scrollLeft++;
-            }
-        }
-        var mymar = window.setInterval(Marquee,speed);
-        tab.onmouseover = function () {
-            window.clearInterval(mymar)
-        };
-        tab.onmouseout = function () {
-            window.setInterval(Marquee,speed);
-        }
-
-    </script>
 
 </head>
 <body>
@@ -265,6 +190,81 @@ function clearTimer() {
         <p>2017 骄子学院版权所有 ICP证:京ICP备0101111号-1</p>
     </div>
 </div>
+<script>
 
+    //        <!--显示元素标签二级菜单-->
+    function showobj(id) {
+        var obj = document.getElementById(id);
+        obj.style.display = "";
+    }
+    //        <!--隐藏元素标签二级菜单-->
+    function hiddenobj(id) {
+        var obj = document.getElementById(id);
+        obj.style.display = "none";
+
+    }
+    //------------------------Banner图片轮换效果---------------------------------------
+    //        定义一个数组，用于存放路径
+    var arr = [];
+    arr[0] = "images/banner1.jpg";
+    arr[1] = "images/banner2.jpg";
+    arr[2] = "images/banner3.jpg";
+    arr[3] = "images/banner4.jpg";
+
+    var count = 0;  //var定义一个数组的全局索引，并赋初始值
+    function autoPlayBanner() {
+        if (count === arr.length) {//判断数组长度和图片索引，如果图片索引等于数组的长度，将索引至为第一张图片
+            count = 0;
+        }
+        document.getElementById("banner1").src = arr[count];
+        count++;//索引递增
+    }
+
+    var Timer = setInterval(autoPlayBanner,2000);
+
+    //        清除定时器对象,
+    function clearTimer() {
+        clearInterval(Timer);
+    }
+    //鼠标悬停时指定图片播放，需要清除定时器.需要传参，所以函数定义时需要定义形参；通过传进来的参数给要显示图片的索引，然后将图片的索引再赋值给
+    function showBannerById(num) {
+        clearTimer();
+
+        var index = parseInt(num);
+        document.getElementById("banner1").src = arr[index-1];
+        count = index;
+    }
+
+    //鼠标移除时恢复自动播放，恢复定时器
+    function btnMouseout(num) {
+        Timer = setInterval(autoPlayBanner,2000);
+    }
+
+
+
+    //------------------------无缝滚动效果---------------------------------------
+
+    var speed = 10;//控制速度
+    var tab = document.getElementById("demo");
+    var tab1 = document.getElementById("demo1");
+    var tab2 = document.getElementById("demo2");
+
+    tab2.innerHTML = tab1.innerHTML;
+    function Marquee() {
+        if(tab2.offsetWidth - tab.scrollLeft <= 0){
+            tab.scrollLeft -= tab2.offsetWidth;
+        }else {
+            tab.scrollLeft++;
+        }
+    }
+    var mymar = window.setInterval(Marquee,speed);
+    tab.onmouseover = function () {
+        window.clearInterval(mymar)
+    };
+    tab.onmouseout = function () {
+        window.setInterval(Marquee,speed);
+    }
+
+</script>
 </body>
 </html>
