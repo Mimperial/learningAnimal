@@ -201,3 +201,14 @@ a{
     line-height: 161px;
 
 }
+
+
+/*底部*/
+.footerbox{
+    height: 50px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+}
