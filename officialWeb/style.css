@@ -107,10 +107,16 @@ a{
 
 /*中间内容*/
 /*中间内容上边*/
-.midtop{
+.middlebox{
     background: url("images/content_bg.jpg");
-    height: 360px;
+    height: 720px;
 
+}
+.midtop{
+    height: 360px;
+}
+.midbottom{
+    height: 320px;
 }
 .mid-up-l,.mid-up-r,.mid-up-m{
     margin-right:8px ;
@@ -118,7 +124,7 @@ a{
     border: 1px solid gainsboro;
     height: 345px;
 }
-.mid-up-l{
+.mid-up-l,.mb-l{
     width:325px;
 }
 .mid-up-r{
@@ -177,5 +183,18 @@ a{
     border: none;
 }
 
+.mb-l{
+    width: 752px;
 
+}
 
+/*滚动效果内容部分*/
+.mb-scroll{
+    overflow: hidden;
+    margin: 68px auto;
+
+    height: 161px;
+    width: 762px;
+    line-height: 161px;
+
+}
