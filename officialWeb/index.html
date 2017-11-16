@@ -58,6 +58,27 @@ function clearTimer() {
 
 //------------------------无缝滚动效果---------------------------------------
 
+        var speed = 10;//控制速度
+        var tab = document.getElementById("demo");
+        var tab1 = document.getElementById("demo1");
+        var tab2 = document.getElementById("demo2");
+
+        tab2.innerHTML = tab1.innerHTML;
+        function Marquee() {
+            if(tab2.offsetWidth - tab.scrollLeft <= 0){
+                tab.scrollLeft -= tab2.offsetWidth;
+            }else {
+                tab.scrollLeft++;
+            }
+        }
+        var mymar = window.setInterval(Marquee,speed);
+        tab.onmouseover = function () {
+            window.clearInterval(mymar)
+        };
+        tab.onmouseout = function () {
+            window.setInterval(Marquee,speed);
+        }
+
     </script>
 
 </head>
@@ -171,7 +192,7 @@ function clearTimer() {
                 </div>
                 <div class="toplist-l">
                     <div class="toplist-img">
-                        <img src="images/Contactimg.jpg" alt="">
+                        <img src="images/Contactimg.png" alt="">
                     </div>
                     <ul class="companydetial">
                         <li>公司名称：天之骄子股份有限公司</li>
@@ -188,8 +209,51 @@ function clearTimer() {
 
         <!--中间的下边-->
         <div class="midbottom">
-            <div></div>
-            <div></div>
+            <div class="mb-l">
+                <div class="mid-up-l l">
+                    <div class="mid-top-tit">
+                        <span class="tit-img"></span>
+                        <span>视频中心 Vedio</span>
+                    </div>
+                    <div class="toplist-l">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mb-r">
+                <div class="mb-r">
+                    <div class="mid-up-l mb-l l">
+                        <div class="mid-top-tit">
+                            <span class="tit-img"></span>
+                            <span>产品展示 Product display</span>
+                        </div>
+
+                        <div id="demo" class="mb-scroll">
+
+                            <div id="indemo" class="mb-inscroll">
+
+                                <div id="demo1" class="mb-scroll1">
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                    <a href=""><img src="images/chanpin.jpg" alt=""></a>
+                                </div>
+
+                                <div id="demo2" class="mb-scroll2">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
