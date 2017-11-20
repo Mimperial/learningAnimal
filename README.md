@@ -7,10 +7,10 @@ https://mimperial.github.io/learningAnimal/officialWeb/
 
 https://mimperial.github.io/learningAnimal/staticPage/
 
-###前端开发流程：
+### 前端开发流程：
 提出需求->分析需求->出设计稿->静态页面->设计审核->动态数据添加->发布测试环境->产品领导审核->发布上线->迭代更新
 
-###前端面试题及分析-javascript
+### 前端面试题及分析-javascript
 
 1.阅读以下JavaScript代码：
 
