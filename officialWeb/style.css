@@ -123,9 +123,10 @@ a{
     margin-left:8px ;
     border: 1px solid gainsboro;
     height: 345px;
+    width: 320px;
 }
 .mid-b-l,.mb-l{
-    width:315px;
+    width:320px;
 }
 .mid-up-r{
     width: 337px;
@@ -184,7 +185,7 @@ a{
 }
 
 .mb-l{
-    width: 752px;
+    width: 775px;
 
 }
 .mb-video{
@@ -195,9 +196,8 @@ a{
 .mb-scroll{
     overflow: hidden;
     margin: 45px auto;
-
     height: 161px;
-    width: 762px;
+    width: 780px;
     line-height: 161px;
 
 }
