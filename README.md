@@ -12,11 +12,9 @@ https://mimperial.github.io/learningAnimal/staticPage/
 
 ->分析需求（画出原型图、设计稿）  
 
-->出设计稿  
+->出UI设计稿、逻辑设计稿  
 
-->静态页面  
-
-->设计审核  
+->静态页面   
 
 ->动态数据添加  
 
