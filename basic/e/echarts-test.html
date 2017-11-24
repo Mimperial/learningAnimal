@@ -1,0 +1,173 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户详细信息</title>
+    <style>
+        body { margin-top: 3em; background: #eee; color: #555; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; }
+        p, p a { font-value: 12px;text-align: center; color: #888; }
+    </style>
+    <script src="echarts.min.js"></script>
+
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div style="padding:20px;width:100%;height:100%;">
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 1104px;height:464px;">
+    </div>
+</div>
+<!-- 进行ajax发送并接收数据,最后根据接收的数据完成可视化工作 -->
+<script>
+    function getOption(graphInfo){
+//给节点设置样式
+        graphInfo.nodes.forEach(function (node) {
+            //node.itemStyle = null;//
+            //node.symbolSize = node.size;//强制指定节点的大小
+            // Use random x, y
+            node.x = node.y = null;
+            node.draggable = true;
+        });
+
+
+        title=graphInfo['title']
+        nodes=graphInfo['nodes']
+        links=graphInfo['links']
+        categories=graphInfo['categories']
+
+//设置option样式
+        option = {
+            title : {
+                text:title,
+                x:'right',
+                y:'bottom'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: '{a} : {b}'
+                //formatter: function(params){//触发之后返回的参数，这个函数是关键
+                //if (params.data.category !=undefined) //如果触发节点
+                //   window.open("http://www.baidu.com")
+                //}
+            },
+            color:['#EE6A50','#4F94CD','#B3EE3A','#DAA520'],
+            toolbox: {
+                show : true,
+                feature : {
+                    restore : {show: true},
+                    magicType: {show: true, type: ['force', 'chord']},
+                    saveAsImage : {show: true}
+                }
+            },
+            legend: {
+                x: 'left',
+                data: categories.map(function (a) {//显示策略
+                    return a.name;
+                })
+            },
+            series : [
+                {
+                    type:'force',
+                    name : title,
+                    ribbonType: false,
+                    categories : categories,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: true,
+                                textStyle: {
+                                    color: '#333'
+                                }
+                            },
+                            nodeStyle : {
+                                brushType : 'both',
+                                borderColor : 'rgba(255,215,0,0.4)',
+                                borderWidth : 1
+                            },
+                            linkStyle: {
+                                type: 'curve'
+                            }
+                        },
+                        emphasis: {
+                            label: {
+                                show: false
+                                // textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE
+                            },
+                            nodeStyle : {
+                                //r: 30
+                            },
+                            linkStyle : {}
+                        }
+                    },
+                    useWorker: false,
+                    minRadius : 15,
+                    maxRadius : 25,
+                    gravity: 1.1,
+                    scaling: 1.1,
+                    roam: 'move',
+                    nodes:nodes,
+                    links :links
+                }
+            ]
+        };
+        return option
+    }
+    function createGraph(myChart,mygraph){
+//设置option样式
+        option=getOption(mygraph)
+//使用Option填充图形
+        myChart.setOption(option);
+//点可以跳转页面
+        myChart.on('click', function (params) {
+            var data=params.value
+            //点没有source属性
+            if(data.source==undefined){
+                nodeName=params.name
+                window.open("http://www.baidu.com")
+            }
+
+        });
+//myChart.hideLoading();
+    }
+    var myChart = echarts.init(document.getElementById('main'), 'macarons');
+    //创建Nodes
+    nodes=[
+        {category:0, name: '乔布斯', value : 10, label: '乔布斯\n（主要）'},
+        {category:1, name: '丽萨-乔布斯',value : 2},
+        {category:1, name: '保罗-乔布斯',value : 3},
+        {category:1, name: '克拉拉-乔布斯',value : 3},
+        {category:1, name: '劳伦-鲍威尔',value : 7},
+        {category:2, name: '史蒂夫-沃兹尼艾克',value : 5},
+        {category:2, name: '奥巴马',value : 8},
+        {category:2, name: '比尔-盖茨',value : 9},
+        {category:2, name: '乔纳森-艾夫',value : 4},
+        {category:2, name: '蒂姆-库克',value : 4},
+        {category:2, name: '龙-韦恩',value : 1},
+    ],
+        //创建links
+        links=[
+            {source : '丽萨-乔布斯', target : '乔布斯', weight : 1, name: '女儿\r'},
+            {source : '保罗-乔布斯', target : '乔布斯', weight : 2, name: '父亲'},
+            {source : '克拉拉-乔布斯', target : '乔布斯', weight : 1, name: '母亲'},
+            {source : '劳伦-鲍威尔', target : '乔布斯', weight : 2},
+            {source : '史蒂夫-沃兹尼艾克', target : '乔布斯', weight : 3, name: '合伙人'},
+            {source : '奥巴马', target : '乔布斯', weight : 1},
+            {source : '比尔-盖茨', target : '乔布斯', weight : 6, name: '竞争对手'},
+            {source : '乔纳森-艾夫', target : '乔布斯', weight : 1, name: '爱将'},
+            {source : '蒂姆-库克', target : '乔布斯', weight : 1},
+            {source : '龙-韦恩', target : '乔布斯', weight : 1},
+            {source : '克拉拉-乔布斯', target : '保罗-乔布斯', weight : 1},
+            {source : '奥巴马', target : '保罗-乔布斯', weight : 1},
+            {source : '奥巴马', target : '克拉拉-乔布斯', weight : 1},
+            {source : '奥巴马', target : '劳伦-鲍威尔', weight : 1},
+            {source : '奥巴马', target : '史蒂夫-沃兹尼艾克', weight : 1},
+            {source : '比尔-盖茨', target : '奥巴马', weight : 6},
+            {source : '比尔-盖茨', target : '克拉拉-乔布斯', weight : 1},
+            {source : '蒂姆-库克', target : '奥巴马', weight : 1}
+        ]
+    categoryArray=[{name:"核心人物"},{name:"家人"},{name:"朋友"}]
+    jsondata={"categories":categoryArray,"nodes":nodes,"links":links}
+    //数据格式为Json格式
+    createGraph(myChart,jsondata)
+</script>
+</body>
+</html>
