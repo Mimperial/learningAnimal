@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建节点</title>
+    <script src="jquery.min.js"></script>
+
+</head>
+<body>
+<p>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</p>
+<button onclick="append()">点击添加</button>
+<p>
+    <ul id="list2">
+        <li>13</li>
+        <li>24</li>
+        <li>35</li>
+    </ul>
+</p>
+<button onclick="remove()">点击移动</button>
+
+
+<script>
+    function append(){
+        var node = document.createElement("li");
+        var textnode = document.createTextNode("wa");
+        node.append(textnode);
+        document.getElementById("list").append(node)
+    }
+    function remove() {
+        var node2 = document.getElementById("list").lastChild;
+        document.getElementById("list2").appendChild(node2);
+    }
+//    $("#list").html('');
+    $("#list").html($("#list").html()+"");
+
+</script>
+
+</body>
+</html>
