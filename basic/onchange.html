@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<select id="mySelect">
+    <option value="1">one</option>
+    <option value="2" selected="selected">two</option>
+    <option value="3">three</option>
+</select>
+
+
+<script src="jquery.min.js" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function(){
+        $('#mySelect').change(function(){
+
+            var p1=$(this).children('option:selected').val();//这就是selected的值
+
+            alert(p1);
+        })
+    })
+</script>
+
+
+</body>
+</html>
