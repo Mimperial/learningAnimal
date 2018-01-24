@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试nodes是否随连线清除而点背删除，echarts做的处理，点并没有消 失</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="相关关系图" />
+    <meta name="keywords" content="关系, 人物, 国家, 概念, 特征" />
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="../js/echarts.js"></script>
+    <!--<script src="js/echarts.min.js"></script>-->
+    <link rel="stylesheet" href="../css/concept.css">
+    <script src="../js/js.js"></script>
+
+</head>
+<body>
+        <!--中间底图-->
+        <!--<div>-->
+        <div id="main" class="con-visual wp" > </div>
+
+        <!--<script>-->
+            <!--//************************底部大图-->
+<!--//            var w = 1200, h = 700;-->
+            <!--// 基于准备好的dom，初始化echarts实例-->
+            <!--var uChart = echarts.init(document.getElementById('main'));-->
+
+            <!--//uChart.showLoading();-->
+
+            <!--var node1 = {};-->
+            <!--node1.name = "子龙";-->
+            <!--//node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);-->
+            <!--//node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);-->
+            <!--node1.category = "子龙";-->
+            <!--node1.itemStyle = null;-->
+            <!--//node1.value = node.symbolSize;-->
+            <!--// node1.symbolSize /= 1.5;-->
+            <!--node1.label = {-->
+                <!--normal: {-->
+                    <!--show: true-->
+                <!--}-->
+            <!--};-->
+
+            <!--var node2 = {};-->
+            <!--node2.name = "hq";-->
+            <!--//node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);-->
+            <!--//node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);-->
+            <!--node2.category = "hq";-->
+            <!--node2.itemStyle = null;-->
+            <!--// node2.value = node.symbolSize;-->
+            <!--// node2.symbolSize /= 1.5;-->
+            <!--node2.label = {-->
+                <!--normal: {-->
+                    <!--show: true-->
+                <!--}-->
+            <!--};-->
+
+            <!--var node3 = {};-->
+            <!--node3.name = "马平";-->
+            <!--//node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);-->
+            <!--//node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);-->
+            <!--node3.category = "马平";-->
+            <!--node3.itemStyle = null;-->
+            <!--// node3.value = node.symbolSize;-->
+<!--//            node3.symbolSize /= 1.5;-->
+            <!--node3.label = {-->
+                <!--normal: {-->
+                    <!--show: true-->
+                <!--}-->
+            <!--};-->
+
+            <!--var nodes = [];-->
+            <!--nodes.push(node1);-->
+            <!--nodes.push(node2);-->
+            <!--nodes.push(node3);-->
+            <!--var links = [-->
+                <!--{name: "h", rel_name: "是", source: "hq", target: "子龙"},-->
+                <!--{name: "兄妹", rel_name: "是", source: "马平", target: "子龙"},-->
+                <!--{name: "b", rel_name: "是", source: "hq", target: "马平"}-->
+                <!--];-->
+            <!--var categories = [{"name":"子龙"},{"name":"hq"},{"name":"马平"}];-->
+
+            <!--option = {-->
+                <!--title: {-->
+                    <!--text: '知识查询系统',-->
+                    <!--subtext: 'Default layout',-->
+                    <!--top: 'bottom',-->
+                    <!--left: 'right'-->
+                <!--},-->
+                <!--tooltip: {},-->
+                <!--legend: [{-->
+                    <!--// selectedMode: 'single',-->
+                    <!--data: categories.map(function (a) {-->
+                        <!--return a.name;-->
+                    <!--})-->
+                <!--}],-->
+                <!--animationDuration: 1500,-->
+                <!--animationEasingUpdate: 'quinticInOut',-->
+                <!--series : [-->
+                    <!--{-->
+                        <!--name: '关系图',-->
+                        <!--type: 'graph',-->
+                        <!--layout: 'force',-->
+                        <!--force: {-->
+                            <!--repulsion: 2000,-->
+                        <!--},-->
+
+                        <!--//转化数据的方向-->
+                        <!--data: nodes, // 点-->
+                        <!--links: links,// 线-->
+                        <!--categories: categories,//离散数据 分类-->
+
+                        <!--roam: true,-->
+                        <!--label: {-->
+                            <!--normal: {-->
+                                <!--position: 'right',-->
+                                <!--formatter: '{b}'-->
+                            <!--}-->
+                        <!--},-->
+                        <!--lineStyle: {-->
+                            <!--normal: {-->
+                                <!--color: 'source',-->
+                                <!--curveness: 0.3-->
+                            <!--}-->
+                        <!--},-->
+                        <!--gravity: 0.02,-->
+                        <!--repulsion:100-->
+                    <!--}-->
+                <!--]-->
+            <!--};-->
+
+            <!--uChart.setOption(option);-->
+
+
+        <!--</script>-->
+        <script>
+            //************************底部大图
+            // var w = 1200, h = 700;
+            // 基于准备好的dom，初始化echarts实例
+            var uChart = echarts.init(document.getElementById('main'));
+
+            //uChart.showLoading();
+
+            var node1 = {};
+            node1.name = "hq";
+            //node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);
+            //node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);
+            node1.category = "读写";
+            node1.itemStyle = null;
+//            node1.value = 40;
+//            node1.symbolSize /= 1.5;
+            node1.label = {
+                normal: {
+                    show: true
+                }
+            };
+
+            var node2 = {};
+            node2.name = "沉思录";
+            //node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);
+            //node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);
+            node2.category = "性格";
+            node2.itemStyle = null;
+//            node2.value = 20;
+//            node2.symbolSize /= 1.5;
+            node2.label = {
+                normal: {
+                    show: true
+                }
+            };
+
+            var node3 = {};
+            node3.name = "多栖";
+            //node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);
+            //node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);
+            node3.category = "全面";
+            node3.itemStyle = null;
+//            node3.value = 30;
+//            node3.symbolSize /= 1.5;
+            node3.label = {
+                normal: {
+                    show: true
+                }
+            };
+
+            var nodes = [];
+            nodes.push(node1);
+            nodes.push(node2);
+            nodes.push(node3);
+            var links = [
+//                link中name表示连线的名字，nodes的name 是source和target
+                {name: "读写",  source: "hq", target: "沉思录"},
+                {name: "性格",  source: "沉思录", target: "多栖"},
+                {name: "全面",  source: "hq", target: "沉思录"}
+            ];
+            var categories = [{"name":"读写"},{"name":"性格"},{"name":"全面"}];
+
+            option = {
+                title: {
+                    text: '知识查询系统',
+                    subtext: 'Default layout',
+                    top: 'bottom',
+                    left: 'right'
+                },
+                tooltip: {},
+                legend: [{
+// selectedMode: 'single',
+                    data: categories.map(function (a) {
+                        return a.name;
+                    })
+                }],
+                animationDuration: 1500,
+                animationEasingUpdate: 'quinticInOut',
+                series : [
+                    {
+                        name: '关系图',
+                        type: 'graph',
+                        layout: 'force',
+                        force: {
+                            repulsion: 2000,
+                        },
+
+//转化数据的方向
+                        data: nodes, // 点
+                        links: links,// 线
+                        categories: categories,//离散数据 分类
+
+                        roam: true,
+                        label: {
+                            normal: {
+                                position: 'right',
+                                formatter: '{b}'
+                            }
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: 'source',
+                                curveness: 0.3
+                            }
+                        },
+                        gravity: 0.02,
+                        repulsion:100
+                    }
+                ]
+            };
+
+            uChart.setOption(option);
+
+
+        </script>
+
+<!--底部预留-->
+<div class="footer">
+    <div class="footer-dis">北京普创智通  地址:北京市海淀区中关村路8号A座四层
+
+        ©普创智通  京公网安备1111188888号 京ICP备110886633号-7
+    </div>
+</div>
+
+<!-- 测试git 代码比对-->
+</body>
+</html>

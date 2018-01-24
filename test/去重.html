@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getNodes(_obj) {
+        var nodes = [];
+        var keys = {};
+//        去重生成nodes
+//        把所有source和target放到一起去重，
+        for (var i = 0; i < _obj.length; i++) {
+//
+            keys[_obj[i].source] = _obj[i].rel_name;
+            keys[_obj[i].target] = _obj[i].rel_name;
+        }
+        for (var k in keys) {
+            var node = {};
+            node.name = k;
+            //node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);
+            //node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);
+            node.category = keys[k];
+            node.itemStyle = null;
+            //node.value = node.symbolSize;
+            //node.symbolSize /= 1.5;
+            node.label = {
+                normal: {
+                    show: true
+                }
+            };
+            nodes.push(node);
+        }
+        return nodes;
+    }
+    function getCategories(_obj) {
+        var categories = [];
+        var keys = {};
+        for (var i = 0; i < _obj.length; i++) {
+//            同时把rel_name存起来作为分组依据，=true或者=任何东西都无所谓。
+            keys[_obj[i].rel_name] = true;
+        }
+        var i = 0;
+        for (var k in keys) {
+            categories[i] = {
+                name: k
+            }
+            i++;
+        }
+        return categories;
+    }
+</script>
+
+</body>
+</html>

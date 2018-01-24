@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bt/bootstrap-table.css">
+    <link rel="stylesheet" href="objSearch.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="bt/bootstrap-table.js"></script>
+    <script src="bt/bootstrap-table-editable.js"></script>
+    <script src="bt/bootstrap-table-export.js"></script>
+    <script src="bt/bootstrap-table-zh-CN.js"></script>
+
+</head>
+<body>
+<div class="wp-main row">
+    <div class="main-top col-xs-12">
+        <div class="maintop-o ">
+            <!--筛选参数1：概念-->
+            <div class="concept-search l mr-20 mr_6rem">
+                <label for="">概念</label>
+                <select name="" id="obj_c_name" class="con-list"></select>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="table"
+       data-toggle="table"
+       data-height=460
+       data-ajax="ajaxRequest"
+       data-page-size=10
+       data-page-list=[10,20,50,100,ALL]
+       data-search=true
+       data-side-pagination="server"
+       data-pagination=true>
+
+    <thead>
+    <tr>
+        <th data-field="name" data-align="center">对象</th>
+        <th data-field="aka" data-align="center">别称</th>
+        <th data-field="data" data-align="center">是否附加</th>
+        <th data-field="num" data-align="center">关联对象数</th>
+        <!--<th data-field="ID" scope="col" data-sortable="true" data-align="center">属性</th>-->
+    </tr>
+    </thead>
+</table>
+<script>
+    var c_name = "日期";
+    var name="年";
+    var $table;// 初始化table
+
+    $(document).ready(function(e) {
+
+        $table = $('#table');
+        //概念下拉列表
+        $.getJSON('/api/v2/xadmin/concept/',function(data){
+            if(data.resultObj){
+                var select=$("#obj_c_name");
+                for(var i=0;i<data.resultObj.length;i++){
+                    var option=document.createElement("option");
+                    option.setAttribute("type","option");
+                    option.setAttribute("id",data.resultObj[i].id);
+                    option.setAttribute("value", data.resultObj[i].name);
+                    option.appendChild(document.createTextNode(data.resultObj[i].name));
+                    select.append(option);
+                }
+            }
+        });
+        //获取概念option的值
+        $('#obj_c_name').change(function(){
+
+            c_name=$(this).children('option:selected').val();//获取到selected的值
+        });
+    });
+
+    // 配置ajax
+    function ajaxRequest(params) {
+
+        $.ajax({
+            type: 'post',
+            url: '/api/v2/xadmin/objects/',
+            data:{
+                "name":params.data.search != null ? params.data.search:'年',  //获取输入框的值
+                "c_name":c_name ,
+                "page":(params.data.offset / 10) + 1
+            },
+            error: function (a) {
+
+            },
+            success: function (obj) {
+                params.success({
+                    total: obj.resultObj.count,
+                    rows:  obj.resultObj.data
+                });
+            }
+        });
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+<ul class="nav">
+    <li id="error">
+        请求
+    </li>
+    <li>222</li>
+    <li id="log">333</li>
+</ul>
+<p></p>
+<div></div>
+<script>
+
+    $(function () { // 立即函数
+
+        console.log("===================================")
+        $.getJSON("/api/v2/xadmin/concept/", function(data) {
+            console.log("*****************************************")
+            var items = [];
+
+            $.each(data.resultObj, function(i, item) {
+                items.push('<li id="' + i + '">' + item.name + '</li>');
+            });
+
+
+            $('<p>', {
+                'class': 'my-new-list',
+                html: items.join()
+            }).appendTo('div');
+        });
+
+
+    });
+    var menuId = $("ul.nav").first().attr("id");
+    var request = $.ajax({
+        url: "/api/v2/xadmin/concept/",
+        type: "GET",
+        data: {id : menuId},
+        dataType: "html"
+    });
+
+    request.done(function(msg) {
+        $("#log").html( msg );
+    });
+
+    request.fail(function(jqXHR, textStatus) {
+        alert( "Request failed: " + 请求超时 );
+    });
+
+
+</script>
+
+</body>
+</html>

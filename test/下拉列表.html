@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+<select name="" id="select"></select>
+<div id="btn" style="text-align:center;border: 1px solid darkblue;width: 100px;height: 24px;line-height: 24px;border-radius: 6px">点击获取</div>
+
+<script>
+//    <!--问题：为什么我把../api/con-conceptNum.json改成/api/v2/xadmin/concept_number/就不行了-->
+
+    $(document).ready(function(e) {
+        $.get('../api/con-conceptNum.json',function(data){
+//        $.get('/api/v2/xadmin/concept_number/',function(data){
+            if(data.resultObj){
+                var select=$("#select");
+                for(var i=0;i<data.resultObj.length;i++){
+                    var option=document.createElement("option");
+                    option.setAttribute("type","option");
+                    option.setAttribute("id",data.resultObj[i].id);
+                    option.setAttribute("value", data.resultObj[i].c_name);
+                    option.appendChild(document.createTextNode(data.resultObj[i].c_name));
+                    select.append(option);
+                }
+            }
+        });
+        $("#btn").click(function(){
+        var checkTxt=$("#select option:selected").val();
+        console.log(checkTxt);
+        });
+    });
+
+</script>
+
+</body>
+</html>

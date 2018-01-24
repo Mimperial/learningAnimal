@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将一个数组的内容拼成字符串</title>
+    <script src="../jquery-3.2.1.min.js"></script>
+
+
+</head>
+<body>
+<input type="button" id="q" value="点击赋值" />
+<div id="goal"></div>
+<script>
+    var arr = new Array(3);
+    arr[0] = "George";
+    arr[1] = "John";
+    arr[2] = "Thomas";
+    var b = {0:"l",1:"h",2:"b"};
+    var c = [];
+
+    document.write(arr.toString());
+    c = arr.push(b);
+    document.write(c.toString());
+
+    $("#q").click(function () {
+        var text = "guojia";
+        $("#goal").text(text);
+    })
+
+</script>
+
+</body>
+</html>

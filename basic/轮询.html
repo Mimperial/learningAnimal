@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript实现对话效果</title>
+    <style>
+        * {margin:0;padding:0}
+        body {
+            background: url(../image/dialog.png) no-repeat;
+            background-size: 100%;
+        }
+        .dialog {
+            width:100%;
+            height:100px;
+            background:rgba(136,180,251,0.5);
+            position:absolute;
+            bottom: 0;
+        }
+        .dialog .pic {
+            width:60px;
+            height:60px;
+            background:url(../image/dialog.png) no-repeat;
+            background-size: 100%;
+            display:inline-block;
+            position: absolute;
+            top:16px;
+            left:16px;
+            border-radius: 5px;
+        }
+        .dialog .innerBox{
+            width:90%;
+            height:80px;
+            border:2px solid #dcc0a5;
+            opacity: 0.8;
+            left:85px;
+            top:10px;
+            position: absolute;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: "微软雅黑";
+            color:#fff;
+            text-shadow: 1px -1px 1px #333;
+            word-wrap:break-word;
+            padding:2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dialog">
+        <span class="pic"></span>
+        <div class="innerBox"></div>
+
+    </div>
+    <div id="text"></div>
+
+    <script>
+//        var str = "haibin";
+//        var text = document.getElementById("text");
+//        for(var i = 0;i<str.length;i++){//for循环达不到文字的动画效果
+//            text.innerHTML += str.charAt(i);//用来获取字符串中的某一个字符的string方法
+//        }
+        window.onload = function(){
+            var innerBox = document.getElementsByClassName('innerBox')[0];
+            var text = 'JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。天空，你也要好好学习呀！';
+            var len = text.length;
+            var timer = null;
+            var index = 0;
+            timer = setInterval(function(){//setInterval的轮询方法，达到文字的动画效果
+                if(index == len){
+                    clearInterval(timer);
+                }
+                innerBox.innerHTML += text.charAt(index++);
+            },50);
+        }
+    </script>
+
+</body>
+</html>

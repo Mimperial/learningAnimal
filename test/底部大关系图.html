@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>底部大关系图</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/dataTool.min.js"></script>
+
+    <style>
+        #main{
+            width: 800px;
+            height: 600px;
+            background-color: cornflowerblue;
+        }
+    </style>
+
+</head>
+<body>
+<div id="main"></div>
+
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.showLoading();
+
+    var nodes = []; // 存放页面上的所有点
+    var edges = []; // 存放所有的连线信息
+    myChart.showLoading();
+    $.getJSON('/api/v2/xadmin/relation/', function (data) {
+        myChart.hideLoading();
+
+        var graph = echarts.dataTool.gexf.parse(data.resultObj);
+        console.log(data.resultObj);
+        var categories = [];
+        for (var i = 0; i < 9; i++) {
+            categories[i] = {
+                name: '概念关系图' + i
+            };
+        }
+        graph.nodes.forEach(function (node) {
+            node.itemStyle = null;
+            node.value = node.symbolSize;
+            node.symbolSize /= 1;
+            node.label = {
+                normal: {
+                    show: node.symbolSize > 20
+                }
+            };
+            node.category = node.attributes.modularity_class;
+        });
+        option = {
+            title: {
+                text: '底部关系图',
+                subtext: '知识查询系统',
+                top: 'bottom',
+                center: 'left'
+            },
+            tooltip: {},
+            legend: [{
+                // selectedMode: 'single',
+                data: categories.map(function (a) {
+                    return a.name;
+                })
+            }],
+            animationDuration: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series : [
+                {
+                    name: '底部关系图',
+                    type: 'graph',
+                    layout: 'none',
+                    data: graph.nodes,
+                    links: graph.links,
+                    categories: categories,
+                    roam: true,
+                    label: {
+                        normal: {
+                            position: 'right',
+                            formatter: '{b}'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: 'source',
+                            curveness: 0.1
+                        }
+                    }
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+    }, 'data');
+</script>
+
+</body>
+</html>

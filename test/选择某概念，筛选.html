@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>根据下拉菜单选择后通过ajax获取后台数据并且不刷新页面</title>
+
+    <style type="text/css">
+        table{
+            border: 1px solid #cccccc;
+            font-size: 12px;
+            position: absolute;
+            left: 8rem;
+            top: 1px;
+
+        }
+        .wrap{
+            position: relative;
+        }
+
+    </style>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="concept-search l mr-20 mr_6rem">
+        <label for="">概念</label>
+        <select name="" id="obj_concept" class="con-list">
+
+        </select>
+        <script>
+            $(document).ready(function(e) {
+
+                $.getJSON('/api/v2/xadmin/concept/',function(data){
+                    if(data.resultObj){
+                        var select=$("#obj_concept");
+                        for(var i=0;i<data.resultObj.length;i++){
+                            var option=document.createElement("option");
+                            option.setAttribute("type","option");
+                            option.setAttribute("id",data.resultObj[i].id);
+                            option.setAttribute("value", data.resultObj[i].name);
+                            option.appendChild(document.createTextNode(data.resultObj[i].name));
+                            select.append(option);
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+    <table>
+        <thead>
+            <tr >
+                <th style="text-align: center">对象</th>
+                <th style="text-align: center">别称</th>
+                <th style="text-align: center">是否附加</th>
+                <th style="text-align: center">关联对象</th>
+                <th style="text-align: center">属性</th>
+            </tr>
+        </thead>
+        <tbody class="obj-list">
+            <!--<tr>-->
+                <!--<td>我</td>-->
+                <!--<td>要</td>-->
+                <!--<td>做</td>-->
+                <!--<td>大</td>-->
+                <!--<td>牛</td>-->
+            <!--</tr>-->
+        </tbody>
+    </table>
+</div>
+<!--<script language="javascript" type="text/javascript">-->
+    <!--$(document).ready(function(){-->
+        <!--$('#mySelect').change(function(){-->
+
+            <!--var title=$(this).children('option:selected').val();//这就是selected的值-->
+
+            <!--alert(title);-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+<script type="text/javascript">
+//    alert($("#concept").text());
+    $("select").change(function() {
+        var title=$(this).children('option:selected').val();  // 1、获取选择下拉框的标题
+//        var id  = $(this).val();  //获取选中的ID值
+        var url   = "/api/v2/xadmin/objects/";  //这里填写后端的url
+        $.ajax({   //2、发送给后端
+            url: url,
+            type: 'POST',  //设置发送的方式 这里假设为POST
+            dataType: 'json',  //返回的数据类型
+            data:{
+                  "name":title,
+                  "c_name":title,
+                   "page":2
+                 },  //把选中的标题发给后端,将取出的value转化为json格式
+            success:function(data) {
+                // 4、执行html操作，这里写成功后更新页面的操作
+                var json = data;
+                var getObjArr = json.data;
+//            var json = eval(tt); //对象
+                var objTbody = $(".obj-list");
+                var trObjlist  = [];
+                $.each(getObjArr, function (index, item) {
+
+                    //循环获取数据
+                    var name = item.name;
+                    var aka = item.aka;
+                    var data = item.data;
+                    var num = item.num;
+//                var attr = item.detial;
+//                点击查看出现模态框，展示具体的属性
+                    trObjlist.push("<tr><td>" + name+"</td><td>" + aka+"</td><td>" + data+"</td><td>" + num+"</td><td><a href='javascript:attrSearchModel();'>查看</a></td></tr>" )
+                });
+                objTbody.empty();
+                objTbody.html(trObjlist.join());
+            }
+        });
+            });
+
+</script>
+
+</body>
+</html>

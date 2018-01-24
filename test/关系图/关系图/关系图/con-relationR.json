@@ -1,0 +1,4543 @@
+{
+  "msg": "success",
+  "code": 1,
+  "resultObj": [
+    {
+      "name": "是~自然数~正整数",
+      "rel_name": "是",
+      "source": "自然数",
+      "target": "正整数"
+    },
+    {
+      "name": "是~正整数~整数",
+      "rel_name": "是",
+      "source": "正整数",
+      "target": "整数"
+    },
+    {
+      "name": "是~整数~数值",
+      "rel_name": "是",
+      "source": "整数",
+      "target": "数值"
+    },
+    {
+      "name": "是~正实数~实数",
+      "rel_name": "是",
+      "source": "正实数",
+      "target": "实数"
+    },
+    {
+      "name": "是~实数~数值",
+      "rel_name": "是",
+      "source": "实数",
+      "target": "数值"
+    },
+    {
+      "name": "组成~年~日期",
+      "rel_name": "组成",
+      "source": "年",
+      "target": "日期"
+    },
+    {
+      "name": "组成~月~日期",
+      "rel_name": "组成",
+      "source": "月",
+      "target": "日期"
+    },
+    {
+      "name": "组成~日~日期",
+      "rel_name": "组成",
+      "source": "日",
+      "target": "日期"
+    },
+    {
+      "name": "对应~日期~星期",
+      "rel_name": "对应",
+      "source": "日期",
+      "target": "星期"
+    },
+    {
+      "name": "组成~日~月日",
+      "rel_name": "组成",
+      "source": "日",
+      "target": "月日"
+    },
+    {
+      "name": "组成~月~月日",
+      "rel_name": "组成",
+      "source": "月",
+      "target": "月日"
+    },
+    {
+      "name": "对应~月日~节日",
+      "rel_name": "对应",
+      "source": "月日",
+      "target": "节日"
+    },
+    {
+      "name": "对应~日期~月日",
+      "rel_name": "对应",
+      "source": "日期",
+      "target": "月日"
+    },
+    {
+      "name": "是~年~正整数",
+      "rel_name": "是",
+      "source": "年",
+      "target": "正整数"
+    },
+    {
+      "name": "是~月~正整数",
+      "rel_name": "是",
+      "source": "月",
+      "target": "正整数"
+    },
+    {
+      "name": "是~日~正整数",
+      "rel_name": "是",
+      "source": "日",
+      "target": "正整数"
+    },
+    {
+      "name": "属于~日期~时代",
+      "rel_name": "属于",
+      "source": "日期",
+      "target": "时代"
+    },
+    {
+      "name": "属于~年~时代",
+      "rel_name": "属于",
+      "source": "年",
+      "target": "时代"
+    },
+    {
+      "name": "是~国家~地点",
+      "rel_name": "是",
+      "source": "国家",
+      "target": "地点"
+    },
+    {
+      "name": "是~省~地点",
+      "rel_name": "是",
+      "source": "省",
+      "target": "地点"
+    },
+    {
+      "name": "是~市~地点",
+      "rel_name": "是",
+      "source": "市",
+      "target": "地点"
+    },
+    {
+      "name": "是~县~地点",
+      "rel_name": "是",
+      "source": "县",
+      "target": "地点"
+    },
+    {
+      "name": "是~地区~地点",
+      "rel_name": "是",
+      "source": "地区",
+      "target": "地点"
+    },
+    {
+      "name": "组成~省~国家",
+      "rel_name": "组成",
+      "source": "省",
+      "target": "国家"
+    },
+    {
+      "name": "组成~市~省",
+      "rel_name": "组成",
+      "source": "市",
+      "target": "省"
+    },
+    {
+      "name": "拥有~人物~外貌特征",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "外貌特征"
+    },
+    {
+      "name": "是~现实人物~人物",
+      "rel_name": "是",
+      "source": "现实人物",
+      "target": "人物"
+    },
+    {
+      "name": "是~虚拟人物~人物",
+      "rel_name": "是",
+      "source": "虚拟人物",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~外貌特征~身高",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "身高"
+    },
+    {
+      "name": "拥有~外貌特征~体重",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "体重"
+    },
+    {
+      "name": "拥有~外貌特征~肤色",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "肤色"
+    },
+    {
+      "name": "拥有~外貌特征~外貌描述",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "外貌描述"
+    },
+    {
+      "name": "拥有~外貌特征~三围",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "三围"
+    },
+    {
+      "name": "组成~胸围~三围",
+      "rel_name": "组成",
+      "source": "胸围",
+      "target": "三围"
+    },
+    {
+      "name": "组成~腰围~三围",
+      "rel_name": "组成",
+      "source": "腰围",
+      "target": "三围"
+    },
+    {
+      "name": "组成~臀围~三围",
+      "rel_name": "组成",
+      "source": "臀围",
+      "target": "三围"
+    },
+    {
+      "name": "拥有~外貌特征~罩杯",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "罩杯"
+    },
+    {
+      "name": "是~身高~正实数",
+      "rel_name": "是",
+      "source": "身高",
+      "target": "正实数"
+    },
+    {
+      "name": "是~体重~正实数",
+      "rel_name": "是",
+      "source": "体重",
+      "target": "正实数"
+    },
+    {
+      "name": "是~胸围~正实数",
+      "rel_name": "是",
+      "source": "胸围",
+      "target": "正实数"
+    },
+    {
+      "name": "是~腰围~正实数",
+      "rel_name": "是",
+      "source": "腰围",
+      "target": "正实数"
+    },
+    {
+      "name": "是~臀围~正实数",
+      "rel_name": "是",
+      "source": "臀围",
+      "target": "正实数"
+    },
+    {
+      "name": "属于~人物~人种",
+      "rel_name": "属于",
+      "source": "人物",
+      "target": "人种"
+    },
+    {
+      "name": "拥有~人物~血型",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "血型"
+    },
+    {
+      "name": "拥有~人物~性别",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "性别"
+    },
+    {
+      "name": "属于~人物~物种",
+      "rel_name": "属于",
+      "source": "人物",
+      "target": "物种"
+    },
+    {
+      "name": "拥有~人物~出生时代",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "出生时代"
+    },
+    {
+      "name": "拥有~人物~出生日期",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "出生日期"
+    },
+    {
+      "name": "拥有~人物~星座",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "星座"
+    },
+    {
+      "name": "拥有~人物~活跃时代",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "活跃时代"
+    },
+    {
+      "name": "拥有~人物~死亡时代",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "死亡时代"
+    },
+    {
+      "name": "拥有~人物~死亡日期",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "死亡日期"
+    },
+    {
+      "name": "拥有~人物~死亡状态",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "死亡状态"
+    },
+    {
+      "name": "拥有~人物~年龄",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "年龄"
+    },
+    {
+      "name": "是~出生时代~时代",
+      "rel_name": "是",
+      "source": "出生时代",
+      "target": "时代"
+    },
+    {
+      "name": "是~出生日期~日期",
+      "rel_name": "是",
+      "source": "出生日期",
+      "target": "日期"
+    },
+    {
+      "name": "是~死亡时代~时代",
+      "rel_name": "是",
+      "source": "死亡时代",
+      "target": "时代"
+    },
+    {
+      "name": "是~死亡日期~日期",
+      "rel_name": "是",
+      "source": "死亡日期",
+      "target": "日期"
+    },
+    {
+      "name": "是~活跃时代~时代",
+      "rel_name": "是",
+      "source": "活跃时代",
+      "target": "时代"
+    },
+    {
+      "name": "出生于~人物~国籍",
+      "rel_name": "出生于",
+      "source": "人物",
+      "target": "国籍"
+    },
+    {
+      "name": "死亡于~人物~国籍",
+      "rel_name": "死亡于",
+      "source": "人物",
+      "target": "国籍"
+    },
+    {
+      "name": "创造~人物~国籍",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "国籍"
+    },
+    {
+      "name": "毁灭~人物~国籍",
+      "rel_name": "毁灭",
+      "source": "人物",
+      "target": "国籍"
+    },
+    {
+      "name": "活在~人物~国籍",
+      "rel_name": "活在",
+      "source": "人物",
+      "target": "国籍"
+    },
+    {
+      "name": "隶属~人物~国籍",
+      "rel_name": "隶属",
+      "source": "人物",
+      "target": "国籍"
+    },
+    {
+      "name": "隶属~人物~民族",
+      "rel_name": "隶属",
+      "source": "人物",
+      "target": "民族"
+    },
+    {
+      "name": "信奉~人物~宗教",
+      "rel_name": "信奉",
+      "source": "人物",
+      "target": "宗教"
+    },
+    {
+      "name": "创造~人物~宗教",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "宗教"
+    },
+    {
+      "name": "毁灭~人物~宗教",
+      "rel_name": "毁灭",
+      "source": "人物",
+      "target": "宗教"
+    },
+    {
+      "name": "拥有~人物~信仰",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "信仰"
+    },
+    {
+      "name": "说~人物~语言",
+      "rel_name": "说",
+      "source": "人物",
+      "target": "语言"
+    },
+    {
+      "name": "精通~人物~语言",
+      "rel_name": "精通",
+      "source": "人物",
+      "target": "语言"
+    },
+    {
+      "name": "拥有~人物~活跃地点",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "活跃地点"
+    },
+    {
+      "name": "是~活跃地点~地点",
+      "rel_name": "是",
+      "source": "活跃地点",
+      "target": "地点"
+    },
+    {
+      "name": "对应~国籍~国家",
+      "rel_name": "对应",
+      "source": "国籍",
+      "target": "国家"
+    },
+    {
+      "name": "使用~人物~物品",
+      "rel_name": "使用",
+      "source": "人物",
+      "target": "物品"
+    },
+    {
+      "name": "佩戴~人物~物品",
+      "rel_name": "佩戴",
+      "source": "人物",
+      "target": "物品"
+    },
+    {
+      "name": "精通~人物~物品",
+      "rel_name": "精通",
+      "source": "人物",
+      "target": "物品"
+    },
+    {
+      "name": "专供~物品~人物",
+      "rel_name": "专供",
+      "source": "物品",
+      "target": "人物"
+    },
+    {
+      "name": "是~衣服~物品",
+      "rel_name": "是",
+      "source": "衣服",
+      "target": "物品"
+    },
+    {
+      "name": "是~饰物~物品",
+      "rel_name": "是",
+      "source": "饰物",
+      "target": "物品"
+    },
+    {
+      "name": "是~武器~物品",
+      "rel_name": "是",
+      "source": "武器",
+      "target": "物品"
+    },
+    {
+      "name": "隶属~人物~组织",
+      "rel_name": "隶属",
+      "source": "人物",
+      "target": "组织"
+    },
+    {
+      "name": "创造~人物~组织",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "组织"
+    },
+    {
+      "name": "参与~人物~组织",
+      "rel_name": "参与",
+      "source": "人物",
+      "target": "组织"
+    },
+    {
+      "name": "领导~人物~组织",
+      "rel_name": "领导",
+      "source": "人物",
+      "target": "组织"
+    },
+    {
+      "name": "破坏~人物~组织",
+      "rel_name": "破坏",
+      "source": "人物",
+      "target": "组织"
+    },
+    {
+      "name": "隶属~组织~国籍",
+      "rel_name": "隶属",
+      "source": "组织",
+      "target": "国籍"
+    },
+    {
+      "name": "成立于~组织~地点",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "地点"
+    },
+    {
+      "name": "成立于~组织~日期",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "日期"
+    },
+    {
+      "name": "消失于~组织~日期",
+      "rel_name": "消失于",
+      "source": "组织",
+      "target": "日期"
+    },
+    {
+      "name": "敌对~组织~组织",
+      "rel_name": "敌对",
+      "source": "组织",
+      "target": "组织"
+    },
+    {
+      "name": "联盟~组织~组织",
+      "rel_name": "联盟",
+      "source": "组织",
+      "target": "组织"
+    },
+    {
+      "name": "合作~组织~组织",
+      "rel_name": "合作",
+      "source": "组织",
+      "target": "组织"
+    },
+    {
+      "name": "隶属~组织~组织",
+      "rel_name": "隶属",
+      "source": "组织",
+      "target": "组织"
+    },
+    {
+      "name": "竞争~组织~组织",
+      "rel_name": "竞争",
+      "source": "组织",
+      "target": "组织"
+    },
+    {
+      "name": "从事~人物~行业",
+      "rel_name": "从事",
+      "source": "人物",
+      "target": "行业"
+    },
+    {
+      "name": "从事~人物~职业",
+      "rel_name": "从事",
+      "source": "人物",
+      "target": "职业"
+    },
+    {
+      "name": "拥有~人物~职务",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "职务"
+    },
+    {
+      "name": "拥有~人物~身份",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "身份"
+    },
+    {
+      "name": "特指~身份~人物",
+      "rel_name": "特指",
+      "source": "身份",
+      "target": "人物"
+    },
+    {
+      "name": "特指~职务~人物",
+      "rel_name": "特指",
+      "source": "职务",
+      "target": "人物"
+    },
+    {
+      "name": "是~亲属关系~人物关系",
+      "rel_name": "是",
+      "source": "亲属关系",
+      "target": "人物关系"
+    },
+    {
+      "name": "是~情感关系~人物关系",
+      "rel_name": "是",
+      "source": "情感关系",
+      "target": "人物关系"
+    },
+    {
+      "name": "是~社会关系~人物关系",
+      "rel_name": "是",
+      "source": "社会关系",
+      "target": "人物关系"
+    },
+    {
+      "name": "是~双亲~亲属关系",
+      "rel_name": "是",
+      "source": "双亲",
+      "target": "亲属关系"
+    },
+    {
+      "name": "是~父亲~双亲",
+      "rel_name": "是",
+      "source": "父亲",
+      "target": "双亲"
+    },
+    {
+      "name": "是~母亲~双亲",
+      "rel_name": "是",
+      "source": "母亲",
+      "target": "双亲"
+    },
+    {
+      "name": "是~子女~亲属关系",
+      "rel_name": "是",
+      "source": "子女",
+      "target": "亲属关系"
+    },
+    {
+      "name": "是~儿子~子女",
+      "rel_name": "是",
+      "source": "儿子",
+      "target": "子女"
+    },
+    {
+      "name": "是~女儿~子女",
+      "rel_name": "是",
+      "source": "女儿",
+      "target": "子女"
+    },
+    {
+      "name": "是~夫妻~亲属关系",
+      "rel_name": "是",
+      "source": "夫妻",
+      "target": "亲属关系"
+    },
+    {
+      "name": "是~兄弟~亲属关系",
+      "rel_name": "是",
+      "source": "兄弟",
+      "target": "亲属关系"
+    },
+    {
+      "name": "是~朋友~情感关系",
+      "rel_name": "是",
+      "source": "朋友",
+      "target": "情感关系"
+    },
+    {
+      "name": "是~情人~情感关系",
+      "rel_name": "是",
+      "source": "情人",
+      "target": "情感关系"
+    },
+    {
+      "name": "是~同学~社会关系",
+      "rel_name": "是",
+      "source": "同学",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~同事~社会关系",
+      "rel_name": "是",
+      "source": "同事",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~合伙人~社会关系",
+      "rel_name": "是",
+      "source": "合伙人",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~队友~社会关系",
+      "rel_name": "是",
+      "source": "队友",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~战友~社会关系",
+      "rel_name": "是",
+      "source": "战友",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~老师~社会关系",
+      "rel_name": "是",
+      "source": "老师",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~学生~社会关系",
+      "rel_name": "是",
+      "source": "学生",
+      "target": "社会关系"
+    },
+    {
+      "name": "是~敌对~人物关系",
+      "rel_name": "是",
+      "source": "敌对",
+      "target": "人物关系"
+    },
+    {
+      "name": "是~合作~人物关系",
+      "rel_name": "是",
+      "source": "合作",
+      "target": "人物关系"
+    },
+    {
+      "name": "是~竞争~人物关系",
+      "rel_name": "是",
+      "source": "竞争",
+      "target": "人物关系"
+    },
+    {
+      "name": "人物关系~人物~人物",
+      "rel_name": "人物关系",
+      "source": "人物",
+      "target": "人物"
+    },
+    {
+      "name": "是~动态艺术~文艺作品",
+      "rel_name": "是",
+      "source": "动态艺术",
+      "target": "文艺作品"
+    },
+    {
+      "name": "是~静态艺术~文艺作品",
+      "rel_name": "是",
+      "source": "静态艺术",
+      "target": "文艺作品"
+    },
+    {
+      "name": "是~文学作品~文艺作品",
+      "rel_name": "是",
+      "source": "文学作品",
+      "target": "文艺作品"
+    },
+    {
+      "name": "是~音乐~动态艺术",
+      "rel_name": "是",
+      "source": "音乐",
+      "target": "动态艺术"
+    },
+    {
+      "name": "是~舞蹈~动态艺术",
+      "rel_name": "是",
+      "source": "舞蹈",
+      "target": "动态艺术"
+    },
+    {
+      "name": "是~戏剧~动态艺术",
+      "rel_name": "是",
+      "source": "戏剧",
+      "target": "动态艺术"
+    },
+    {
+      "name": "是~影视作品~动态艺术",
+      "rel_name": "是",
+      "source": "影视作品",
+      "target": "动态艺术"
+    },
+    {
+      "name": "是~电影~影视作品",
+      "rel_name": "是",
+      "source": "电影",
+      "target": "影视作品"
+    },
+    {
+      "name": "是~连续剧~影视作品",
+      "rel_name": "是",
+      "source": "连续剧",
+      "target": "影视作品"
+    },
+    {
+      "name": "是~纪录片~影视作品",
+      "rel_name": "是",
+      "source": "纪录片",
+      "target": "影视作品"
+    },
+    {
+      "name": "是~综艺~影视作品",
+      "rel_name": "是",
+      "source": "综艺",
+      "target": "影视作品"
+    },
+    {
+      "name": "是~脱口秀~影视作品",
+      "rel_name": "是",
+      "source": "脱口秀",
+      "target": "影视作品"
+    },
+    {
+      "name": "是~绘画~静态艺术",
+      "rel_name": "是",
+      "source": "绘画",
+      "target": "静态艺术"
+    },
+    {
+      "name": "是~书法~静态艺术",
+      "rel_name": "是",
+      "source": "书法",
+      "target": "静态艺术"
+    },
+    {
+      "name": "是~雕塑~静态艺术",
+      "rel_name": "是",
+      "source": "雕塑",
+      "target": "静态艺术"
+    },
+    {
+      "name": "是~工艺美术~静态艺术",
+      "rel_name": "是",
+      "source": "工艺美术",
+      "target": "静态艺术"
+    },
+    {
+      "name": "是~诗歌~文学作品",
+      "rel_name": "是",
+      "source": "诗歌",
+      "target": "文学作品"
+    },
+    {
+      "name": "是~小说~文学作品",
+      "rel_name": "是",
+      "source": "小说",
+      "target": "文学作品"
+    },
+    {
+      "name": "是~散文~文学作品",
+      "rel_name": "是",
+      "source": "散文",
+      "target": "文学作品"
+    },
+    {
+      "name": "是~漫画~文学作品",
+      "rel_name": "是",
+      "source": "漫画",
+      "target": "文学作品"
+    },
+    {
+      "name": "是~漫画~绘画",
+      "rel_name": "是",
+      "source": "漫画",
+      "target": "绘画"
+    },
+    {
+      "name": "拥有~文艺作品~评分",
+      "rel_name": "拥有",
+      "source": "文艺作品",
+      "target": "评分"
+    },
+    {
+      "name": "拥有~影视作品~单集长度",
+      "rel_name": "拥有",
+      "source": "影视作品",
+      "target": "单集长度"
+    },
+    {
+      "name": "拥有~影视作品~集数",
+      "rel_name": "拥有",
+      "source": "影视作品",
+      "target": "集数"
+    },
+    {
+      "name": "是~单集长度~正整数",
+      "rel_name": "是",
+      "source": "单集长度",
+      "target": "正整数"
+    },
+    {
+      "name": "是~集数~正整数",
+      "rel_name": "是",
+      "source": "集数",
+      "target": "正整数"
+    },
+    {
+      "name": "是~评分~正实数",
+      "rel_name": "是",
+      "source": "评分",
+      "target": "正实数"
+    },
+    {
+      "name": "拥有~文学作品~文学单元",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "文学单元"
+    },
+    {
+      "name": "是~章~文学单元",
+      "rel_name": "是",
+      "source": "章",
+      "target": "文学单元"
+    },
+    {
+      "name": "是~节~文学单元",
+      "rel_name": "是",
+      "source": "节",
+      "target": "文学单元"
+    },
+    {
+      "name": "是~段落~文学单元",
+      "rel_name": "是",
+      "source": "段落",
+      "target": "文学单元"
+    },
+    {
+      "name": "拥有~章~节",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "节"
+    },
+    {
+      "name": "拥有~节~段落",
+      "rel_name": "拥有",
+      "source": "节",
+      "target": "段落"
+    },
+    {
+      "name": "拥有~文学单元~编号",
+      "rel_name": "拥有",
+      "source": "文学单元",
+      "target": "编号"
+    },
+    {
+      "name": "拥有~文学单元~字数",
+      "rel_name": "拥有",
+      "source": "文学单元",
+      "target": "字数"
+    },
+    {
+      "name": "是~编号~自然数",
+      "rel_name": "是",
+      "source": "编号",
+      "target": "自然数"
+    },
+    {
+      "name": "是~字数~正整数",
+      "rel_name": "是",
+      "source": "字数",
+      "target": "正整数"
+    },
+    {
+      "name": "拥有~文学作品~页数",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "页数"
+    },
+    {
+      "name": "拥有~文学作品~字数",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "字数"
+    },
+    {
+      "name": "创造~人物~文艺作品",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "文艺作品"
+    },
+    {
+      "name": "参与~人物~文艺作品",
+      "rel_name": "参与",
+      "source": "人物",
+      "target": "文艺作品"
+    },
+    {
+      "name": "登场~人物~文艺作品",
+      "rel_name": "登场",
+      "source": "人物",
+      "target": "文艺作品"
+    },
+    {
+      "name": "主角~人物~文艺作品",
+      "rel_name": "主角",
+      "source": "人物",
+      "target": "文艺作品"
+    },
+    {
+      "name": "创造~文艺作品~人物",
+      "rel_name": "创造",
+      "source": "文艺作品",
+      "target": "人物"
+    },
+    {
+      "name": "讲述~文艺作品~人物",
+      "rel_name": "讲述",
+      "source": "文艺作品",
+      "target": "人物"
+    },
+    {
+      "name": "涉及~文艺作品~人物",
+      "rel_name": "涉及",
+      "source": "文艺作品",
+      "target": "人物"
+    },
+    {
+      "name": "评价~文艺作品~人物",
+      "rel_name": "评价",
+      "source": "文艺作品",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~文学作品~文学类型",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "文学类型"
+    },
+    {
+      "name": "拥有~影视作品~影视类型",
+      "rel_name": "拥有",
+      "source": "影视作品",
+      "target": "影视类型"
+    },
+    {
+      "name": "拥有~漫画~漫画类型",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "漫画类型"
+    },
+    {
+      "name": "出版于~文艺作品~日期",
+      "rel_name": "出版于",
+      "source": "文艺作品",
+      "target": "日期"
+    },
+    {
+      "name": "出版于~文艺作品~国家",
+      "rel_name": "出版于",
+      "source": "文艺作品",
+      "target": "国家"
+    },
+    {
+      "name": "创造~文艺作品~组织",
+      "rel_name": "创造",
+      "source": "文艺作品",
+      "target": "组织"
+    },
+    {
+      "name": "讲述~文艺作品~组织",
+      "rel_name": "讲述",
+      "source": "文艺作品",
+      "target": "组织"
+    },
+    {
+      "name": "涉及~文艺作品~组织",
+      "rel_name": "涉及",
+      "source": "文艺作品",
+      "target": "组织"
+    },
+    {
+      "name": "评价~文艺作品~组织",
+      "rel_name": "评价",
+      "source": "文艺作品",
+      "target": "组织"
+    },
+    {
+      "name": "发生于~事件~日期",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "日期"
+    },
+    {
+      "name": "发生于~事件~国籍",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "国籍"
+    },
+    {
+      "name": "发生于~事件~地点",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "地点"
+    },
+    {
+      "name": "发起~人物~事件",
+      "rel_name": "发起",
+      "source": "人物",
+      "target": "事件"
+    },
+    {
+      "name": "参与~人物~事件",
+      "rel_name": "参与",
+      "source": "人物",
+      "target": "事件"
+    },
+    {
+      "name": "发起~组织~事件",
+      "rel_name": "发起",
+      "source": "组织",
+      "target": "事件"
+    },
+    {
+      "name": "参与~组织~事件",
+      "rel_name": "参与",
+      "source": "组织",
+      "target": "事件"
+    },
+    {
+      "name": "主角~组织~事件",
+      "rel_name": "主角",
+      "source": "组织",
+      "target": "事件"
+    },
+    {
+      "name": "主角~人物~事件",
+      "rel_name": "主角",
+      "source": "人物",
+      "target": "事件"
+    },
+    {
+      "name": "终结~人物~事件",
+      "rel_name": "终结",
+      "source": "人物",
+      "target": "事件"
+    },
+    {
+      "name": "终结~组织~事件",
+      "rel_name": "终结",
+      "source": "组织",
+      "target": "事件"
+    },
+    {
+      "name": "是~拥有~传递关系",
+      "rel_name": "是",
+      "source": "拥有",
+      "target": "传递关系"
+    },
+    {
+      "name": "是~组成~传递关系",
+      "rel_name": "是",
+      "source": "组成",
+      "target": "传递关系"
+    },
+    {
+      "name": "拥有~日期~年",
+      "rel_name": "拥有",
+      "source": "日期",
+      "target": "年"
+    },
+    {
+      "name": "拥有~日期~日",
+      "rel_name": "拥有",
+      "source": "日期",
+      "target": "日"
+    },
+    {
+      "name": "拥有~三围~臀围",
+      "rel_name": "拥有",
+      "source": "三围",
+      "target": "臀围"
+    },
+    {
+      "name": "拥有~月日~日",
+      "rel_name": "拥有",
+      "source": "月日",
+      "target": "日"
+    },
+    {
+      "name": "拥有~三围~腰围",
+      "rel_name": "拥有",
+      "source": "三围",
+      "target": "腰围"
+    },
+    {
+      "name": "拥有~日期~月",
+      "rel_name": "拥有",
+      "source": "日期",
+      "target": "月"
+    },
+    {
+      "name": "拥有~国家~省",
+      "rel_name": "拥有",
+      "source": "国家",
+      "target": "省"
+    },
+    {
+      "name": "拥有~省~市",
+      "rel_name": "拥有",
+      "source": "省",
+      "target": "市"
+    },
+    {
+      "name": "拥有~三围~胸围",
+      "rel_name": "拥有",
+      "source": "三围",
+      "target": "胸围"
+    },
+    {
+      "name": "拥有~月日~月",
+      "rel_name": "拥有",
+      "source": "月日",
+      "target": "月"
+    },
+    {
+      "name": "组成~身份~人物",
+      "rel_name": "组成",
+      "source": "身份",
+      "target": "人物"
+    },
+    {
+      "name": "组成~集数~影视作品",
+      "rel_name": "组成",
+      "source": "集数",
+      "target": "影视作品"
+    },
+    {
+      "name": "组成~文学类型~文学作品",
+      "rel_name": "组成",
+      "source": "文学类型",
+      "target": "文学作品"
+    },
+    {
+      "name": "组成~职务~人物",
+      "rel_name": "组成",
+      "source": "职务",
+      "target": "人物"
+    },
+    {
+      "name": "组成~漫画类型~漫画",
+      "rel_name": "组成",
+      "source": "漫画类型",
+      "target": "漫画"
+    },
+    {
+      "name": "组成~体重~外貌特征",
+      "rel_name": "组成",
+      "source": "体重",
+      "target": "外貌特征"
+    },
+    {
+      "name": "组成~罩杯~外貌特征",
+      "rel_name": "组成",
+      "source": "罩杯",
+      "target": "外貌特征"
+    },
+    {
+      "name": "组成~字数~文学作品",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "文学作品"
+    },
+    {
+      "name": "组成~死亡状态~人物",
+      "rel_name": "组成",
+      "source": "死亡状态",
+      "target": "人物"
+    },
+    {
+      "name": "组成~段落~节",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "节"
+    },
+    {
+      "name": "组成~出生日期~人物",
+      "rel_name": "组成",
+      "source": "出生日期",
+      "target": "人物"
+    },
+    {
+      "name": "组成~影视类型~影视作品",
+      "rel_name": "组成",
+      "source": "影视类型",
+      "target": "影视作品"
+    },
+    {
+      "name": "组成~节~章",
+      "rel_name": "组成",
+      "source": "节",
+      "target": "章"
+    },
+    {
+      "name": "组成~单集长度~影视作品",
+      "rel_name": "组成",
+      "source": "单集长度",
+      "target": "影视作品"
+    },
+    {
+      "name": "组成~字数~文学单元",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "文学单元"
+    },
+    {
+      "name": "组成~死亡日期~人物",
+      "rel_name": "组成",
+      "source": "死亡日期",
+      "target": "人物"
+    },
+    {
+      "name": "组成~外貌描述~外貌特征",
+      "rel_name": "组成",
+      "source": "外貌描述",
+      "target": "外貌特征"
+    },
+    {
+      "name": "组成~评分~文艺作品",
+      "rel_name": "组成",
+      "source": "评分",
+      "target": "文艺作品"
+    },
+    {
+      "name": "组成~信仰~人物",
+      "rel_name": "组成",
+      "source": "信仰",
+      "target": "人物"
+    },
+    {
+      "name": "组成~外貌特征~人物",
+      "rel_name": "组成",
+      "source": "外貌特征",
+      "target": "人物"
+    },
+    {
+      "name": "组成~活跃地点~人物",
+      "rel_name": "组成",
+      "source": "活跃地点",
+      "target": "人物"
+    },
+    {
+      "name": "组成~肤色~外貌特征",
+      "rel_name": "组成",
+      "source": "肤色",
+      "target": "外貌特征"
+    },
+    {
+      "name": "组成~死亡时代~人物",
+      "rel_name": "组成",
+      "source": "死亡时代",
+      "target": "人物"
+    },
+    {
+      "name": "组成~三围~外貌特征",
+      "rel_name": "组成",
+      "source": "三围",
+      "target": "外貌特征"
+    },
+    {
+      "name": "组成~血型~人物",
+      "rel_name": "组成",
+      "source": "血型",
+      "target": "人物"
+    },
+    {
+      "name": "组成~星座~人物",
+      "rel_name": "组成",
+      "source": "星座",
+      "target": "人物"
+    },
+    {
+      "name": "组成~页数~文学作品",
+      "rel_name": "组成",
+      "source": "页数",
+      "target": "文学作品"
+    },
+    {
+      "name": "组成~出生时代~人物",
+      "rel_name": "组成",
+      "source": "出生时代",
+      "target": "人物"
+    },
+    {
+      "name": "组成~年龄~人物",
+      "rel_name": "组成",
+      "source": "年龄",
+      "target": "人物"
+    },
+    {
+      "name": "组成~活跃时代~人物",
+      "rel_name": "组成",
+      "source": "活跃时代",
+      "target": "人物"
+    },
+    {
+      "name": "组成~编号~文学单元",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "文学单元"
+    },
+    {
+      "name": "组成~身高~外貌特征",
+      "rel_name": "组成",
+      "source": "身高",
+      "target": "外貌特征"
+    },
+    {
+      "name": "组成~性别~人物",
+      "rel_name": "组成",
+      "source": "性别",
+      "target": "人物"
+    },
+    {
+      "name": "组成~文学单元~文学作品",
+      "rel_name": "组成",
+      "source": "文学单元",
+      "target": "文学作品"
+    },
+    {
+      "name": "拥有~漫画~字数",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "字数"
+    },
+    {
+      "name": "创造~静态艺术~人物",
+      "rel_name": "创造",
+      "source": "静态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~电影~单集长度",
+      "rel_name": "拥有",
+      "source": "电影",
+      "target": "单集长度"
+    },
+    {
+      "name": "拥有~电影~影视类型",
+      "rel_name": "拥有",
+      "source": "电影",
+      "target": "影视类型"
+    },
+    {
+      "name": "创造~文学作品~组织",
+      "rel_name": "创造",
+      "source": "文学作品",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~电影~集数",
+      "rel_name": "拥有",
+      "source": "电影",
+      "target": "集数"
+    },
+    {
+      "name": "拥有~诗歌~文学类型",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "文学类型"
+    },
+    {
+      "name": "拥有~动态艺术~评分",
+      "rel_name": "拥有",
+      "source": "动态艺术",
+      "target": "评分"
+    },
+    {
+      "name": "拥有~诗歌~字数",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "字数"
+    },
+    {
+      "name": "评价~文学作品~人物",
+      "rel_name": "评价",
+      "source": "文学作品",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~小说~文学类型",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "文学类型"
+    },
+    {
+      "name": "拥有~漫画~页数",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "页数"
+    },
+    {
+      "name": "评价~静态艺术~人物",
+      "rel_name": "评价",
+      "source": "静态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~漫画~文学类型",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "文学类型"
+    },
+    {
+      "name": "拥有~小说~页数",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "页数"
+    },
+    {
+      "name": "出版于~文学作品~日期",
+      "rel_name": "出版于",
+      "source": "文学作品",
+      "target": "日期"
+    },
+    {
+      "name": "拥有~段落~字数",
+      "rel_name": "拥有",
+      "source": "段落",
+      "target": "字数"
+    },
+    {
+      "name": "创造~静态艺术~组织",
+      "rel_name": "创造",
+      "source": "静态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~诗歌~页数",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "页数"
+    },
+    {
+      "name": "拥有~连续剧~集数",
+      "rel_name": "拥有",
+      "source": "连续剧",
+      "target": "集数"
+    },
+    {
+      "name": "创造~文学作品~人物",
+      "rel_name": "创造",
+      "source": "文学作品",
+      "target": "人物"
+    },
+    {
+      "name": "创造~动态艺术~组织",
+      "rel_name": "创造",
+      "source": "动态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~节~编号",
+      "rel_name": "拥有",
+      "source": "节",
+      "target": "编号"
+    },
+    {
+      "name": "出版于~动态艺术~日期",
+      "rel_name": "出版于",
+      "source": "动态艺术",
+      "target": "日期"
+    },
+    {
+      "name": "拥有~小说~字数",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "字数"
+    },
+    {
+      "name": "拥有~纪录片~集数",
+      "rel_name": "拥有",
+      "source": "纪录片",
+      "target": "集数"
+    },
+    {
+      "name": "出版于~动态艺术~国家",
+      "rel_name": "出版于",
+      "source": "动态艺术",
+      "target": "国家"
+    },
+    {
+      "name": "拥有~散文~文学类型",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "文学类型"
+    },
+    {
+      "name": "拥有~脱口秀~影视类型",
+      "rel_name": "拥有",
+      "source": "脱口秀",
+      "target": "影视类型"
+    },
+    {
+      "name": "涉及~动态艺术~组织",
+      "rel_name": "涉及",
+      "source": "动态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~脱口秀~单集长度",
+      "rel_name": "拥有",
+      "source": "脱口秀",
+      "target": "单集长度"
+    },
+    {
+      "name": "拥有~诗歌~文学单元",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "文学单元"
+    },
+    {
+      "name": "拥有~综艺~单集长度",
+      "rel_name": "拥有",
+      "source": "综艺",
+      "target": "单集长度"
+    },
+    {
+      "name": "讲述~动态艺术~组织",
+      "rel_name": "讲述",
+      "source": "动态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "组成~段落~文学作品",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "文学作品"
+    },
+    {
+      "name": "讲述~文学作品~组织",
+      "rel_name": "讲述",
+      "source": "文学作品",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~散文~文学单元",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "文学单元"
+    },
+    {
+      "name": "拥有~小说~文学单元",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "文学单元"
+    },
+    {
+      "name": "专供~衣服~人物",
+      "rel_name": "专供",
+      "source": "衣服",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~综艺~影视类型",
+      "rel_name": "拥有",
+      "source": "综艺",
+      "target": "影视类型"
+    },
+    {
+      "name": "拥有~散文~字数",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "字数"
+    },
+    {
+      "name": "评价~动态艺术~人物",
+      "rel_name": "评价",
+      "source": "动态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "评价~文学作品~组织",
+      "rel_name": "评价",
+      "source": "文学作品",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~文学作品~评分",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "评分"
+    },
+    {
+      "name": "拥有~综艺~集数",
+      "rel_name": "拥有",
+      "source": "综艺",
+      "target": "集数"
+    },
+    {
+      "name": "出版于~静态艺术~日期",
+      "rel_name": "出版于",
+      "source": "静态艺术",
+      "target": "日期"
+    },
+    {
+      "name": "出版于~静态艺术~国家",
+      "rel_name": "出版于",
+      "source": "静态艺术",
+      "target": "国家"
+    },
+    {
+      "name": "讲述~文学作品~人物",
+      "rel_name": "讲述",
+      "source": "文学作品",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~连续剧~单集长度",
+      "rel_name": "拥有",
+      "source": "连续剧",
+      "target": "单集长度"
+    },
+    {
+      "name": "涉及~静态艺术~组织",
+      "rel_name": "涉及",
+      "source": "静态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~纪录片~影视类型",
+      "rel_name": "拥有",
+      "source": "纪录片",
+      "target": "影视类型"
+    },
+    {
+      "name": "拥有~漫画~文学单元",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "文学单元"
+    },
+    {
+      "name": "讲述~静态艺术~人物",
+      "rel_name": "讲述",
+      "source": "静态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "组成~章~文学作品",
+      "rel_name": "组成",
+      "source": "章",
+      "target": "文学作品"
+    },
+    {
+      "name": "拥有~连续剧~影视类型",
+      "rel_name": "拥有",
+      "source": "连续剧",
+      "target": "影视类型"
+    },
+    {
+      "name": "评价~动态艺术~组织",
+      "rel_name": "评价",
+      "source": "动态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "专供~饰物~人物",
+      "rel_name": "专供",
+      "source": "饰物",
+      "target": "人物"
+    },
+    {
+      "name": "组成~节~文学作品",
+      "rel_name": "组成",
+      "source": "节",
+      "target": "文学作品"
+    },
+    {
+      "name": "拥有~章~字数",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "字数"
+    },
+    {
+      "name": "专供~武器~人物",
+      "rel_name": "专供",
+      "source": "武器",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~章~编号",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "编号"
+    },
+    {
+      "name": "拥有~静态艺术~评分",
+      "rel_name": "拥有",
+      "source": "静态艺术",
+      "target": "评分"
+    },
+    {
+      "name": "讲述~动态艺术~人物",
+      "rel_name": "讲述",
+      "source": "动态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~纪录片~单集长度",
+      "rel_name": "拥有",
+      "source": "纪录片",
+      "target": "单集长度"
+    },
+    {
+      "name": "拥有~段落~编号",
+      "rel_name": "拥有",
+      "source": "段落",
+      "target": "编号"
+    },
+    {
+      "name": "涉及~静态艺术~人物",
+      "rel_name": "涉及",
+      "source": "静态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "涉及~文学作品~组织",
+      "rel_name": "涉及",
+      "source": "文学作品",
+      "target": "组织"
+    },
+    {
+      "name": "讲述~静态艺术~组织",
+      "rel_name": "讲述",
+      "source": "静态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "涉及~文学作品~人物",
+      "rel_name": "涉及",
+      "source": "文学作品",
+      "target": "人物"
+    },
+    {
+      "name": "出版于~文学作品~国家",
+      "rel_name": "出版于",
+      "source": "文学作品",
+      "target": "国家"
+    },
+    {
+      "name": "拥有~脱口秀~集数",
+      "rel_name": "拥有",
+      "source": "脱口秀",
+      "target": "集数"
+    },
+    {
+      "name": "创造~动态艺术~人物",
+      "rel_name": "创造",
+      "source": "动态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~节~字数",
+      "rel_name": "拥有",
+      "source": "节",
+      "target": "字数"
+    },
+    {
+      "name": "涉及~动态艺术~人物",
+      "rel_name": "涉及",
+      "source": "动态艺术",
+      "target": "人物"
+    },
+    {
+      "name": "评价~静态艺术~组织",
+      "rel_name": "评价",
+      "source": "静态艺术",
+      "target": "组织"
+    },
+    {
+      "name": "拥有~散文~页数",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "页数"
+    },
+    {
+      "name": "拥有~漫画~段落",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "段落"
+    },
+    {
+      "name": "创造~人物~静态艺术",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "静态艺术"
+    },
+    {
+      "name": "组成~文学类型~漫画",
+      "rel_name": "组成",
+      "source": "文学类型",
+      "target": "漫画"
+    },
+    {
+      "name": "登场~人物~文学作品",
+      "rel_name": "登场",
+      "source": "人物",
+      "target": "文学作品"
+    },
+    {
+      "name": "组成~文学类型~散文",
+      "rel_name": "组成",
+      "source": "文学类型",
+      "target": "散文"
+    },
+    {
+      "name": "组成~文学类型~小说",
+      "rel_name": "组成",
+      "source": "文学类型",
+      "target": "小说"
+    },
+    {
+      "name": "成立于~组织~省",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "省"
+    },
+    {
+      "name": "组成~字数~节",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "节"
+    },
+    {
+      "name": "佩戴~人物~衣服",
+      "rel_name": "佩戴",
+      "source": "人物",
+      "target": "衣服"
+    },
+    {
+      "name": "组成~影视类型~综艺",
+      "rel_name": "组成",
+      "source": "影视类型",
+      "target": "综艺"
+    },
+    {
+      "name": "佩戴~人物~饰物",
+      "rel_name": "佩戴",
+      "source": "人物",
+      "target": "饰物"
+    },
+    {
+      "name": "拥有~漫画~节",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "节"
+    },
+    {
+      "name": "组成~章~诗歌",
+      "rel_name": "组成",
+      "source": "章",
+      "target": "诗歌"
+    },
+    {
+      "name": "成立于~组织~国家",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "国家"
+    },
+    {
+      "name": "精通~人物~衣服",
+      "rel_name": "精通",
+      "source": "人物",
+      "target": "衣服"
+    },
+    {
+      "name": "发生于~事件~国家",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "国家"
+    },
+    {
+      "name": "组成~章~散文",
+      "rel_name": "组成",
+      "source": "章",
+      "target": "散文"
+    },
+    {
+      "name": "组成~章~小说",
+      "rel_name": "组成",
+      "source": "章",
+      "target": "小说"
+    },
+    {
+      "name": "组成~评分~静态艺术",
+      "rel_name": "组成",
+      "source": "评分",
+      "target": "静态艺术"
+    },
+    {
+      "name": "组成~节~漫画",
+      "rel_name": "组成",
+      "source": "节",
+      "target": "漫画"
+    },
+    {
+      "name": "拥有~散文~段落",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "段落"
+    },
+    {
+      "name": "创造~人物~文学作品",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "文学作品"
+    },
+    {
+      "name": "拥有~文学作品~节",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "节"
+    },
+    {
+      "name": "拥有~小说~段落",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "段落"
+    },
+    {
+      "name": "组成~节~散文",
+      "rel_name": "组成",
+      "source": "节",
+      "target": "散文"
+    },
+    {
+      "name": "参与~人物~动态艺术",
+      "rel_name": "参与",
+      "source": "人物",
+      "target": "动态艺术"
+    },
+    {
+      "name": "组成~字数~诗歌",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~集数~电影",
+      "rel_name": "组成",
+      "source": "集数",
+      "target": "电影"
+    },
+    {
+      "name": "使用~人物~武器",
+      "rel_name": "使用",
+      "source": "人物",
+      "target": "武器"
+    },
+    {
+      "name": "组成~字数~散文",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "散文"
+    },
+    {
+      "name": "组成~字数~小说",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "小说"
+    },
+    {
+      "name": "组成~影视类型~纪录片",
+      "rel_name": "组成",
+      "source": "影视类型",
+      "target": "纪录片"
+    },
+    {
+      "name": "组成~单集长度~纪录片",
+      "rel_name": "组成",
+      "source": "单集长度",
+      "target": "纪录片"
+    },
+    {
+      "name": "组成~单集长度~连续剧",
+      "rel_name": "组成",
+      "source": "单集长度",
+      "target": "连续剧"
+    },
+    {
+      "name": "发生于~事件~省",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "省"
+    },
+    {
+      "name": "拥有~诗歌~章",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "章"
+    },
+    {
+      "name": "主角~人物~动态艺术",
+      "rel_name": "主角",
+      "source": "人物",
+      "target": "动态艺术"
+    },
+    {
+      "name": "拥有~诗歌~段落",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "段落"
+    },
+    {
+      "name": "精通~人物~武器",
+      "rel_name": "精通",
+      "source": "人物",
+      "target": "武器"
+    },
+    {
+      "name": "组成~文学单元~诗歌",
+      "rel_name": "组成",
+      "source": "文学单元",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~页数~小说",
+      "rel_name": "组成",
+      "source": "页数",
+      "target": "小说"
+    },
+    {
+      "name": "拥有~诗歌~节",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "节"
+    },
+    {
+      "name": "组成~章~漫画",
+      "rel_name": "组成",
+      "source": "章",
+      "target": "漫画"
+    },
+    {
+      "name": "组成~集数~综艺",
+      "rel_name": "组成",
+      "source": "集数",
+      "target": "综艺"
+    },
+    {
+      "name": "组成~节~小说",
+      "rel_name": "组成",
+      "source": "节",
+      "target": "小说"
+    },
+    {
+      "name": "组成~影视类型~脱口秀",
+      "rel_name": "组成",
+      "source": "影视类型",
+      "target": "脱口秀"
+    },
+    {
+      "name": "组成~评分~文学作品",
+      "rel_name": "组成",
+      "source": "评分",
+      "target": "文学作品"
+    },
+    {
+      "name": "组成~段落~小说",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "小说"
+    },
+    {
+      "name": "登场~人物~静态艺术",
+      "rel_name": "登场",
+      "source": "人物",
+      "target": "静态艺术"
+    },
+    {
+      "name": "组成~段落~散文",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "散文"
+    },
+    {
+      "name": "发生于~事件~市",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "市"
+    },
+    {
+      "name": "组成~单集长度~综艺",
+      "rel_name": "组成",
+      "source": "单集长度",
+      "target": "综艺"
+    },
+    {
+      "name": "参与~人物~文学作品",
+      "rel_name": "参与",
+      "source": "人物",
+      "target": "文学作品"
+    },
+    {
+      "name": "组成~节~诗歌",
+      "rel_name": "组成",
+      "source": "节",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~文学单元~漫画",
+      "rel_name": "组成",
+      "source": "文学单元",
+      "target": "漫画"
+    },
+    {
+      "name": "拥有~漫画~章",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "章"
+    },
+    {
+      "name": "登场~人物~动态艺术",
+      "rel_name": "登场",
+      "source": "人物",
+      "target": "动态艺术"
+    },
+    {
+      "name": "成立于~组织~市",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "市"
+    },
+    {
+      "name": "拥有~小说~节",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "节"
+    },
+    {
+      "name": "精通~人物~饰物",
+      "rel_name": "精通",
+      "source": "人物",
+      "target": "饰物"
+    },
+    {
+      "name": "拥有~文学作品~段落",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "段落"
+    },
+    {
+      "name": "拥有~散文~节",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "节"
+    },
+    {
+      "name": "组成~单集长度~脱口秀",
+      "rel_name": "组成",
+      "source": "单集长度",
+      "target": "脱口秀"
+    },
+    {
+      "name": "参与~人物~静态艺术",
+      "rel_name": "参与",
+      "source": "人物",
+      "target": "静态艺术"
+    },
+    {
+      "name": "使用~人物~衣服",
+      "rel_name": "使用",
+      "source": "人物",
+      "target": "衣服"
+    },
+    {
+      "name": "组成~字数~章",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "章"
+    },
+    {
+      "name": "组成~集数~脱口秀",
+      "rel_name": "组成",
+      "source": "集数",
+      "target": "脱口秀"
+    },
+    {
+      "name": "组成~编号~章",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "章"
+    },
+    {
+      "name": "组成~影视类型~连续剧",
+      "rel_name": "组成",
+      "source": "影视类型",
+      "target": "连续剧"
+    },
+    {
+      "name": "组成~评分~动态艺术",
+      "rel_name": "组成",
+      "source": "评分",
+      "target": "动态艺术"
+    },
+    {
+      "name": "组成~集数~纪录片",
+      "rel_name": "组成",
+      "source": "集数",
+      "target": "纪录片"
+    },
+    {
+      "name": "拥有~散文~章",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "章"
+    },
+    {
+      "name": "主角~人物~静态艺术",
+      "rel_name": "主角",
+      "source": "人物",
+      "target": "静态艺术"
+    },
+    {
+      "name": "组成~文学类型~诗歌",
+      "rel_name": "组成",
+      "source": "文学类型",
+      "target": "诗歌"
+    },
+    {
+      "name": "拥有~小说~章",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "章"
+    },
+    {
+      "name": "组成~文学单元~小说",
+      "rel_name": "组成",
+      "source": "文学单元",
+      "target": "小说"
+    },
+    {
+      "name": "组成~页数~诗歌",
+      "rel_name": "组成",
+      "source": "页数",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~单集长度~电影",
+      "rel_name": "组成",
+      "source": "单集长度",
+      "target": "电影"
+    },
+    {
+      "name": "成立于~组织~县",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "县"
+    },
+    {
+      "name": "主角~人物~文学作品",
+      "rel_name": "主角",
+      "source": "人物",
+      "target": "文学作品"
+    },
+    {
+      "name": "拥有~文学作品~章",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "章"
+    },
+    {
+      "name": "组成~字数~段落",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "段落"
+    },
+    {
+      "name": "组成~段落~漫画",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "漫画"
+    },
+    {
+      "name": "成立于~组织~地区",
+      "rel_name": "成立于",
+      "source": "组织",
+      "target": "地区"
+    },
+    {
+      "name": "组成~页数~散文",
+      "rel_name": "组成",
+      "source": "页数",
+      "target": "散文"
+    },
+    {
+      "name": "组成~页数~漫画",
+      "rel_name": "组成",
+      "source": "页数",
+      "target": "漫画"
+    },
+    {
+      "name": "使用~人物~饰物",
+      "rel_name": "使用",
+      "source": "人物",
+      "target": "饰物"
+    },
+    {
+      "name": "佩戴~人物~武器",
+      "rel_name": "佩戴",
+      "source": "人物",
+      "target": "武器"
+    },
+    {
+      "name": "组成~编号~节",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "节"
+    },
+    {
+      "name": "组成~段落~诗歌",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~集数~连续剧",
+      "rel_name": "组成",
+      "source": "集数",
+      "target": "连续剧"
+    },
+    {
+      "name": "创造~人物~动态艺术",
+      "rel_name": "创造",
+      "source": "人物",
+      "target": "动态艺术"
+    },
+    {
+      "name": "组成~影视类型~电影",
+      "rel_name": "组成",
+      "source": "影视类型",
+      "target": "电影"
+    },
+    {
+      "name": "组成~文学单元~散文",
+      "rel_name": "组成",
+      "source": "文学单元",
+      "target": "散文"
+    },
+    {
+      "name": "组成~编号~段落",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "段落"
+    },
+    {
+      "name": "发生于~事件~县",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "县"
+    },
+    {
+      "name": "发生于~事件~地区",
+      "rel_name": "发生于",
+      "source": "事件",
+      "target": "地区"
+    },
+    {
+      "name": "组成~字数~漫画",
+      "rel_name": "组成",
+      "source": "字数",
+      "target": "漫画"
+    },
+    {
+      "name": "拥有~漫画~编号",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "编号"
+    },
+    {
+      "name": "组成~编号~漫画",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "漫画"
+    },
+    {
+      "name": "拥有~外貌特征~腰围",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "腰围"
+    },
+    {
+      "name": "拥有~诗歌~编号",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "编号"
+    },
+    {
+      "name": "组成~编号~小说",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "小说"
+    },
+    {
+      "name": "组成~肤色~人物",
+      "rel_name": "组成",
+      "source": "肤色",
+      "target": "人物"
+    },
+    {
+      "name": "组成~编号~文学作品",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "文学作品"
+    },
+    {
+      "name": "拥有~文学作品~编号",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "编号"
+    },
+    {
+      "name": "拥有~国家~市",
+      "rel_name": "拥有",
+      "source": "国家",
+      "target": "市"
+    },
+    {
+      "name": "拥有~小说~编号",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "编号"
+    },
+    {
+      "name": "组成~编号~诗歌",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~外貌描述~人物",
+      "rel_name": "组成",
+      "source": "外貌描述",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~外貌特征~胸围",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "胸围"
+    },
+    {
+      "name": "拥有~散文~编号",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "编号"
+    },
+    {
+      "name": "组成~胸围~外貌特征",
+      "rel_name": "组成",
+      "source": "胸围",
+      "target": "外貌特征"
+    },
+    {
+      "name": "拥有~人物~外貌描述",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "外貌描述"
+    },
+    {
+      "name": "组成~体重~人物",
+      "rel_name": "组成",
+      "source": "体重",
+      "target": "人物"
+    },
+    {
+      "name": "组成~罩杯~人物",
+      "rel_name": "组成",
+      "source": "罩杯",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~人物~身高",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "身高"
+    },
+    {
+      "name": "组成~编号~散文",
+      "rel_name": "组成",
+      "source": "编号",
+      "target": "散文"
+    },
+    {
+      "name": "拥有~人物~罩杯",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "罩杯"
+    },
+    {
+      "name": "组成~腰围~外貌特征",
+      "rel_name": "组成",
+      "source": "腰围",
+      "target": "外貌特征"
+    },
+    {
+      "name": "拥有~人物~三围",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "三围"
+    },
+    {
+      "name": "组成~身高~人物",
+      "rel_name": "组成",
+      "source": "身高",
+      "target": "人物"
+    },
+    {
+      "name": "组成~三围~人物",
+      "rel_name": "组成",
+      "source": "三围",
+      "target": "人物"
+    },
+    {
+      "name": "拥有~人物~肤色",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "肤色"
+    },
+    {
+      "name": "拥有~人物~体重",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "体重"
+    },
+    {
+      "name": "拥有~外貌特征~臀围",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "臀围"
+    },
+    {
+      "name": "组成~市~国家",
+      "rel_name": "组成",
+      "source": "市",
+      "target": "国家"
+    },
+    {
+      "name": "组成~段落~章",
+      "rel_name": "组成",
+      "source": "段落",
+      "target": "章"
+    },
+    {
+      "name": "组成~臀围~外貌特征",
+      "rel_name": "组成",
+      "source": "臀围",
+      "target": "外貌特征"
+    },
+    {
+      "name": "拥有~章~段落",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "段落"
+    },
+    {
+      "name": "拥有~日期~介绍",
+      "rel_name": "拥有",
+      "source": "日期",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~电影~介绍",
+      "rel_name": "拥有",
+      "source": "电影",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~整数~介绍",
+      "rel_name": "拥有",
+      "source": "整数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~活跃地点~介绍",
+      "rel_name": "拥有",
+      "source": "活跃地点",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~物种~介绍",
+      "rel_name": "拥有",
+      "source": "物种",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~血型~介绍",
+      "rel_name": "拥有",
+      "source": "血型",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~语言~介绍",
+      "rel_name": "拥有",
+      "source": "语言",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~地区~介绍",
+      "rel_name": "拥有",
+      "source": "地区",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~地点~介绍",
+      "rel_name": "拥有",
+      "source": "地点",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~漫画类型~介绍",
+      "rel_name": "拥有",
+      "source": "漫画类型",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~诗歌~介绍",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~虚拟人物~介绍",
+      "rel_name": "拥有",
+      "source": "虚拟人物",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~影视类型~介绍",
+      "rel_name": "拥有",
+      "source": "影视类型",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~雕塑~介绍",
+      "rel_name": "拥有",
+      "source": "雕塑",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~性别~介绍",
+      "rel_name": "拥有",
+      "source": "性别",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~身份~介绍",
+      "rel_name": "拥有",
+      "source": "身份",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~死亡状态~介绍",
+      "rel_name": "拥有",
+      "source": "死亡状态",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~人物~介绍",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~国家~介绍",
+      "rel_name": "拥有",
+      "source": "国家",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~正实数~介绍",
+      "rel_name": "拥有",
+      "source": "正实数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~组织~介绍",
+      "rel_name": "拥有",
+      "source": "组织",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~文艺作品~介绍",
+      "rel_name": "拥有",
+      "source": "文艺作品",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~动态艺术~介绍",
+      "rel_name": "拥有",
+      "source": "动态艺术",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~外貌特征~介绍",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~饰物~介绍",
+      "rel_name": "拥有",
+      "source": "饰物",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~物品~介绍",
+      "rel_name": "拥有",
+      "source": "物品",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~戏剧~介绍",
+      "rel_name": "拥有",
+      "source": "戏剧",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~臀围~介绍",
+      "rel_name": "拥有",
+      "source": "臀围",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~静态艺术~介绍",
+      "rel_name": "拥有",
+      "source": "静态艺术",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~省~介绍",
+      "rel_name": "拥有",
+      "source": "省",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~文学类型~介绍",
+      "rel_name": "拥有",
+      "source": "文学类型",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~散文~介绍",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~行业~介绍",
+      "rel_name": "拥有",
+      "source": "行业",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~星座~介绍",
+      "rel_name": "拥有",
+      "source": "星座",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~图片~介绍",
+      "rel_name": "拥有",
+      "source": "图片",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~衣服~介绍",
+      "rel_name": "拥有",
+      "source": "衣服",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~人种~介绍",
+      "rel_name": "拥有",
+      "source": "人种",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~综艺~介绍",
+      "rel_name": "拥有",
+      "source": "综艺",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~漫画~介绍",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~时代~介绍",
+      "rel_name": "拥有",
+      "source": "时代",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~实数~介绍",
+      "rel_name": "拥有",
+      "source": "实数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~脱口秀~介绍",
+      "rel_name": "拥有",
+      "source": "脱口秀",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~介绍~介绍",
+      "rel_name": "拥有",
+      "source": "介绍",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~评分~介绍",
+      "rel_name": "拥有",
+      "source": "评分",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~年~介绍",
+      "rel_name": "拥有",
+      "source": "年",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~书法~介绍",
+      "rel_name": "拥有",
+      "source": "书法",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~外貌描述~介绍",
+      "rel_name": "拥有",
+      "source": "外貌描述",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~影视作品~介绍",
+      "rel_name": "拥有",
+      "source": "影视作品",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~职务~介绍",
+      "rel_name": "拥有",
+      "source": "职务",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~体重~介绍",
+      "rel_name": "拥有",
+      "source": "体重",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~节~介绍",
+      "rel_name": "拥有",
+      "source": "节",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~日~介绍",
+      "rel_name": "拥有",
+      "source": "日",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~编号~介绍",
+      "rel_name": "拥有",
+      "source": "编号",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~身高~介绍",
+      "rel_name": "拥有",
+      "source": "身高",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~自然数~介绍",
+      "rel_name": "拥有",
+      "source": "自然数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~段落~介绍",
+      "rel_name": "拥有",
+      "source": "段落",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~文学作品~介绍",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~纪录片~介绍",
+      "rel_name": "拥有",
+      "source": "纪录片",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~腰围~介绍",
+      "rel_name": "拥有",
+      "source": "腰围",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~工艺美术~介绍",
+      "rel_name": "拥有",
+      "source": "工艺美术",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~国籍~介绍",
+      "rel_name": "拥有",
+      "source": "国籍",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~事件类型~介绍",
+      "rel_name": "拥有",
+      "source": "事件类型",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~连续剧~介绍",
+      "rel_name": "拥有",
+      "source": "连续剧",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~单集长度~介绍",
+      "rel_name": "拥有",
+      "source": "单集长度",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~页数~介绍",
+      "rel_name": "拥有",
+      "source": "页数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~星期~介绍",
+      "rel_name": "拥有",
+      "source": "星期",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~肤色~介绍",
+      "rel_name": "拥有",
+      "source": "肤色",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~集数~介绍",
+      "rel_name": "拥有",
+      "source": "集数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~章~介绍",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~民族~介绍",
+      "rel_name": "拥有",
+      "source": "民族",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~事件~介绍",
+      "rel_name": "拥有",
+      "source": "事件",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~字数~介绍",
+      "rel_name": "拥有",
+      "source": "字数",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~舞蹈~介绍",
+      "rel_name": "拥有",
+      "source": "舞蹈",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~市~介绍",
+      "rel_name": "拥有",
+      "source": "市",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~月~介绍",
+      "rel_name": "拥有",
+      "source": "月",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~数值~介绍",
+      "rel_name": "拥有",
+      "source": "数值",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~武器~介绍",
+      "rel_name": "拥有",
+      "source": "武器",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~音乐~介绍",
+      "rel_name": "拥有",
+      "source": "音乐",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~县~介绍",
+      "rel_name": "拥有",
+      "source": "县",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~文学单元~介绍",
+      "rel_name": "拥有",
+      "source": "文学单元",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~绘画~介绍",
+      "rel_name": "拥有",
+      "source": "绘画",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~小说~介绍",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~三围~介绍",
+      "rel_name": "拥有",
+      "source": "三围",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~宗教~介绍",
+      "rel_name": "拥有",
+      "source": "宗教",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~网络连接~介绍",
+      "rel_name": "拥有",
+      "source": "网络连接",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~罩杯~介绍",
+      "rel_name": "拥有",
+      "source": "罩杯",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~职业~介绍",
+      "rel_name": "拥有",
+      "source": "职业",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~胸围~介绍",
+      "rel_name": "拥有",
+      "source": "胸围",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~信仰~介绍",
+      "rel_name": "拥有",
+      "source": "信仰",
+      "target": "介绍"
+    },
+    {
+      "name": "拥有~日期~图片",
+      "rel_name": "拥有",
+      "source": "日期",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~电影~图片",
+      "rel_name": "拥有",
+      "source": "电影",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~整数~图片",
+      "rel_name": "拥有",
+      "source": "整数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~活跃地点~图片",
+      "rel_name": "拥有",
+      "source": "活跃地点",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~物种~图片",
+      "rel_name": "拥有",
+      "source": "物种",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~血型~图片",
+      "rel_name": "拥有",
+      "source": "血型",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~语言~图片",
+      "rel_name": "拥有",
+      "source": "语言",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~地区~图片",
+      "rel_name": "拥有",
+      "source": "地区",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~地点~图片",
+      "rel_name": "拥有",
+      "source": "地点",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~漫画类型~图片",
+      "rel_name": "拥有",
+      "source": "漫画类型",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~诗歌~图片",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~虚拟人物~图片",
+      "rel_name": "拥有",
+      "source": "虚拟人物",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~影视类型~图片",
+      "rel_name": "拥有",
+      "source": "影视类型",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~雕塑~图片",
+      "rel_name": "拥有",
+      "source": "雕塑",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~性别~图片",
+      "rel_name": "拥有",
+      "source": "性别",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~身份~图片",
+      "rel_name": "拥有",
+      "source": "身份",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~死亡状态~图片",
+      "rel_name": "拥有",
+      "source": "死亡状态",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~人物~图片",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~国家~图片",
+      "rel_name": "拥有",
+      "source": "国家",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~正实数~图片",
+      "rel_name": "拥有",
+      "source": "正实数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~组织~图片",
+      "rel_name": "拥有",
+      "source": "组织",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~文艺作品~图片",
+      "rel_name": "拥有",
+      "source": "文艺作品",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~动态艺术~图片",
+      "rel_name": "拥有",
+      "source": "动态艺术",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~外貌特征~图片",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~饰物~图片",
+      "rel_name": "拥有",
+      "source": "饰物",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~物品~图片",
+      "rel_name": "拥有",
+      "source": "物品",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~戏剧~图片",
+      "rel_name": "拥有",
+      "source": "戏剧",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~臀围~图片",
+      "rel_name": "拥有",
+      "source": "臀围",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~静态艺术~图片",
+      "rel_name": "拥有",
+      "source": "静态艺术",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~省~图片",
+      "rel_name": "拥有",
+      "source": "省",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~文学类型~图片",
+      "rel_name": "拥有",
+      "source": "文学类型",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~散文~图片",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~行业~图片",
+      "rel_name": "拥有",
+      "source": "行业",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~星座~图片",
+      "rel_name": "拥有",
+      "source": "星座",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~图片~图片",
+      "rel_name": "拥有",
+      "source": "图片",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~衣服~图片",
+      "rel_name": "拥有",
+      "source": "衣服",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~人种~图片",
+      "rel_name": "拥有",
+      "source": "人种",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~综艺~图片",
+      "rel_name": "拥有",
+      "source": "综艺",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~漫画~图片",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~时代~图片",
+      "rel_name": "拥有",
+      "source": "时代",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~实数~图片",
+      "rel_name": "拥有",
+      "source": "实数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~脱口秀~图片",
+      "rel_name": "拥有",
+      "source": "脱口秀",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~介绍~图片",
+      "rel_name": "拥有",
+      "source": "介绍",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~评分~图片",
+      "rel_name": "拥有",
+      "source": "评分",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~年~图片",
+      "rel_name": "拥有",
+      "source": "年",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~书法~图片",
+      "rel_name": "拥有",
+      "source": "书法",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~外貌描述~图片",
+      "rel_name": "拥有",
+      "source": "外貌描述",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~影视作品~图片",
+      "rel_name": "拥有",
+      "source": "影视作品",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~职务~图片",
+      "rel_name": "拥有",
+      "source": "职务",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~体重~图片",
+      "rel_name": "拥有",
+      "source": "体重",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~节~图片",
+      "rel_name": "拥有",
+      "source": "节",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~日~图片",
+      "rel_name": "拥有",
+      "source": "日",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~编号~图片",
+      "rel_name": "拥有",
+      "source": "编号",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~身高~图片",
+      "rel_name": "拥有",
+      "source": "身高",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~自然数~图片",
+      "rel_name": "拥有",
+      "source": "自然数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~段落~图片",
+      "rel_name": "拥有",
+      "source": "段落",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~文学作品~图片",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~纪录片~图片",
+      "rel_name": "拥有",
+      "source": "纪录片",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~腰围~图片",
+      "rel_name": "拥有",
+      "source": "腰围",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~工艺美术~图片",
+      "rel_name": "拥有",
+      "source": "工艺美术",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~国籍~图片",
+      "rel_name": "拥有",
+      "source": "国籍",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~事件类型~图片",
+      "rel_name": "拥有",
+      "source": "事件类型",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~连续剧~图片",
+      "rel_name": "拥有",
+      "source": "连续剧",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~单集长度~图片",
+      "rel_name": "拥有",
+      "source": "单集长度",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~页数~图片",
+      "rel_name": "拥有",
+      "source": "页数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~星期~图片",
+      "rel_name": "拥有",
+      "source": "星期",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~肤色~图片",
+      "rel_name": "拥有",
+      "source": "肤色",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~集数~图片",
+      "rel_name": "拥有",
+      "source": "集数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~章~图片",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~民族~图片",
+      "rel_name": "拥有",
+      "source": "民族",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~事件~图片",
+      "rel_name": "拥有",
+      "source": "事件",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~字数~图片",
+      "rel_name": "拥有",
+      "source": "字数",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~舞蹈~图片",
+      "rel_name": "拥有",
+      "source": "舞蹈",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~市~图片",
+      "rel_name": "拥有",
+      "source": "市",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~月~图片",
+      "rel_name": "拥有",
+      "source": "月",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~数值~图片",
+      "rel_name": "拥有",
+      "source": "数值",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~武器~图片",
+      "rel_name": "拥有",
+      "source": "武器",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~音乐~图片",
+      "rel_name": "拥有",
+      "source": "音乐",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~县~图片",
+      "rel_name": "拥有",
+      "source": "县",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~文学单元~图片",
+      "rel_name": "拥有",
+      "source": "文学单元",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~绘画~图片",
+      "rel_name": "拥有",
+      "source": "绘画",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~小说~图片",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~三围~图片",
+      "rel_name": "拥有",
+      "source": "三围",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~宗教~图片",
+      "rel_name": "拥有",
+      "source": "宗教",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~网络连接~图片",
+      "rel_name": "拥有",
+      "source": "网络连接",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~罩杯~图片",
+      "rel_name": "拥有",
+      "source": "罩杯",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~职业~图片",
+      "rel_name": "拥有",
+      "source": "职业",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~胸围~图片",
+      "rel_name": "拥有",
+      "source": "胸围",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~信仰~图片",
+      "rel_name": "拥有",
+      "source": "信仰",
+      "target": "图片"
+    },
+    {
+      "name": "拥有~日期~网络连接",
+      "rel_name": "拥有",
+      "source": "日期",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~电影~网络连接",
+      "rel_name": "拥有",
+      "source": "电影",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~整数~网络连接",
+      "rel_name": "拥有",
+      "source": "整数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~活跃地点~网络连接",
+      "rel_name": "拥有",
+      "source": "活跃地点",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~物种~网络连接",
+      "rel_name": "拥有",
+      "source": "物种",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~血型~网络连接",
+      "rel_name": "拥有",
+      "source": "血型",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~语言~网络连接",
+      "rel_name": "拥有",
+      "source": "语言",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~地区~网络连接",
+      "rel_name": "拥有",
+      "source": "地区",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~地点~网络连接",
+      "rel_name": "拥有",
+      "source": "地点",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~漫画类型~网络连接",
+      "rel_name": "拥有",
+      "source": "漫画类型",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~诗歌~网络连接",
+      "rel_name": "拥有",
+      "source": "诗歌",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~虚拟人物~网络连接",
+      "rel_name": "拥有",
+      "source": "虚拟人物",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~影视类型~网络连接",
+      "rel_name": "拥有",
+      "source": "影视类型",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~雕塑~网络连接",
+      "rel_name": "拥有",
+      "source": "雕塑",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~性别~网络连接",
+      "rel_name": "拥有",
+      "source": "性别",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~身份~网络连接",
+      "rel_name": "拥有",
+      "source": "身份",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~死亡状态~网络连接",
+      "rel_name": "拥有",
+      "source": "死亡状态",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~人物~网络连接",
+      "rel_name": "拥有",
+      "source": "人物",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~国家~网络连接",
+      "rel_name": "拥有",
+      "source": "国家",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~正实数~网络连接",
+      "rel_name": "拥有",
+      "source": "正实数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~组织~网络连接",
+      "rel_name": "拥有",
+      "source": "组织",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~文艺作品~网络连接",
+      "rel_name": "拥有",
+      "source": "文艺作品",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~动态艺术~网络连接",
+      "rel_name": "拥有",
+      "source": "动态艺术",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~外貌特征~网络连接",
+      "rel_name": "拥有",
+      "source": "外貌特征",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~饰物~网络连接",
+      "rel_name": "拥有",
+      "source": "饰物",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~物品~网络连接",
+      "rel_name": "拥有",
+      "source": "物品",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~戏剧~网络连接",
+      "rel_name": "拥有",
+      "source": "戏剧",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~臀围~网络连接",
+      "rel_name": "拥有",
+      "source": "臀围",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~静态艺术~网络连接",
+      "rel_name": "拥有",
+      "source": "静态艺术",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~省~网络连接",
+      "rel_name": "拥有",
+      "source": "省",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~文学类型~网络连接",
+      "rel_name": "拥有",
+      "source": "文学类型",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~散文~网络连接",
+      "rel_name": "拥有",
+      "source": "散文",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~行业~网络连接",
+      "rel_name": "拥有",
+      "source": "行业",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~星座~网络连接",
+      "rel_name": "拥有",
+      "source": "星座",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~图片~网络连接",
+      "rel_name": "拥有",
+      "source": "图片",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~衣服~网络连接",
+      "rel_name": "拥有",
+      "source": "衣服",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~人种~网络连接",
+      "rel_name": "拥有",
+      "source": "人种",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~综艺~网络连接",
+      "rel_name": "拥有",
+      "source": "综艺",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~漫画~网络连接",
+      "rel_name": "拥有",
+      "source": "漫画",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~时代~网络连接",
+      "rel_name": "拥有",
+      "source": "时代",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~实数~网络连接",
+      "rel_name": "拥有",
+      "source": "实数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~脱口秀~网络连接",
+      "rel_name": "拥有",
+      "source": "脱口秀",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~介绍~网络连接",
+      "rel_name": "拥有",
+      "source": "介绍",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~评分~网络连接",
+      "rel_name": "拥有",
+      "source": "评分",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~年~网络连接",
+      "rel_name": "拥有",
+      "source": "年",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~书法~网络连接",
+      "rel_name": "拥有",
+      "source": "书法",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~外貌描述~网络连接",
+      "rel_name": "拥有",
+      "source": "外貌描述",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~影视作品~网络连接",
+      "rel_name": "拥有",
+      "source": "影视作品",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~职务~网络连接",
+      "rel_name": "拥有",
+      "source": "职务",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~体重~网络连接",
+      "rel_name": "拥有",
+      "source": "体重",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~节~网络连接",
+      "rel_name": "拥有",
+      "source": "节",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~日~网络连接",
+      "rel_name": "拥有",
+      "source": "日",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~编号~网络连接",
+      "rel_name": "拥有",
+      "source": "编号",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~身高~网络连接",
+      "rel_name": "拥有",
+      "source": "身高",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~自然数~网络连接",
+      "rel_name": "拥有",
+      "source": "自然数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~段落~网络连接",
+      "rel_name": "拥有",
+      "source": "段落",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~文学作品~网络连接",
+      "rel_name": "拥有",
+      "source": "文学作品",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~纪录片~网络连接",
+      "rel_name": "拥有",
+      "source": "纪录片",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~腰围~网络连接",
+      "rel_name": "拥有",
+      "source": "腰围",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~工艺美术~网络连接",
+      "rel_name": "拥有",
+      "source": "工艺美术",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~国籍~网络连接",
+      "rel_name": "拥有",
+      "source": "国籍",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~事件类型~网络连接",
+      "rel_name": "拥有",
+      "source": "事件类型",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~连续剧~网络连接",
+      "rel_name": "拥有",
+      "source": "连续剧",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~单集长度~网络连接",
+      "rel_name": "拥有",
+      "source": "单集长度",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~页数~网络连接",
+      "rel_name": "拥有",
+      "source": "页数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~星期~网络连接",
+      "rel_name": "拥有",
+      "source": "星期",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~肤色~网络连接",
+      "rel_name": "拥有",
+      "source": "肤色",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~集数~网络连接",
+      "rel_name": "拥有",
+      "source": "集数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~章~网络连接",
+      "rel_name": "拥有",
+      "source": "章",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~民族~网络连接",
+      "rel_name": "拥有",
+      "source": "民族",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~事件~网络连接",
+      "rel_name": "拥有",
+      "source": "事件",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~字数~网络连接",
+      "rel_name": "拥有",
+      "source": "字数",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~舞蹈~网络连接",
+      "rel_name": "拥有",
+      "source": "舞蹈",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~市~网络连接",
+      "rel_name": "拥有",
+      "source": "市",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~月~网络连接",
+      "rel_name": "拥有",
+      "source": "月",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~数值~网络连接",
+      "rel_name": "拥有",
+      "source": "数值",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~武器~网络连接",
+      "rel_name": "拥有",
+      "source": "武器",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~音乐~网络连接",
+      "rel_name": "拥有",
+      "source": "音乐",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~县~网络连接",
+      "rel_name": "拥有",
+      "source": "县",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~文学单元~网络连接",
+      "rel_name": "拥有",
+      "source": "文学单元",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~绘画~网络连接",
+      "rel_name": "拥有",
+      "source": "绘画",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~小说~网络连接",
+      "rel_name": "拥有",
+      "source": "小说",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~三围~网络连接",
+      "rel_name": "拥有",
+      "source": "三围",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~宗教~网络连接",
+      "rel_name": "拥有",
+      "source": "宗教",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~网络连接~网络连接",
+      "rel_name": "拥有",
+      "source": "网络连接",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~罩杯~网络连接",
+      "rel_name": "拥有",
+      "source": "罩杯",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~职业~网络连接",
+      "rel_name": "拥有",
+      "source": "职业",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~胸围~网络连接",
+      "rel_name": "拥有",
+      "source": "胸围",
+      "target": "网络连接"
+    },
+    {
+      "name": "拥有~信仰~网络连接",
+      "rel_name": "拥有",
+      "source": "信仰",
+      "target": "网络连接"
+    },
+    {
+      "name": "组成~介绍~数值",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "数值"
+    },
+    {
+      "name": "组成~网络连接~身高",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "身高"
+    },
+    {
+      "name": "组成~图片~臀围",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "臀围"
+    },
+    {
+      "name": "组成~网络连接~职务",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "职务"
+    },
+    {
+      "name": "组成~网络连接~罩杯",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "罩杯"
+    },
+    {
+      "name": "组成~图片~字数",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "字数"
+    },
+    {
+      "name": "组成~介绍~血型",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "血型"
+    },
+    {
+      "name": "组成~介绍~活跃地点",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "活跃地点"
+    },
+    {
+      "name": "组成~介绍~县",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "县"
+    },
+    {
+      "name": "组成~介绍~实数",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "实数"
+    },
+    {
+      "name": "组成~介绍~漫画类型",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "漫画类型"
+    },
+    {
+      "name": "组成~介绍~章",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "章"
+    },
+    {
+      "name": "组成~网络连接~整数",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "整数"
+    },
+    {
+      "name": "组成~介绍~介绍",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "介绍"
+    },
+    {
+      "name": "组成~网络连接~编号",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "编号"
+    },
+    {
+      "name": "组成~图片~身高",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "身高"
+    },
+    {
+      "name": "组成~图片~页数",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "页数"
+    },
+    {
+      "name": "组成~介绍~集数",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "集数"
+    },
+    {
+      "name": "组成~介绍~网络连接",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "网络连接"
+    },
+    {
+      "name": "组成~图片~日期",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "日期"
+    },
+    {
+      "name": "组成~图片~章",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "章"
+    },
+    {
+      "name": "组成~图片~动态艺术",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "动态艺术"
+    },
+    {
+      "name": "组成~介绍~职务",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "职务"
+    },
+    {
+      "name": "组成~网络连接~物品",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "物品"
+    },
+    {
+      "name": "组成~介绍~星期",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "星期"
+    },
+    {
+      "name": "组成~介绍~综艺",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "综艺"
+    },
+    {
+      "name": "组成~网络连接~诗歌",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "诗歌"
+    },
+    {
+      "name": "组成~介绍~地点",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "地点"
+    },
+    {
+      "name": "组成~图片~饰物",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "饰物"
+    },
+    {
+      "name": "组成~网络连接~体重",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "体重"
+    },
+    {
+      "name": "组成~介绍~物种",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "物种"
+    },
+    {
+      "name": "组成~网络连接~地点",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "地点"
+    },
+    {
+      "name": "组成~图片~人种",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "人种"
+    },
+    {
+      "name": "组成~介绍~虚拟人物",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "虚拟人物"
+    },
+    {
+      "name": "组成~图片~地点",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "地点"
+    },
+    {
+      "name": "组成~介绍~腰围",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "腰围"
+    },
+    {
+      "name": "组成~图片~实数",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "实数"
+    },
+    {
+      "name": "组成~图片~罩杯",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "罩杯"
+    },
+    {
+      "name": "组成~网络连接~图片",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "图片"
+    },
+    {
+      "name": "组成~网络连接~自然数",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "自然数"
+    },
+    {
+      "name": "组成~网络连接~影视类型",
+      "rel_name": "组成",
+      "source": "网络连接",
+      "target": "影视类型"
+    },
+    {
+      "name": "组成~图片~三围",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "三围"
+    },
+    {
+      "name": "组成~图片~漫画",
+      "rel_name": "组成",
+      "source": "图片",
+      "target": "漫画"
+    },
+    {
+      "name": "组成~介绍~文艺作品",
+      "rel_name": "组成",
+      "source": "介绍",
+      "target": "文艺作品"
+    }
+
+  ]
+}

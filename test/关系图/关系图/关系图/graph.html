@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 1200px;height:700px;"></div>
+
+
+<script>
+    var w = 1200, h = 700;
+    // 基于准备好的dom，初始化echarts实例
+    var uChart = echarts.init(document.getElementById('main'));
+
+    uChart.showLoading();
+    $.getJSON('/api/v2/xadmin/relation/', function (data) {
+    uChart.hideLoading();
+    // data == 刚才这个文件的数据
+    var graph = {};
+    graph.links =data.resultObj; // 这是那个数组
+    uChart.hideLoading();
+    //        var graph = echarts.dataTool.gexf.parse(xml);
+
+    //for (var i = 0; i < graph.length; i++) {
+    //    node[i] = {
+    //        name: '类目' + i
+    //    };
+    //}
+    // graph 就是一个数组，没有source字段，
+    /** 这个是graph，他是一个数组，他自己没有source字段；graph 是一个对象数组，每个对象有source字段；*/
+    // 首先明确forEach循环的是一个数组，graph自己就是数组。所以需要这样写；
+
+//        node.forEach(function (node) {
+//            node.itemStyle = null;
+//            node.value = node.symbolSize;
+//            node.label.normal.show = node.symbolSize > 30;
+////            node.category = node.attributes.modularity_class;
+//        });
+        //graph.links.forEach(function (link) {
+        //    link.category = link.rel_name;
+        //});
+
+    var categories = getCategories(graph.links);
+
+    graph.nodes = getNodes(graph.links);
+
+    option = {
+        title: {
+            text: 'Les Miserables',
+            subtext: 'Default layout',
+            top: 'bottom',
+            left: 'right'
+        },
+        tooltip: {},
+        legend: [{
+            // selectedMode: 'single',
+            data: categories.map(function (a) {
+                return a.name;
+            })
+        }],
+        animationDuration: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                name: '关系图',
+                type: 'graph',
+                layout: 'force',
+                force: {
+                    gravity: 0.1,
+                    repulsion: 200,
+                    edgeLength: 200,
+                },
+
+                data: graph.nodes,
+                links: graph.links,
+                categories: categories,
+                roam: true,
+                label: {
+                    normal: {
+                        position: 'right',
+                        formatter: '{b}'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        color: 'source',
+                        curveness: 0.3
+                    }
+                },
+                gravity: 0.02,
+                repulsion:100
+            }
+        ]
+    };
+
+    uChart.setOption(option);
+    });
+
+
+
+    function getNodes(_obj) {
+        var nodes = [];
+        var keys = {};
+        for (var i = 0; i < _obj.length; i++) {
+            keys[_obj[i].source] = _obj[i].rel_name;
+            keys[_obj[i].target] = _obj[i].rel_name;
+
+        }
+        for (var k in keys) {
+            var node = {};
+            node.name = k;
+            //node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);
+            //node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);
+
+            node.category = keys[k];
+            node.itemStyle = null;
+            //node.value = node.symbolSize;
+            //node.symbolSize /= 1.5;
+            node.label = {
+                normal: {
+                    show: true
+                }
+            };
+
+            nodes.push(node);
+
+        }
+
+        return nodes;
+    }
+
+    function getCategories(_obj) {
+        var categories = [];
+        var keys = {};
+        for (var i = 0; i < _obj.length; i++) {
+            keys[_obj[i].rel_name] = true;
+        }
+        var i = 0;
+        for (var k in keys) {
+            categories[i] = {
+                name: k
+            }
+            i++;
+        }
+
+        return categories;
+    }
+</script>
+
+</body>
+</html>

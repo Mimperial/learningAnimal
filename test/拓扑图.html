@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main" style="width: 900px;height:900px;"></div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/echarts.js"></script>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.showLoading();
+/*    var id = 10;
+    var keyword = domcument.getElementById("keyword");*/
+    // jquery
+
+    var nodes = []; // 存放页面上的所有点
+    var edges = []; // 存放所有的连线信息
+
+    $.post('/api/v2/xadmin/relationobject/',{'name':'页数#168'},function (json) {
+
+        var listObject = json.resultObj;
+        // console.log(result.resultObj);
+        $.each(listObject, function(i, field){
+            //  $("p").append(field + " ");
+            var node1 = {
+                "id":field.source_obj
+            };
+            var node2 = {
+                "id":field.target_obj
+            };
+            nodes.push(node1);
+            nodes.push(node2);
+
+            var edge = {
+                "sourceID": field.source_obj,
+                "targetID":field.target_obj
+            };
+            edges.push(edge);
+
+        });
+        var tempNodes = new Set(nodes);
+        nodes =  Array.from(new Set(tempNodes));
+
+        myChart.hideLoading();
+        myChart.setOption(option = {
+            title: {
+                text: 'NPM Dependencies'
+            },
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series : [
+                {
+                    type: 'graph',
+                    layout: 'none',
+                    // progressiveThreshold: 700,
+                    data: nodes.map(function (node) {
+                        return {
+                            x: node.x,
+                            y: node.y,
+                            id: node.id,
+                            name: node.label,
+                            symbolSize: node.size,
+                            itemStyle: {
+                                normal: {
+                                    color: node.color
+                                }
+                            }
+                        };
+                    }),
+                    edges: edges.map(function (edge) {
+                        return {
+                            source: edge.sourceID,
+                            target: edge.targetID
+                        };
+                    }),
+                    label: {
+                        emphasis: {
+                            position: 'right',
+                            show: true
+                        }
+                    },
+                    roam: true,
+                    focusNodeAdjacency: true,
+                    lineStyle: {
+                        normal: {
+                            width: 0.5,
+                            curveness: 0.3,
+                            opacity: 0.7
+                        }
+                    }
+                }
+            ]
+        }, true);
+    });
+
+
+</script>
+</body>
+</html>

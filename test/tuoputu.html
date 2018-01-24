@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div id="obj-main" style="width: 1000px;height:1000px;margin: 0 auto"></div>
+
+<script>
+    var myChart = echarts.init(document.getElementById('obj-main'));
+    myChart.showLoading();
+    /*    var id = 10;
+        var keyword = domcument.getElementById("keyword");*/
+    // jquery
+
+    var nodes = []; // 存放页面上的所有点
+    var edges = []; // 存放所有的连线信息
+
+
+    $.getJSON('obj-tuoputu.json',function (json) {
+
+        var listObject = json.resultObj;
+        // console.log(result.resultObj);
+
+        var node1 = {
+            "id":"页数#168",
+            "label":"页数#168"
+        }
+        nodes.push(node1);
+        $.each(listObject, function(i, field){
+            //  $("p").append(field + " ");
+
+            var node2 = {
+                "id":field.target_obj,
+                "label":field.target_obj
+            }
+            //nodes.push(node1);
+            nodes.push(node2);
+
+            var edge = {
+                "sourceID": field.source_obj,
+                "targetID":field.target_obj,
+            }
+            edges.push(edge);
+
+        });
+        /* var tempNodes = new Set(nodes);
+         nodes =  Array.from(new Set(tempNodes));*/
+
+        //dedupe(nodes);
+
+        console.log(nodes);
+        console.log(edges);
+
+        myChart.hideLoading();
+        myChart.setOption(option = {
+            title: {
+                text: 'NPM Dependencies'
+            },
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series : [
+                {
+                    type: 'graph',
+                    layout : 'force', //图的布局，类型为力导图，'circular' 采用环形布局，见示例 Les Miserables
+                    progressiveThreshold: 700,
+                    data: nodes.map(function (node) {
+                        return {
+                            id: node.id,
+                            name: node.label,
+
+                            symbolSize:Math.round(Math.random()*50),
+                            itemStyle: {
+                                normal: {
+                                    color:  '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6)
+                                }
+                            }
+                        };
+                    }),
+                    edges: edges.map(function (edge) {
+                        return {
+                            source: edge.sourceID,
+                            target: edge.targetID
+                        };
+                    }),
+                    label: {
+                        emphasis: {
+                            position: 'right',
+                            show: true
+                        }
+                    },
+                    roam: true,
+                    focusNodeAdjacency: true,
+                    lineStyle: {
+                        normal: {
+                            width: 0.5,
+                            curveness: 0.3,
+                            opacity: 0.7
+                        }
+                    }
+                }
+            ]
+        }, true);
+    });
+
+</script>
+</body>
+</html>
