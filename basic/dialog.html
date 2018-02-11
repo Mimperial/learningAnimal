@@ -518,7 +518,7 @@
         //显示问题的答案到屏幕上
         function showAnswer(){
             var now=new Date().toLocaleTimeString();
-            var outputString="<div class='answerbox'><br />一粒马豆 "+now+"<br /><br /><div class='speech'>"+answerString+"</div><br /></div>";
+            var outputString="<div class='answerbox'><br />用户 "+now+"<br /><br /><div class='speech'>"+answerString+"</div><br /></div>";
             document.getElementById("dialogDisplay").innerHTML+=outputString;
             document.getElementById("dialogDisplay").scrollTop=document.getElementById("dialogDisplay").scrollHeight;
         }

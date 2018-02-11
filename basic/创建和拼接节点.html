@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+        }
+    </style>
+    <script src="../jquery-3.2.1.min.js"></script>
+
+    <!--一个ul和一个按钮，点击按钮，就给ul增加一个li-->
+</head>
+<body>
+<ul class="demo">
+    <li>创建节点</li>
+</ul>
+<input id="search" type="button" value="查询">
+<script>
+    $("#search").click(function () {
+        var str = "<li>创建节点</li>";
+       $(".demo").append(str);
+    });
+</script>
+</body>
+</html>

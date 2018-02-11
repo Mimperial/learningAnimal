@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>jQuery.each demo</title>
+    <title>对象与数组的相互转化</title>
     <style>
         div {
             color: blue;
@@ -22,18 +22,19 @@
 <div id="five"></div>
 
 <script>
-    var arr = [ "one", "two", "three", "four", "five" ];
+//    var arr = [ "one", "two", "three", "four", "five" ];
     var obj = { one: 1, two: 2, three: 3, four: 4, five: 5 };
-
-    jQuery.each( arr, function( i, val ) {
-        $( "#" + val ).text( "Mine is " + val + "." );
-
-        // Will stop running after "three"
+    //数组转对象
+//    jQuery.each( arr, function( i, val ) {
+//        $( "#" + val ).text( "Mine is " + val + "." );
+//
+//        // Will stop running after "three"
 //        return ( val !== "three" );
-    });
-
+//    });
+    //对象转数组
     jQuery.each( obj, function( i, val ) {
         $( "#" + i ).append( document.createTextNode( " - " + val ) );
+
     });
 </script>
 
