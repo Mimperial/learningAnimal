@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+<div id="vue_det">
+    <h1>site:{{site}}</h1>
+    <h1>url:{{url}}</h1>
+    <h1>{{details()}}</h1>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'Hello Vue.js!'
+        }
+
+    })
+    var vm = new Vue({
+        el:'#vue_det',
+        data:{
+            site:"可以访问",
+            url:"www.baidu.com",
+            alexa:"10000"
+        },
+        methods:{
+            details:function () {
+                return this.site + " - 人傻多作怪";
+            }
+        }
+    })
+    var data = {site:"aini",url:"www.baidu.com",alexa:10000};
+    var vn = new Vue({
+        el: '#vue_det',
+        data:data
+    });
+//他们引用相同的对象？什么意思
+    console.log(vn.a);
+    document.write(vn.a === data.a);
+    document.write("<br>")
+//设置属性也会影响到原始数据
+    vn.site = "我就是大金牛";
+    document.write(data.site+"<br>");
+
+    data.alexa = 1234
+    document.write(vn.alexa);
+
+//    实例属性
+
+</script>
+
+</body>
+</html>

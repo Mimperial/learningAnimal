@@ -1,0 +1,30 @@
+{
+  "msg": "",
+  "code": 1,
+  "resultObj": {
+    "data": [
+      {
+        "content": {
+          "江华": [
+            180
+          ],
+          "奇道": [
+            180,
+            180
+          ],
+          "布鲁克·威廉姆斯": [
+            160,
+            160
+          ]
+        },
+        "index": {},
+        "predicator": "映射<演员,列表<身高>>",
+        "feaction": null
+      }
+    ],
+    "direction": "B",
+    "user_id": "12",
+    "ctime": 1519977090345,
+    "order": "#D"
+  }
+}
