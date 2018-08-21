@@ -14,15 +14,23 @@
 
 <script>
     $(function () {
-        //var numberArray = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
-        var numberArray = [10,20,50,60,100]
-        //var numberArray = [3,7,10,20,50,100]
+//        var aNumber = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
+        var aNumber = [1,2,4,6,7,10];
+//        var aNumber = [10,20,50,60,100]
+//        var aNumber = [3,7,10,20,50,100]
+
+        /*将浮点数组转为整数数组*/
+        var aNewNumber = [];
+        for(var i = 0 ; i < aNumber.length ; i++){
+
+            aNewNumber.push(parseInt(aNumber[i]));
+        }/*end*/
 
         var divWidth = $('.line').width()
         /*计算点距离坐标原点的距离*/
         var aDotDistance = [];
-        for(var i = 0 ; i<numberArray.length; i++ ){
-            var dotDistance = divWidth / parseInt(numberArray[numberArray.length-1]) * numberArray[i];
+        for(var i = 0 ; i<aNewNumber.length; i++ ){
+            var dotDistance = divWidth / parseInt(aNewNumber[aNewNumber.length-1]) * aNewNumber[i];
 
             aDotDistance.push(dotDistance)
         }
@@ -31,18 +39,20 @@
         /*画点和点对应的内容*/
         var aDotStr = [];
         function getDot(){
-        //numberArray = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
-        //numberArray = [3,7,10,20,50,100]
-            numberArray = [10,20,50,60,100]
+//            aNumber = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
+            var aNumber = [1,2,4,6,7,10];
+//            aNumber = [10,20,50,60,100]
+//                        var aNumber = [3,7,10,20,50,100]
+
             for(var k = 0 ; k<aDotDistance.length; k++){
 
 
                 var dotStr = `<div class="dots dots-odd" id="dot${k}">
 
-                                <div class="numberSelf-odd">${numberArray[k]}</div>
-
+                                <div class="numberSelf-odd">${aNewNumber[k]}</div>
+                                <div class="beeline-odd"></div>
                                 <div class="numberLine-content-bottom" id=${k}>
-                                    <p class="text-align-center">家春秋</p>
+                                    <p class="text-align-center">标题：</p>
                                     <img src="imgs/pts.jpg" alt="">
                                 </div>
 
@@ -50,12 +60,13 @@
                 if(k % 2 !== 0){
                     var dotStr = `<div class="dots-even" id="dot${k}">
 
-                                <div class="numberLine-content-bottom" id=${k}>
-                                    <p class="text-align-center">家春秋</p>
+                                <div class="numberLine-content-bottom numberLine-content-bottom-even" id=${k}>
+                                    <p class="text-align-center">标题：</p>
                                     <img src="imgs/pts.jpg" alt="">
                                 </div>
+                                <div class="beeline-even"></div>
                                 <div class="dots" style="top: 17.5rem;">
-                                    <div class="numberSelf-even">${numberArray[k]}</div>
+                                    <div class="numberSelf-even">${aNewNumber[k]}</div>
                                 </div>
 
                             </div>`
@@ -68,16 +79,24 @@
         $('.contain-dot').append(getDot())
 
         /*按照距离动态改变style.left属性使点水平移动*/
+        var nAdjoinDiff = 0;
         function doMove() {
 
             for(var j=0; j<aDotDistance.length; j++) {
                 var divDots=document.getElementById("dot"+j);
+                var leftDis = divDots.style.left;
                 divDots.style.left = aDotDistance[j]+"px"; //每次循环的距离给到圆点，现在情况是每次只给1个节点定left，所以只出来一个，
+                nAdjoinDiff = parseInt(aDotDistance[j+1]+"px")-parseInt( aDotDistance[j]+"px");
 
                 if(j % 2 !== 0){
                     divDots.style.cssText = " top: -19rem;";
                     divDots.style.left = aDotDistance[j]+"px";
                 }
+//                if(nAdjoinDiff < 260){
+//                    console.log("相邻小于260")
+//                    divDots.style.left = parseInt(aDotDistance[j])+300 + "px";
+//
+//                }
             }
         }
         doMove()
