@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>智能搜索问答系统</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link href="js/timelineDist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="js/audio/styles.css">
+    <script src="js/jquery1.11.0.js"></script>
+    <!--<script src="js/jquery-3.2.1.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/wordcloud.min.js"></script>
+    <script src="js/bt/bootstrap-table.js"></script>
+    <script src="js/bt/bootstrap-table-editable.js"></script>
+    <script src="js/bt/bootstrap-table-export.js"></script>
+    <script src="js/bt/bootstrap-table-zh-CN.js"></script>
+    <script src="js/timelineDist/vis.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5mLzpC2ig7QfmyueNvxvyD3TCGwQMLEQ"></script>
+    <script src="js/map.js"></script>
+    <script src="js/audio/src/howler.core.js"></script>
+    <script src="js/audio/siriwave.js"></script>
+    <script src="js/audio/sea.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<!--头-->
+<div class="row head">
+    <!--本地信息-->
+    <div class="head-top">
+        <span class="time"><label id="DateTime"></label></span>
+        <!--<span>地点:</span>-->
+        <!--<span>天气:</span>-->
+        <span class="u"><i class="fas fa-cloud "></i><span class="username" id="u_name">用户名:</span></span>
+    </div>
+
+    <div class="head-main row">
+        <!--联想文字-->
+        <div class="Aipic" id="hotPoint"></div>
+        <!--ai图-->
+        <img class="aimg" src="image/rb.png" alt="ai头像" width="244px" height="198px">
+        <!--查询-->
+        <div class="row col-xs-offset-3 ">
+            <div class="search">
+                <div class="col-xs-8">
+                    <input id= "searchText" class="form-control" placeholder="请输入您想要询问的内容"/>
+                </div>
+
+                <div class="col-xs-1">
+                    <input id="obejct-search" onclick="getAnswer()" type="button" class="btn btn-success obejct-search " value="查询" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--问答主体-->
+<div class="content"></div>
+
+<script type="text/javascript">
+    //    <!--实时时间-->
+    var slidint;
+    function newTimer() {
+        stopit();
+        var today;
+        today = new Date();
+        var str = today.toLocaleDateString();
+        str += "  " + week();
+        str += "  " + today.toLocaleTimeString();
+        var o = document.getElementById("DateTime");
+        o.innerHTML = str;
+        slidint = setTimeout(newTimer, 3000);
+    }
+    function stopit() {
+        clearTimeout(slidint);
+    }
+    function week() {
+        var d, day, x, s = " ";
+        var x = new Array("星期日", "星期一", "星期二");
+        var x = x.concat("星期三", "星期四", "星期五");
+        var x = x.concat("星期六");
+        d = new Date();
+        day = d.getDay();
+        return (s += x[day]);
+    }
+    window.onload = function() {
+        newTimer();
+    };
+    //时间end
+    /*---两个ajax请求都需要的参数放在最上边---*/
+    var u_id =  window.localStorage.getItem("u_id");//获取登录页面的用户名和u_id
+    var u_name = window.localStorage.getItem("u_name");
+    $("#u_name").text("欢迎你 "+ u_name);
+    var keyword = "国家";
+    /*-----------------随机联想------------------------*/
+    var myChart = echarts.init(document.getElementById('hotPoint'));
+    option = {
+        title: {
+            text: '',
+            x: '',
+            textStyle: {
+                fontSize: 23
+            }
+        },
+        backgroundColor: '#F7F7F7',
+        tooltip: {
+            show: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {
+                    iconStyle: {
+                        normal: {
+                            color: '#FFFFFF'
+                        }
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '',
+            type: 'wordCloud',
+            sizeRange: [6, 66],//词的大小范围
+            rotationRange: [-45, 90],//词的离散弧度
+            gridSize: 30, //词与词之间的距离,网格大小
+            textPadding: 0,
+            autoSize: {
+                enable: true,
+                minSize: 6
+            },
+            textStyle: {
+                normal: {
+                    color: function() {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 160),
+                            Math.round(Math.random() * 160),
+                            Math.round(Math.random() * 160)
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
+                    shadowBlur: 100,
+                    shadowColor: '#333'
+                }
+            }
+        }]
+    };
+    var ranimaginaObjArr = [];
+    $.post('/api/v6/randomimagination/',{'user_id': u_id, 'input': keyword, 'max_number': 800},function (data) {
+        var resultObjArr = data.resultObj;//随机联想接口返回的数据
+        var contentArr = resultObjArr[0].content;
+        for(var i = 0;i<contentArr.length;i++){
+            //请求回来的一维数组转为对象数组
+            ranimaginaObjArr.push({"name":contentArr[i],"value":Math.ceil(Math.random()*800)})
+        }
+        option.series[0].data = ranimaginaObjArr;
+        myChart.setOption(option);
+    });
+    /*随机联想end*/
+
+    var QAlist = []; //将问答放在数组中存起来，每个是一个问题和答案的html片段字符串
+    var dataTables = [];//存储table
+    var arrMap = [];//存地图
+    var markerArr = [];//地图数据数组
+    var firstObject = {}; //返回对象数组的第一个对象
+    var stype = "";//返回显示数据的类型，列表【时间轴，图片】，映射【表格】，
+    var typeArrayByComma = [];//一次逗号拆分 ["列表", "文字#电影"]
+    var arrayTwoSpli = [];//二次 #号拆分["文字", "人物"]
+    var aThrSpli = [];//三次#号拆分["数值", "身高"]
+    var nanSerial = null;
+    var oTwoConcept = {};//返回的是两个概念的对象（映射）
+    var aOneConcept = [];//返回的是一个概念的数组（列表）
+    var aMainContent = [];//返回的主要内容
+    var sthFirCon = "人物";
+    var sthSec = "身高";
+    var count = 0;//计算点击的个数
+    var countArr = [];//存储div的id名字
+    var allData = [];//存储每次点击所得到的数据;
+    /*-----------------------问答页面-------------------------*/
+    function getAnswer() {
+        keyword = $("#searchText").val(); //获取查询的文字
+
+        $("#userQuestion").text(keyword);
+        $.ajax({
+            url: '/api/v6/query/info/',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'user_id': u_id,
+                'text': keyword   //查询内容
+            },
+//            timeout: 8000,
+            cache: false,
+            beforeSend: LoadFunction,
+            error: erryFunction,
+            success: succFunction
+        });
+        function succFunction(_json) {//技术成功
+            count += 1;
+            nanSerial = _json.resultObj.order; // 序号
+            var resultData = _json.resultObj.data;
+            allData.push(resultData);
+            allData.forEach(function(val,index){
+                console.log(val);
+                firstObject = val[0];//{}或[]
+                stype = firstObject.fronttype;//,,
+                if (stype !== null){
+                    typeArrayByComma = stype.split(",");
+                    typeArrayByWellNum = stype.split("#");
+                    var mainContentType = typeArrayByComma[0];
+                    var basicType = typeArrayByWellNum[0];
+                    // 校验
+                    if (mainContentType == null || mainContentType == "" ) {
+                        return;
+                    }
+                    if (basicType === "文字") {//基础类型的文字
+                        var sJoin = createQaString(keyword,nanSerial,firstObject.content);
+                        QAlist.push(sJoin);
+                        $(".content").empty();
+                        $(".content").append(QAlist.join("  "));//append到dom对象中
+
+                    } else if(mainContentType === "列表"){//只查询一个概念时是列表，content里边是数组
+                        // 当前状态的mainCotnent 为数组
+                        aMainContent = firstObject.content;//列表，返回内容是数组
+                        // 子类
+                        arrayTwoSpli = typeArrayByComma[1].split("#");
+
+                        switch (arrayTwoSpli[0]){
+                            case "文字":
+                                var sJoin = createQaString(keyword,nanSerial,aMainContent.join(" | "));
+                                QAlist.push(sJoin);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join("  "));//append到dom对象中
+                                break;
+                            case "图片":
+                            function picStr(li, img) {
+                                var picStr = '<div id="myCarousel" class="carousel slide">' +
+                                    '    <ol class="carousel-indicators">' +li + '</ol>' +
+                                    '    <div class="carousel-inner">' + img + ' </div>' +
+                                    '    <a class="carousel-control left" href="#myCarousel"' +
+                                    '       barData-slide="prev"><img src="image/arrow-left.png" alt=""></a>' +
+                                    '    <a class="carousel-control right" href="#myCarousel"' +
+                                    '       barData-slide="next"><img src="image/arrow-right.png" alt=""></a>' +
+                                    '</div>';
+                                return picStr;
+                            }
+                            function num(num){
+                                var num = '<li barData-target="#myCarousel" barData-slide-to="'+num+'"></li>';
+                                return num;
+                            }
+                            function str(img){
+                                var str ='<div class="item "><img src="'+ img +'" alt="First slide"></div>';
+                                return str;
+                            }
+                                var img = "";
+                                var limg = [];
+                                var linum = [];
+                                for(var i = 1; i < aMainContent.length; i++){
+                                    img = aMainContent[i];
+                                    limg.push(str(img));
+                                    linum.push(num(i));
+                                }
+                                var carouls = picStr('<li barData-target="#myCarousel" barData-slide-to="0" class="active"></li>' + linum.join(""),'<div class="item active"><img src="image/2.jpg" alt="First slide"></div>' +limg.join(""));
+                                console.log(carouls);
+                                //                        $('.content').append(carouls);
+                                var qaString = createQaString(keyword,nanSerial,carouls);
+                                QAlist.push(qaString);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join(""));//append到dom对象中
+                                break;
+                            case "时间":
+                                alert('日期数据不足');
+                                //                            var sTimeLine = '<div id="visualization"></div>';
+                                //
+                                //                            var sJoin = createQaString(keyword,nanSerial,sTimeLine);//拼接创建对话流
+                                //
+                                //                            QAlist.push(sJoin);
+                                //                            $(".content").empty();
+                                //                            $(".content").append(QAlist.join(" "));//append到dom对象中
+                                //                            var container = document.getElementById('visualization');//要先append成为dom对象，再获取，才能获取到
+                                //
+                                //                            var aTimelineCon = [];
+                                //                            var aObjIndex = Object.keys(oTwoConcept);
+                                //
+                                //                            for (var i = 0; i< Object.keys(oTwoConcept).length; i++){
+                                //                                var oTimelinecon = {};
+                                //                                oTimelinecon.id = i;
+                                //                                oTimelinecon.content = aObjIndex[i];
+                                //                                oTimelinecon.start = oTwoConcept[aObjIndex[i]];
+                                //
+                                //                                aTimelineCon.push(oTimelinecon);
+                                //                                console.log(oTimelinecon);
+                                //                            }
+                                //
+                                //                            var items = new vis.DataSet(aTimelineCon);
+                                //                            var options = {};
+                                //                            var timeline = new vis.Timeline(container, items, options);
+                                break;
+                            case "数值":/*柱状图*/
+                                if(allData.length-1 ==index){
+                                    var barChart = '<div id="bar'+count+'" style="width: 600px;height:400px;"></div>';
+                                    var qaString = createQaString(keyword,nanSerial,barChart);
+                                    $(".content").prepend(qaString);
+                                    var barName = "bar"+count;
+                                    var app = echarts.init(document.getElementById(barName));
+                                    var posList = [
+                                        'left', 'right', 'top', 'bottom',
+                                        'inside',
+                                        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+                                        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+                                    ];
+
+                                    app.config = {
+                                        rotate: 90,
+                                        align: 'left',
+                                        verticalAlign: 'middle',
+                                        position: 'insideBottom',
+                                        distance: 15,
+                                        onChange: function () {
+                                            var labelOption = {
+                                                normal: {
+                                                    rotate: app.config.rotate,
+                                                    align: app.config.align,
+                                                    verticalAlign: app.config.verticalAlign,
+                                                    position: app.config.position,
+                                                    distance: app.config.distance
+                                                }
+                                            };
+                                            myChart.setOption({
+                                                series: [{
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }]
+                                            });
+                                        }
+                                    };
+                                    var labelOption = {
+                                        normal: {
+                                            show: true,
+                                            position: app.config.position,
+                                            distance: app.config.distance,
+                                            align: app.config.align,
+                                            verticalAlign: app.config.verticalAlign,
+                                            rotate: app.config.rotate,
+                                            formatter: '{c}  {name|{a}}',
+                                            fontSize: 16,
+                                            rich: {
+                                                name: {
+                                                    textBorderColor: '#fff'
+                                                }
+                                            }
+                                        }
+                                    };
+                                    option = {
+                                        color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+                                        tooltip: {
+                                            trigger: 'axis',
+                                            axisPointer: {
+                                                type: 'shadow'
+                                            }
+                                        },
+                                        legend: {
+                                            data: ['Forest', 'Steppe', 'Desert', 'Wetland']
+                                        },
+                                        toolbox: {
+                                            show: true,
+                                            orient: 'vertical',
+                                            left: 'right',
+                                            top: 'center',
+                                            feature: {
+                                                mark: {show: true},
+                                                dataView: {show: true, readOnly: false},
+                                                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                                                restore: {show: true},
+                                                saveAsImage: {show: true}
+                                            }
+                                        },
+                                        calculable: true,
+                                        xAxis: [
+                                            {
+                                                type: 'category',
+                                                axisTick: {show: false},
+                                                data: []
+                                            }
+                                        ],
+                                        yAxis: [
+                                            {
+                                                type: 'value'
+                                            }
+                                        ],
+                                        series: [
+                                            {
+                                                name: '',
+                                                type: 'bar',
+                                                barGap: 0,
+                                                label: labelOption,
+                                                data: []
+                                            },
+                                        ]
+                                    };
+                                    for (var i = 0; i < val.length; i++) {
+                                        for (var j in val[i].content) {
+                                            if (typeof val[i].content[j] == 'number') {
+                                                option.xAxis[0].data.push(j);
+                                                option.series[0].data.push(val[i].content[j]);
+                                            } else {
+                                                for (var k = 0; k < val[i].content[j].length; k++) {
+                                                    option.xAxis[0].data.push(j + k);
+                                                    option.series[0].data.push(val[i].content[j][k]);
+                                                }
+                                            }
+                                        }
+                                        // option.xAxis[0].barData.push()
+                                    }
+                                    app.setOption(option);
+                                }
+
+                                break;
+                            case "音乐":
+                                break;
+                            case "其他":
+                                var sJoin = createQaString(keyword,nanSerial,aMainContent.join(" | "));//拼接创建对话流
+                                QAlist.push(sJoin);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join(" "));//append到dom对象中
+                                break;
+                        }
+                    }
+                    else if(mainContentType === "映射"){//查询两个概念时是映射，content里边是对象
+                        oTwoConcept = firstObject.content;//返回的待处理内容{}
+                        arrayTwoSpli = typeArrayByComma[1].split("#");//文字#人物
+                        aThrSpli = typeArrayByComma[2].split("#");//数值#身高,
+//                    switch (arrayTwoSpli[0]){
+//                        case "文字":
+//
+//                            break;
+//                    }
+                        switch (aThrSpli[0]){
+                            case "列表文字":
+                                for(var i = 0; i<Object.keys(oTwoConcept).length; i++){
+                                    var listText = oTwoConcept[i];
+                                    for(var j = 0; j<listText.length; j++){
+
+                                    }
+
+                                }
+                                break;
+
+                            case "时间":
+                                var sTimeLine = '<div id="visualization"></div>';
+                                var sJoin = createQaString(keyword,nanSerial,sTimeLine);//拼接创建对话流
+                                QAlist.push(sJoin);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join(" "));//append到dom对象中
+                                var container = document.getElementById('visualization');//要先append成为dom对象，再获取，才能获取到
+
+                                var aTimelineCon = [];
+                                var aObjIndex = Object.keys(oTwoConcept);
+
+                                for (var i = 0; i< Object.keys(oTwoConcept).length; i++){
+                                    oTimelinecon.id = i;
+                                    var oTimelinecon = {};
+                                    oTimelinecon.content = aObjIndex[i];
+                                    oTimelinecon.start = oTwoConcept[aObjIndex[i]];
+                                    aTimelineCon.push(oTimelinecon);
+                                    console.log(oTimelinecon);
+                                }
+                                var items = new vis.DataSet(aTimelineCon);
+                                var options = {};
+                                var timeline = new vis.Timeline(container, items, options);
+                                break;
+                            case "列表时间":
+                                var sTimeLine = '<div id="visualization"></div>';
+                                var sJoin = createQaString(keyword,nanSerial,sTimeLine);//拼接创建对话流
+
+                                QAlist.push(sJoin);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join("  "));//append到dom对象中
+                                var container = document.getElementById('visualization');//原生获取dom不加#，
+
+//                            $(function () {// Create a DataSet (allows two way barData-binding)
+                                var id = 0; //key+1对应到数组的值中
+                                var logs = [];
+                                for(var key in oTwoConcept) {
+                                    var contents = oTwoConcept[key];
+                                    for (var i=0;i<contents.length;i++)
+                                    {
+                                        var item = {
+                                            id:id++,
+                                            content:key,
+                                            start:contents[i]
+                                        };
+                                        console.log(item);
+                                        logs.push(item);
+                                    }
+                                }
+                                var items = new vis.DataSet(logs);
+                                var options = {};// Configuration for the Timeline
+                                var timeline = new vis.Timeline(container, items, options);// Create a Timeline
+//                            });
+                                break;
+                            case "位置":
+                                var numRandom = Math.ceil(Math.random()*1000);
+                                var mapLocation = "mapLocation" + numRandom;
+                                var map_wrap = '<div class="map-arr " id="' + mapLocation + '"></div>';
+                                var sJoin = createQaString(keyword,nanSerial,map_wrap);//拼接创建对话流
+
+                                QAlist.push(sJoin);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join("  "));//append到dom对象中
+
+                                //标注点数组
+                                for(var key in oTwoConcept) {
+
+                                    var item = {
+                                        title:key,
+                                        content:"返回地点备注",
+                                        point:oTwoConcept[key].replace(/,/,"|"),
+                                        icon:"{w:21,h:21,l:0,t:0,x:6,lb:5}"
+                                    };
+                                    markerArr.push(item);
+                                }
+                                var mapMateData = {
+                                    "id":mapLocation,
+                                    "markerArr":markerArr
+                                };
+
+                                initMap(mapLocation,markerArr);//创建和初始化地图
+                                arrMap.forEach(function(value,index,array){
+                                    initMap(value["id"],value["markerArr"]);//创建和初始化地图
+                                });
+                                arrMap.push(mapMateData);
+                                break;
+                            case "列表位置":
+                                var numRandom = Math.ceil(Math.random()*1000);
+                                var dituContent = "dituContent" + numRandom;
+                                var map_wrap = '<div class="map-arr " id="' + dituContent + '"></div>';
+                                var sJoin = createQaString(keyword,nanSerial,map_wrap);//拼接创建对话流
+
+                                QAlist.push(sJoin);
+                                $(".content").empty();
+                                $(".content").append(QAlist.join("  "));//append到dom对象中
+                                //创建和初始化地图函数：
+                                //标注点数组
+
+                                for(var key in oTwoConcept) {
+                                    var arrValue = oTwoConcept[key];
+                                    for (var i=0;i<arrValue.length;i++)
+                                    {
+
+                                        var item = {
+                                            title:key,
+                                            content:"返回地点备注",
+                                            point:arrValue[i].replace(/,/,"|"),
+                                            icon:"{w:21,h:21,l:0,t:0,x:6,lb:5}"
+                                        };
+                                        markerArr.push(item);
+                                    }
+                                }
+                                var mapMateData = {
+                                    "id":dituContent,
+                                    "markerArr":markerArr
+                                };
+
+                                initMap(dituContent,markerArr);//创建和初始化地图
+                                arrMap.forEach(function(value,index,array){
+                                    initMap(value["id"],value["markerArr"]);//创建和初始化地图
+                                });
+                                arrMap.push(mapMateData);
+
+                                break;
+                            case "数值":
+                                if(allData.length-1 ==index){
+                                    var barChart = '<div id="bar'+count+'" style="width: 600px;height:400px;"></div>';
+                                    var qaString = createQaString(keyword,nanSerial,barChart);
+                                    $(".content").prepend(qaString);
+                                    var barName = "bar"+count;
+                                    var app = echarts.init(document.getElementById(barName));
+                                    var posList = [
+                                        'left', 'right', 'top', 'bottom',
+                                        'inside',
+                                        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+                                        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+                                    ];
+
+                                    app.config = {
+                                        rotate: 90,
+                                        align: 'left',
+                                        verticalAlign: 'middle',
+                                        position: 'insideBottom',
+                                        distance: 15,
+                                        onChange: function () {
+                                            var labelOption = {
+                                                normal: {
+                                                    rotate: app.config.rotate,
+                                                    align: app.config.align,
+                                                    verticalAlign: app.config.verticalAlign,
+                                                    position: app.config.position,
+                                                    distance: app.config.distance
+                                                }
+                                            };
+                                            myChart.setOption({
+                                                series: [{
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }]
+                                            });
+                                        }
+                                    };
+                                    var labelOption = {
+                                        normal: {
+                                            show: true,
+                                            position: app.config.position,
+                                            distance: app.config.distance,
+                                            align: app.config.align,
+                                            verticalAlign: app.config.verticalAlign,
+                                            rotate: app.config.rotate,
+                                            formatter: '{c}  {name|{a}}',
+                                            fontSize: 16,
+                                            rich: {
+                                                name: {
+                                                    textBorderColor: '#fff'
+                                                }
+                                            }
+                                        }
+                                    };
+                                    option = {
+                                        color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+                                        tooltip: {
+                                            trigger: 'axis',
+                                            axisPointer: {
+                                                type: 'shadow'
+                                            }
+                                        },
+                                        legend: {
+                                            data: ['Forest', 'Steppe', 'Desert', 'Wetland']
+                                        },
+                                        toolbox: {
+                                            show: true,
+                                            orient: 'vertical',
+                                            left: 'right',
+                                            top: 'center',
+                                            feature: {
+                                                mark: {show: true},
+                                                dataView: {show: true, readOnly: false},
+                                                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                                                restore: {show: true},
+                                                saveAsImage: {show: true}
+                                            }
+                                        },
+                                        calculable: true,
+                                        xAxis: [
+                                            {
+                                                type: 'category',
+                                                axisTick: {show: false},
+                                                data: []
+                                            }
+                                        ],
+                                        yAxis: [
+                                            {
+                                                type: 'value'
+                                            }
+                                        ],
+                                        series: [
+                                            {
+                                                name: '',
+                                                type: 'bar',
+                                                barGap: 0,
+                                                label: labelOption,
+                                                data: []
+                                            },
+                                        ]
+                                    };
+                                    for (var i = 0; i < val.length; i++) {
+                                        for (var j in val[i].content) {
+                                            if (typeof val[i].content[j] == 'number') {
+                                                option.xAxis[0].data.push(j);
+                                                option.series[0].data.push(val[i].content[j]);
+                                            } else {
+                                                for (var k = 0; k < val[i].content[j].length; k++) {
+                                                    option.xAxis[0].data.push(j + k);
+                                                    console.log(option.xAxis[0].data)
+                                                    option.series[0].data.push(val[i].content[j][k]);
+                                                }
+                                            }
+                                        }
+                                        // option.xAxis[0].barData.push()
+                                    }
+                                    app.setOption(option);
+                                }
+                                break;
+                            case "列表数值"://柱状图
+                                if(allData.length-1 == index) {
+                                    var barChart = '<div id="bar' + count + '" style="width: 600px;height:400px;"></div>';
+                                    var qaString = createQaString(keyword, nanSerial, barChart);
+                                    $(".content").prepend(qaString);
+                                    var barNameArr = "bar" + count;
+                                    var app = echarts.init(document.getElementById(barNameArr));
+                                    var posList = [
+                                        'left', 'right', 'top', 'bottom',
+                                        'inside',
+                                        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+                                        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+                                    ];
+                                    app.config = {
+                                        rotate: 90,
+                                        align: 'left',
+                                        verticalAlign: 'middle',
+                                        position: 'insideBottom',
+                                        distance: 15,
+                                        onChange: function () {
+                                            var labelOption = {
+                                                normal: {
+                                                    rotate: app.config.rotate,
+                                                    align: app.config.align,
+                                                    verticalAlign: app.config.verticalAlign,
+                                                    position: app.config.position,
+                                                    distance: app.config.distance
+                                                }
+                                            };
+                                            myChart.setOption({
+                                                series: [{
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }, {
+                                                    label: labelOption
+                                                }]
+                                            });
+                                        }
+                                    };
+                                    var labelOption = {
+                                        normal: {
+                                            show: true,
+                                            position: app.config.position,
+                                            distance: app.config.distance,
+                                            align: app.config.align,
+                                            verticalAlign: app.config.verticalAlign,
+                                            rotate: app.config.rotate,
+                                            formatter: '{c}  {name|{a}}',
+                                            fontSize: 16,
+                                            rich: {
+                                                name: {
+                                                    textBorderColor: '#fff'
+                                                }
+                                            }
+                                        }
+                                    };
+                                    option = {
+                                        color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+                                        tooltip: {
+                                            trigger: 'axis',
+                                            axisPointer: {
+                                                type: 'shadow'
+                                            }
+                                        },
+                                        legend: {
+                                            data: ['Forest', 'Steppe', 'Desert', 'Wetland']
+                                        },
+                                        toolbox: {
+                                            show: true,
+                                            orient: 'vertical',
+                                            left: 'right',
+                                            top: 'center',
+                                            feature: {
+                                                mark: {show: true},
+                                                dataView: {show: true, readOnly: false},
+                                                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                                                restore: {show: true},
+                                                saveAsImage: {show: true}
+                                            }
+                                        },
+                                        calculable: true,
+                                        xAxis: [
+                                            {
+                                                type: 'category',
+                                                axisTick: {show: false},
+                                                // barData: ['2012', '2013', '2014', '2015', '2016']
+                                                data: []
+                                            }
+                                        ],
+                                        yAxis: [
+                                            {
+                                                type: 'value'
+                                            }
+                                        ],
+                                        series: [
+                                            {
+                                                name: '',
+                                                type: 'bar',
+                                                barGap: 0,
+                                                label: labelOption,
+                                                data: []
+                                            },
+                                        ]
+                                    };
+                                    for (var i = 0; i < resultData.length; i++) {
+                                        for (var j in resultData[i].content) {
+                                            if (typeof resultData[i].content[j] == 'number') {
+                                                option.xAxis[0].data.push(j);
+                                                option.series[0].data.push(resultData[i].content[j]);
+                                            } else {
+                                                for (var k = 0; k < resultData[i].content[j].length; k++) {
+                                                    option.xAxis[0].data.push(j + k);
+                                                    option.series[0].data.push(resultData[i].content[j][k]);
+                                                }
+                                            }
+                                        }
+                                        // option.xAxis[0].barData.push()
+                                    }
+                                    app.setOption(option);
+                                }
+                                break;
+                            case "其他":
+                                /*双输出之一--表格*/
+                                sthFirCon = arrayTwoSpli[1];//人物
+                                sthSec = aThrSpli[1];//身高
+                                var data = [];
+                                for (var key in oTwoConcept) {
+                                    var objTmp = {};
+                                    objTmp.location = key;
+                                    //objTmp.img = '<img class="img-circle" src="' + oMancm[key] + '">';
+                                    objTmp.img = oTwoConcept[key];
+                                    data.push(objTmp);
+                                }
+                                var nrandom = Math.ceil(Math.random()*100);
+                                var tableid = 'fir-table'+nrandom ;
+                                var stable = '<table id="'+tableid+'"></table>'; //创建动态id
+                                console.log(tableid);
+                                var  columns =  [{ // 定义表格的列()
+                                    field: 'location',
+                                    title: sthFirCon
+                                }, {
+                                    field: 'img',
+                                    title: sthSec
+                                }];
+                                var sJoin = createQaString(keyword,nanSerial,stable); //拼接对话流
+                                QAlist.push(sJoin); //对话流存储
+                                console.log("cccc:"+QAlist);
+                                $(".content").empty();//加上empty,历史查询内容清空，不加empty位置错乱
+                                $(".content").append(QAlist);//append到dom对象中
+
+                                $("#"+tableid).bootstrapTable({   //初始化table,用class无法实现表格区分
+                                    formatLoadingMessage: function () {
+                                        return "";
+                                    },
+                                    pagination:"client",
+                                    columns: columns,
+                                    data:data,
+                                    cache: true
+                                });
+
+                                var tableMetaData = {
+                                    "tableId":tableid,
+                                    "columns":columns,
+                                    "barData":data
+                                }
+                                dataTables.forEach(function(value,index,array){
+
+                                    $("#" + value["tableId"]).bootstrapTable({   //初始化table,用class无法实现表格区分
+                                        formatLoadingMessage: function () {
+                                            return "";
+                                        },
+                                        pagination:"client",
+                                        columns:value["columns"],
+                                        data:value["barData"],
+                                        cache: true
+                                    });
+
+                                });
+                                dataTables.push(tableMetaData);
+                                break;
+                        }
+                    }
+                } else {
+                    var sNull = firstObject.content;
+                    alert(sNull);
+                }
+            })
+
+        }
+        function LoadFunction() {
+            $("#").html('加载中...，请尝试刷新页面');
+        }
+        function erryFunction(e) {
+            //500之类的
+            alert("内部服务器错误[Status Code:500 Internal Server Error]")
+        }
+    }
+    //    地图所需函数
+    function initMap(dituContent,markerArr){
+        createMap(dituContent);//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker(markerArr);//向地图中添加marker
+    }
+
+    //创建地图函数：
+    function createMap(dituContent){
+
+        var map = new BMap.Map(dituContent, {minZoom:4,maxZoom:11});//在百度地图容器中创建一个地图,4最小范围缩到国家
+        var point = new BMap.Point(116.404, 39.915);//定义一个中心点坐标
+        map.centerAndZoom(point,10);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+        var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+        map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+        var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+        map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+        var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+        map.addControl(ctrl_sca);
+    }
+
+    //创建marker
+    function addMarker(markerArr){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0,p1);
+            var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,iconImg);
+            var iw = createInfoWindow(json);
+            var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+            marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                borderColor:"#808080",
+                color:"#333",
+                cursor:"pointer",
+                fontWeight :"bold",
+                display: "inline",
+                background: "rgb(255, 255, 255)",
+                border: "1px solid black",
+                padding: "1px"
+//                left: "0px",
+//                top: "-20px"
+
+            });
+
+            (function(){
+                var index = i;
+                var _iw = createInfoWindow(i);
+                var _marker = marker;
+                _marker.addEventListener("click",function(){
+                    this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open",function(){
+                    _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close",function(){
+                    _marker.getLabel().show();
+                })
+                label.addEventListener("click",function(){
+                    _marker.openInfoWindow(_iw);
+                })
+                if(!!json.isOpen){
+                    label.hide();
+                    _marker.openInfoWindow(_iw);
+                }
+            })()
+            //创建InfoWindow
+//            var json = "";
+            function createInfoWindow(json){
+                json= markerArr[i];
+                var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+                return iw;
+            }
+        }
+    }
+
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new
+        BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png",
+            new BMap.Size(json.w,json.h),
+            {imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),
+                offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+
+    //拼接问答对话
+    function createQaString(keyword,nanSerial,answer) {
+
+        var str  = "<li class='answer'> " +
+            "<div class='group '>" +
+            "<div class='dialog-user l'>" +
+            "<img class='userAva' src='image/dialogUser.png' alt='用户'>" +
+            "<div class='bubble' id='userQuestion'>"+keyword+"</div>" +
+            "</div></div>" +
+            "<div class='group'>" +
+            "<div class='dialog-ai r'> " +
+            "<div id='ansNum' class='anSerialNum l'>"+nanSerial+"</div>"+
+            "<div class='bubbleai l' >"+ answer +"</div>" +
+            "<img class='aiAva r' src='image/dialogAI.png' alt='ai'>" +
+            "</div></div>" +
+            "</li>";
+        return str;
+    }
+
+</script>
+</body>
+</html>

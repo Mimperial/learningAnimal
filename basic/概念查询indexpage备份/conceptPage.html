@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="renderer" content="webkit">
+    <title>首页-知识查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta name="description" content="相关关系图" />
+    <meta name="keywords" content="关系, 人物, 国家, 概念, 特征" />
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/objSearch.css">
+    <link rel="stylesheet" href="css/concept.css">
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <link rel="stylesheet" href="js/amazi/amazeui.flat.min.css">
+    <script src="js/jquery1.11.0.js"></script>
+    <!--<script src="js/jquery-3.2.1.min.js"></script>-->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="bt/bootstrap-table.js"></script>
+    <script src="bt/bootstrap-table-editable.js"></script>
+    <script src="bt/bootstrap-table-export.js"></script>
+    <script src="bt/bootstrap-table-zh-CN.js"></script>
+    <script src="js/js.js"></script>
+    <script src="js/amazi/amazeui.js"></script>
+    <script src="js/amazi/amazeui.min.js"></script>
+</head>
+<body>
+<!--头部Tab-->
+<div class="header row">
+    <div class="wp row">
+        <button type="button" class="btn btn-default navbar-btn con"><a href="index.html">概念关系查询</a></button>
+        <button type="button" class="btn btn-default navbar-btn obj"><a href="objectSearchTab.html">对象查询</a></button>
+        <button type="button" class="btn btn-default navbar-btn obj"><a href="searchPage.html">查询页面</a></button>
+    </div>
+</div>
+<!--中间主体-->
+<div class="main-constant">
+    <div class="wp-main">
+        <!--所有概念关系图-->
+        <div id="main" class="con-visual wp col-xs-10"> </div>
+        <!--概念关系表模态框按钮-->
+        <div class="main-left l">
+            <div class="btn-group-vertical" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary btn-lg btn-default navbar-btn" data-toggle="modal" data-target="#conceptTab">
+                    概<br >念<br >表
+                </button>
+                <button type="button" class="btn btn-primary btn-lg btn-default navbar-btn" data-toggle="modal" data-target="#relationTab">
+                    关<br >系<br >表
+                </button>
+            </div>
+        </div>
+        <!--概念表模态-->
+        <div class="modal fade" id="conceptTab" tabindex="-1" role="dialog" aria-labelledby="tit-concept">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="tit-concept">概念表</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover" id="">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center">概念名</th>
+                                <th style="text-align: center">数据量</th>
+                            </tr>
+                            </thead>
+                            <tbody class="concept-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--关系表-->
+        <div class="modal fade" id="relationTab" tabindex="-1" role="dialog" aria-labelledby="tit-relation">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="tit-relation">关系表</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center">关系名</th>
+                                <th style="text-align: center">数据量</th>
+                            </tr>
+                            </thead>
+                            <tbody class="relation-list"></tbody>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--右边悬浮查询-->
+        <div class="main-right " >
+
+            <div class="btn-group " style="display: inline-block;vertical-align: middle;">
+                <!--下拉概念查询-->
+                <p>概念</p>
+                <select size="10" name="" id="select_c_name" data-am-selected="{searchBox: 1,maxHeight: 500}" ></select>
+                <!--下拉关系查询-->
+                <p>关系</p>
+                <select size="10" name=""  id="select_rel_name" data-am-selected="{searchBox: 1,maxHeight: 300}"></select>
+                <p class="explanation">概念名和关系不能同时为all</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div class="footer">
+    <div class="footer-dis">北京普创智通  地址:北京市海淀区中关村路东升大厦8号A座四层
+
+        ©普创智通  京公网安备1111188888号 京ICP备110886633号-7
+    </div>
+</div>
+<script>
+    $(function () {
+        /*左侧概念表*/
+        $.ajax({
+            url: '/api/v6/xadmin/concept_number/',
+            type: 'GET',
+            dataType: 'json',
+            timeout: 3000,
+            cache: false,
+            beforeSend: LoadFunction, //加载执行方法
+            error: erryFunction, //错误执行方法
+            success: succFunctionCon //成功执行方法
+        });
+        function LoadFunction() {
+            $("list").html('加载中...');
+        }
+        //设置http请求的超时时间
+        function erryFunction(jqXHR, textStatus, errorThrown) {
+            console.log("服务器请求超时");
+        }
+        function succFunctionCon(tt) {
+            $("list").html('');
+            var tbody =  $(".concept-list");
+            var json = eval(tt); //对象
+            var trs = [];
+            $.each(json.resultObj, function (index, item) {
+                //循环获取数据
+                var total = item.total;
+                var c_name = item.c_name;
+                trs.push("<tr><td>" + c_name+"</td><td>" + total + "</td></tr>");
+            });
+            tbody.empty();
+            tbody.html(trs.join("|"))
+        }
+
+        /*左侧关系表*/
+        $.ajax({
+            url: '/api/v6/xadmin/relation_number/',
+            type: 'GET',
+            dataType: 'json',
+            cache: false,
+            timeout:6000,
+            beforeSend: LoadFunctionR, //加载执行方法
+            error: erryFunctionR, //错误执行方法
+            success: succFunctionRel //成功执行方法
+        });
+        function LoadFunctionR() {
+            $("list3").html('加载中...');
+        }
+        function erryFunctionR(jqXHR, textStatus, errorThrown) {
+            console.log("请求超时");
+        }
+        function succFunctionRel(tt) {
+            $("list3").html('');
+            var relTbody = $(".relation-list");
+            var reltr = [];
+
+            var json = eval(tt); //对象
+            $.each(json.resultObj, function (index, item) {
+                //循环获取数据
+                var total = item.total;
+                var rel = item.rel;
+                //单行表格显示
+                reltr.push("<tr><td>" + rel+"</td><td>" + total+"</td></tr>");
+            });
+            //拼接table原理：将拼接的表格放到tbody中，通过class获取到tbody，通过循环获取表格所需字段，push到数组中，将数组列表显示到tbody
+            relTbody.empty();
+            relTbody.html (reltr.join());
+        }
+        //右侧概念结构图
+        var concept = "人物";
+        var relationName = "主角";
+        //概念 select注册事件，当用户选中对应的概念，左侧的关系图重新绘制。即重新执行drawRelation方法
+        $.getJSON('/api/v6/xadmin/concept/',function(data){
+            if(data.resultObj){
+                var select=$("#select_c_name");
+                var nodes = data.resultObj;
+                //如果用户选择参数为“所有”，返回所有数据
+                try {
+                    var node0 = {
+                        "name": "all",
+                        "id":"all",
+                        "type":"normal"
+                    };
+                    nodes.unshift(node0);
+                }catch(e) {
+                }
+                for(var i=0;i<nodes.length;i++){
+                    //if(data.resultObj[i].type != "relation"){
+                    if(data.resultObj[i].type === "normal"){
+                        var option=document.createElement("option");
+                        option.setAttribute("type","option");
+                        //option.setAttribute("id",nodes[i].id);
+                        option.setAttribute("value", nodes[i].name);
+                        option.appendChild(document.createTextNode(nodes[i].name));
+                        select.append(option);
+                    }
+                }
+            }
+
+            $('#select_c_name').change(function(){
+                concept=$(this).children('option:selected').val();//获取所选概念
+                drawRelation(concept,relationName);
+            })
+        });
+        // 右侧关系下拉筛选
+        $.getJSON('/api/v6/xadmin/relname/',function(data){
+            if(data.resultObj){
+                var select=$("#select_rel_name");
+
+                try {
+                    data.resultObj.unshift({
+                        "rel_name": "all"
+                    });
+                }catch(e) {
+
+                }
+                for(var i=0;i<data.resultObj.length;i++){
+                    var option=document.createElement("option");
+                    option.setAttribute("type","option");
+                    // option.setAttribute("id",data.resultObj[i].id);
+                    option.setAttribute("value", data.resultObj[i].rel_name);
+                    option.appendChild(document.createTextNode(data.resultObj[i].rel_name));
+                    select.append(option);
+                }
+            }
+            else {
+                alert("没有可供画图的数据")
+            }
+            $('#select_rel_name').change(function(){
+                relationName =$(this).children('option:selected').val();//获取到所选关系
+                drawRelation(concept,relationName);
+            })
+        });
+        /**初始化首页大图，只是用于初始化。*/
+        initRelation();
+        function initRelation() {
+            var uChart = echarts.init(document.getElementById('main'));
+            uChart.showLoading();
+
+            $.post('/api/v6/xadmin/relation/',{'name':name,'rel_name':relationName},function (data) {
+                var graph = {};
+
+                //配置需要的数据
+                graph.links = data.resultObj;// 请求回来的对象数组
+                uChart.hideLoading();
+                var categories = getCategories(graph.links);
+                graph.nodes = getNodes(graph.links);
+
+                option = {
+                    title: {
+                        text: '知识查询系统',
+                        subtext: 'Knowledge search',
+                        top: 'bottom',
+                        left: 'right'
+                    },
+
+                    tooltip:{},
+                    legend: [{
+                        // selectedMode: 'single',
+                        data: categories.map(function (a) {
+                            return a.name;
+                        })
+                    }],
+                    animationDuration: 1500,
+                    animationEasingUpdate: 'quinticInOut',
+                    series : [
+                        {
+                            name: '关系图',
+                            type: 'graph',
+                            layout: 'force',
+                            force: {
+                                repulsion: 2000
+                            },
+                            edgeSymbol: ['circle', 'arrow'],
+                            //转化数据的方向
+                            data: graph.nodes,
+                            links: graph.links,
+                            categories: categories,//类目
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: function (params) {//连接线上提示文字格式化
+                                    if (params.data.source) {//注意判断，else是将节点的文字也初始化成想要的格式
+                                        return params.data.rel_name ;
+                                    }
+                                    else {
+                                        return params.rel_name;
+                                    }
+                                }
+                            },
+                            roam: true,
+                            label: {
+                                normal: {
+                                    position: 'right',
+                                    formatter: '{b}'
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+                                    color: 'source',
+                                    curveness: 0.3
+                                }
+                            },
+                            gravity: 0.02,
+                            repulsion:100
+                        }
+                    ]
+                };
+
+                uChart.setOption(option);
+
+            }, 'json');
+        }
+    });
+
+    /**
+     * 绘制中间概念关系图
+     * @param concept 选中的概念，默认为select中的第一个，也就是概念列表中的第一个概念的关系图
+     */
+    function drawRelation(con, rel) { // 定义的
+        // 基于准备好的dom，初始化echarts实例
+        var uChart = echarts.init(document.getElementById('main'));
+
+        uChart.showLoading();
+        $.post('/api/v6/xadmin/relation/',{"name":con,'rel_name':rel},function (data) {
+            // data == 请求服务器中返回的所有数据
+            var graph = {};
+            try {
+                nodes.unshift({
+                    "name": "所有",
+                    "id":"all"
+                });
+            }catch(e) {
+
+            }
+            //配置画图需要的关键数据links，nodes
+            graph.links = data.resultObj;// 这是请求回来的对象数组,连线
+
+            uChart.hideLoading();
+            var categories = getCategories(graph.links);
+            graph.nodes = getNodes(graph.links);//节点
+
+            option = {
+                title: {
+                    text: '知识查询系统',
+                    subtext: 'Knowledge search',
+                    top: 'top',
+                    left: 'right'
+                },
+                tooltip: {},
+                legend: [{
+                    // selectedMode: 'single',
+                    data: categories.map(function (a) {
+                        return a.name;
+                    })
+                }],
+                animationDuration: 1500,
+                animationEasingUpdate: 'quinticInOut',
+                series : [
+                    {
+                        name: '关系图',
+                        type: 'graph',
+                        layout: 'force',
+                        force: {
+                            repulsion: 2000
+                        },
+                        //转化数据的方向
+                        data: graph.nodes,
+                        links: graph.links,
+                        categories: categories,//类目
+                        roam: true,
+                        label: {
+                            normal: {
+                                position: 'right',
+                                formatter: '{b}'
+                            }
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: 'source',
+                                curveness: 0.3
+                            }
+                        },
+                        gravity: 0.02,
+                        repulsion:100
+                    }
+                ]
+            };
+            uChart.setOption(option);
+        }, 'json');
+    }
+    // END ,绘制概念关系图
+    function getNodes(_obj) {
+        var nodes = [];
+        var keys = {};
+        //去重生成nodes
+        //把所有source和target放到一起去重，
+        for (var i = 0; i < _obj.length; i++) {
+            keys[_obj[i].source] = _obj[i].rel_name;
+            keys[_obj[i].target] = _obj[i].rel_name;
+        }
+        for (var k in keys) {
+            var node = {};
+            node.name = k;
+            //node.x = Math.floor(Math.random() * w / 4 + w * 3 / 8);
+            //node.y = Math.floor(Math.random() * h / 4 + h * 3 / 8);
+            node.category = keys[k];
+            node.itemStyle = null;
+            //node.value = node.symbolSize;
+            //node.symbolSize /= 0.5;
+            node.label = {
+                normal: {
+                    show: true
+                }
+            };
+            nodes.push(node);
+        }
+        return nodes;
+    }
+    // END
+
+    function getCategories(_obj) {
+        var categories = [];
+        var keys = {};
+        for (var i = 0; i < _obj.length; i++) {
+            //            同时把rel_name存起来作为分组依据，=true或者=任何东西都无所谓。
+            keys[_obj[i].rel_name] = true;
+        }
+        var i = 0;
+        for (var k in keys) {
+            categories[i] = {
+                name: k
+            };
+            i++;
+        }
+        return categories;
+    }
+
+</script>
+
+</body>
+
+</html>

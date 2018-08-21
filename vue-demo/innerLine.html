@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="example-3">
+    <button v-on:click="say('Hi')">say hi</button>
+    <button v-on:click="say('What')">say what</button>
+    <button v-on:click="warn('www.baidu.com', $event)">submit</button>
+    <p>{{now}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#example-3',
+
+        computed:{  //这里为什么用computed不行
+            now: function () {
+                return "你好";
+            }
+        },
+
+        methods:{
+            say:function(message){
+                alert(message)
+            },
+            warn:function(message, event){ //有时也需要在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 $event 把它传入方法：
+                if(event) /*event.preventDefault()*/ //为什么要加event.preventDefault()，不加的执行结果是一样的
+                    alert(message)
+            },
+        }
+
+    })
+</script>
+</body>
+</html>

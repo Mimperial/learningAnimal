@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义时间轴</title>
+    <script src="../jquery-3.2.1.min.js"></script>
+
+    <style>
+        .timeLineWindow {
+            width: 1000px;
+        }
+
+    </style>
+</head>
+<body>
+<div class=timeLineWindow">
+    <ul id="demoLine">
+        <li></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        var number = [3, 50, 80, 99, 110, 1202] //返回已排好序的一组数
+
+        var a = document.getElementById("demoLine");
+
+        a.style.width = (number[number.length - 1] - number[0]) + "px"
+        a.style.background = "#d5d"
+        number.forEach(
+            function (i, v) {
+                alert("value: " + v);
+                alert(" index: " + i);
+            }
+        )
+    })
+
+
+</script>
+</body>
+</html>

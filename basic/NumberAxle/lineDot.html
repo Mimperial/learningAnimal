@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lineDot</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<!--/*距离 = (图表总宽度/最大数值) * 当前数值*/-->
+<div class="line"></div>
+<div class="contain-dot" ></div>
+
+<script>
+    $(function () {
+        //var numberArray = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
+        var numberArray = [10,20,50,60,100]
+        //var numberArray = [3,7,10,20,50,100]
+
+        var divWidth = $('.line').width()
+        /*计算点距离坐标原点的距离*/
+        var aDotDistance = [];
+        for(var i = 0 ; i<numberArray.length; i++ ){
+            var dotDistance = divWidth / parseInt(numberArray[numberArray.length-1]) * numberArray[i];
+
+            aDotDistance.push(dotDistance)
+        }
+        console.log(aDotDistance);
+
+        /*画点和点对应的内容*/
+        var aDotStr = [];
+        function getDot(){
+        //numberArray = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
+        //numberArray = [3,7,10,20,50,100]
+            numberArray = [10,20,50,60,100]
+            for(var k = 0 ; k<aDotDistance.length; k++){
+
+
+                var dotStr = `<div class="dots dots-odd" id="dot${k}">
+
+                                <div class="numberSelf-odd">${numberArray[k]}</div>
+
+                                <div class="numberLine-content-bottom" id=${k}>
+                                    <p class="text-align-center">家春秋</p>
+                                    <img src="imgs/pts.jpg" alt="">
+                                </div>
+
+                            </div>`
+                if(k % 2 !== 0){
+                    var dotStr = `<div class="dots-even" id="dot${k}">
+
+                                <div class="numberLine-content-bottom" id=${k}>
+                                    <p class="text-align-center">家春秋</p>
+                                    <img src="imgs/pts.jpg" alt="">
+                                </div>
+                                <div class="dots" style="top: 17.5rem;">
+                                    <div class="numberSelf-even">${numberArray[k]}</div>
+                                </div>
+
+                            </div>`
+                }
+                aDotStr.push(dotStr);
+            }
+            return aDotStr.join(" ")
+        }
+
+        $('.contain-dot').append(getDot())
+
+        /*按照距离动态改变style.left属性使点水平移动*/
+        function doMove() {
+
+            for(var j=0; j<aDotDistance.length; j++) {
+                var divDots=document.getElementById("dot"+j);
+                divDots.style.left = aDotDistance[j]+"px"; //每次循环的距离给到圆点，现在情况是每次只给1个节点定left，所以只出来一个，
+
+                if(j % 2 !== 0){
+                    divDots.style.cssText = " top: -19rem;";
+                    divDots.style.left = aDotDistance[j]+"px";
+                }
+            }
+        }
+        doMove()
+
+    })
+
+</script>
+</body>

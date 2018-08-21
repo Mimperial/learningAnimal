@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<input type="text" id="demo" class="hidden">
+<textarea name="text" id="" cols="30" rows="10" placeholder="添加新的描述"></textarea>
+<button id="demo1" >点击删除</button>
+<script>
+    $("#demo1").click(function () {
+        $("#demo").removeClass("hidden");
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">{{todo.text}}</li>
+    </ol>
+</div>
+<!--用 v-for 把一个数组对应为一组元素-->
+<ul id="example-2">
+    <li v-for="(item, index) in items">
+        {{ parentMessage}} - {{ index }} - {{ item.message }}
+    </li>
+</ul>
+<!--一个对象的v-for,对象属性迭代-->
+<ul id="v-for-object" class="demo">
+    <li v-for="value in object">
+        {{value}}
+    </li>
+</ul>
+<!--提供第二个的参数为键名-->
+<div id="demo">
+    <div v-for="(value, key) in object">
+        {{ key }} : {{ value }}
+    </div>
+</div>
+<!--提供第三个的参数为索引-->
+<div id="demo1">
+    <ul v-for="(index, key, value) in object">
+        <li> {{ value }} . {{ key }} : {{ index }}  </li>
+    </ul>
+</div>
+<script>
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            todos: [
+                {text: 'jquery'},
+                {text: 'vue'},
+                {text: 'python'}
+            ]
+        }
+    })
+    /*app4.todos.push({text:'zhuanzhu'})*/
+    var example2 = new Vue({
+        el: '#example-2',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                {message: '西瓜'},
+                {message: '葡挞'},
+                {message: '芒果'}
+            ]
+        }
+    })
+    var vForObject = new Vue({
+        el: '#v-for-object',
+        data: {
+            object: {
+                firstName: 'hb',
+                lastName: 'l',
+                age: '30'
+            }
+
+
+        }
+    })
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            object:{
+                firstName: 'hb',
+                lastName: 'l',
+                age: '30'
+            }
+        }
+    })
+    var demo1 = new Vue({
+        el:'#demo1',
+        data:{
+            object:{
+                firstName: 'huang',
+                lastName: 'qiao',
+                age: '20'
+            }
+        }
+    })
+</script>
+</body>
+</html>

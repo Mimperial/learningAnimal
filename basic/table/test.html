@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<article></article>
+<button type='button' id='detailId' class='btn btn-primary detail-model' data-toggle='modal' data-target='.bs-example-modal-sm'>详情</button>
+
+<div class='modal fade bs-example-modal-sm' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>
+    <div class='modal-dialog modal-sm' role='document'>
+        <div class='modal-content'>返回标签</div>
+    </div>
+</div>
+<!--<div id="demo">控制</div>-->
+<!--<a href="" onclick="detailModel">点击触发弹窗</a><a href="" onclick="detailModel"></a>-->
+<!--<video src="http://p72e7sryp.bkt.clouddn.com/7.mp4"></video>-->
+<video src="http://p72e7sryp.bkt.clouddn.com/4.MOV" autoplay></video>
+<script>
+    function Car(make, model, year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+    var mycar = new Car("Honda", "Accord", 1998);
+    var a = mycar instanceof Car;    // 返回 true
+    var b = mycar instanceof Object;
+    console.log(a);
+    console.log(b)
+</script>
+</body>
+</html>

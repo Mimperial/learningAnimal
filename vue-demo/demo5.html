@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>key管理可复用元素</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<template v-if="loginType === 'username">
+    <label >Username</label>
+    <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+    <label >Email</label>
+    <input placeholder="Enter your email address" key="email-input">
+</template>
+<button>Toggle login type</button>
+<script>
+    var vm = new Vue({
+        el:'',
+    })
+
+</script>
+
+</body>
+</html>

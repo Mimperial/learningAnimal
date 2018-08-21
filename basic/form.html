@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form"  method="post">
+    <input placeholder="对象本身名" type="text" name="name" id="objName"/>
+    <input placeholder="主键" type="text" name="name" id="idCard"/>
+    <input placeholder="别称" type="text" name="name" id="aka"/>
+    <input placeholder="关联对象数" type="text" name="name" id="relatedObj"/>
+    <input placeholder="数量" type="text" name="name" id="num"/>
+    <input placeholder="结构" type="text" name="name" id="structure"/>
+    <input placeholder="资源" type="text" name="name" id="resource"/>
+    <input placeholder="排序" type="text" name="name" id="order"/>
+    <input type="submit" class="btn btn-warning obejct-search btn-m" data-toggle="modal" data-target="#creatObjModal" value="创建对象">
+</form>
+<script>
+    var params = {"name", $("#name").val()}
+    $.ajax({
+        type: "POST",
+        url: "/url.do",
+        data: params,
+        dataType : "json",
+        success: function(respMsg){
+        }
+    });
+</script>
+
+</body>
+</html>

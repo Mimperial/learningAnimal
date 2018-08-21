@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>页面加载时遮罩效果</title>
+    <script src="jquery1.11.0.js"></script>
+    <style type="text/css">
+        /*opacity是设置遮罩透明度的，可以自己调节*/
+        #loading{position:fixed;top:0;left:0;width:100%;height:100%;background:#f8f8f8;opacity:0.6;z-index:15000;}
+        #loading img{position:absolute;top:50%;left:50%;width:33px;height:33px;margin-top:-15px;margin-left:-15px;}
+        #loading p{position:absolute;top:55%;left:48%;width:33px;height:33px;margin-top:-15px;margin-left:-15px;}
+    </style>
+
+</head>
+<body>
+
+<div id="cont" style="padding:8px 12px;margin-top:10px;">
+    <p style="line-height: 24px;">今天天气很好的样子</p>
+</div>
+
+<!--这个div是为了显示出遮罩效果，loading.gif是在网上搜的,好多好多。。。-->
+<div id="loading" class="list-item">
+    <img alt="" src="../image/loading.gif"><br>
+    <p style="line-height: 24px;">loading...</p>
+</div>
+<script type="text/javascript">
+
+    //监听加载状态改变
+    document.onreadystatechange = completeLoading;
+
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+        if (document.readyState == "complete") {
+            $("#loading").hide();
+
+        }
+    }
+</script>
+</body>
+</html>

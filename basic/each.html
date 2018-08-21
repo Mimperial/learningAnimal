@@ -8,36 +8,78 @@
 </head>
 <body>
 <script>
-    var getObj = {
-        "偃月": "192.168.3.99:8888/000H8dDT4aFK0m.m4a",
-        "宝钢集团有限公司": "192.168.3.99:8888/002zxGQ24d1OQi.m4a",
-        "沧龙": "192.168.3.99:8888/003DG5Mb4NBj5H.m4a",
-        "拳头": "192.168.3.99:8888/001WDKc10H5WnK.m4a",
-        "百慕大三角": "192.168.3.99:8888/0039mthg45esxp.m4a",
-        "朱姆沃尔特级驱逐舰": "192.168.3.99:8888/003D53TQ3zlWmm.m4a",
-        "什么是公司治理": "192.168.3.99:8888/001LdYwO3NaMny.m4a",
-        "飞马座51b": "192.168.3.99:8888/0033mBxv1feEYH.m4a",
-        "尼": "192.168.3.99:8888/004UBB8501dMw6.m4a"
-    };
-    var goalObj = {
-        mp3:'http://192.168.3.99:8888/001WDKc10H5WnK.m4a',
-        oga:'http://192.168.3.99:8888/001WDKc10H5WnK.m4a',
-        title:'拳头',
-        artist:'拳头',
-        rating:4,
-//                duration:'0:30',
-        cover:'mix/1.png'
-    };
+//    var getObj = {
+//        "偃月": "192.168.3.99:8888/000H8dDT4aFK0m.m4a",
+//        "宝钢集团有限公司": "192.168.3.99:8888/002zxGQ24d1OQi.m4a",
+//        "沧龙": "192.168.3.99:8888/003DG5Mb4NBj5H.m4a",
+//        "拳头": "192.168.3.99:8888/001WDKc10H5WnK.m4a",
+//        "百慕大三角": "192.168.3.99:8888/0039mthg45esxp.m4a",
+//        "朱姆沃尔特级驱逐舰": "192.168.3.99:8888/003D53TQ3zlWmm.m4a",
+//        "什么是公司治理": "192.168.3.99:8888/001LdYwO3NaMny.m4a",
+//        "飞马座51b": "192.168.3.99:8888/0033mBxv1feEYH.m4a",
+//        "尼": "192.168.3.99:8888/004UBB8501dMw6.m4a"
+//    };
+//    var goalObj = {
+//        mp3:'http://192.168.3.99:8888/001WDKc10H5WnK.m4a',
+//        oga:'http://192.168.3.99:8888/001WDKc10H5WnK.m4a',
+//        title:'拳头',
+//        artist:'拳头',
+//        rating:4,
+////                duration:'0:30',
+//        cover:'mix/1.png'
+//    };
+//
+//    $.each( getObj, function( key, value ) {
+////        console.log( key + ": " + value );
+//        goalObj.mp3 = value;
+//        goalObj.oga = value;
+//        goalObj.title = key;
+//        goalObj.artist = key;
+//        goalObj.rating = Math.ceil(Math.random()*5);
+////        console.log(goalObj.rating)
+//    });
 
-    $.each( getObj, function( key, value ) {
-//        console.log( key + ": " + value );
-        goalObj.mp3 = value;
-        goalObj.oga = value;
-        goalObj.title = key;
-        goalObj.artist = key;
-        goalObj.rating = Math.ceil(Math.random()*5);
-//        console.log(goalObj.rating)
-    });
+
+//    var a = [1,2,4,5,6,7,8,9,0,3];
+//    var b = a.slice(3,4)
+//var c = a.splice(3)
+//console.log(b)
+//console.log(c)
+//    b.forEach(function (v, i, a) {
+//        a[i] = v + 1;
+//        console.log(a)
+//    })
+
+//var ary = [12,23,24,42,1];
+//var res = ary.forEach(function (item,index,input) {
+//    input[index] = item*10;
+//})
+//console.log(res);//--> undefined;
+//console.log(ary);//--> 通过数组索引改变了原数组；
+//
+//var ary1 = [12,23,24,42,1];
+//var res1 = ary.map(function (item,index,input) {
+//    return item*10;
+//})
+//console.log(res1);//-->[120,230,240,420,10];  原数组拷贝了一份，并进行了修改
+//console.log(ary1);//-->[12,23,24,42,1]；  原数组并未发生变化
+
+function isBigEnough(element, index, array) {
+    return (element >= 10);
+}
+var passed = [2, 5, 8, 1, 4].some(isBigEnough);
+// passed is false
+passed = [12, 5, 8, 1, 4].some(isBigEnough);
+
+console.log(passed);
+
+function isBigEnough1(element, index, array) {
+    return (element >= 10);
+}
+var passed1 = [12, 5, 8, 130, 44].every(isBigEnough1);
+// passed is false
+passed1 = [12, 54, 18, 130, 44].every(isBigEnough1);
+console.log(passed1)
 </script>
 
 </body>

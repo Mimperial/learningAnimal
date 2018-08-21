@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.0.js"></script>
+
+</head>
+<body>
+<div id="awesome" data-myid="3e4ae6c4e">Some awesome data</div>
+<div id="awesome-json" data-awesome='{"game":"on"}'></div>
+<script>
+
+    var myid= $("#awesome").data('myid');
+    console.log(myid); //3e4ae6c4e
+
+    var gameStatus= $("#awesome-json").data('awesome').game;
+    console.log(gameStatus); //on
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<audio id="audio" loop autoplay src="http://pak8lz4o9.bkt.clouddn.com/02f1c98b-2dfd-4786-8605-f486b3a63d86.mp3" controls="controls"></audio>
+<audio id="off" class="paly" src="http://pak8lz4o9.bkt.clouddn.com/ae045758-01f5-435d-a384-7c18d9e3723b.mp3" controls="controls" ></audio>
+<script type="text/javascript">
+    window.onload = function(){
+        /*解决不同浏览器不能播放的情况*/
+         function toggleSound() {
+              if (audio.paused) { //判读是否播放
+                   audio.play(); //没有就播放
+              }
+                  }
+         toggleSound();
+        (function(){
+            var audio = document.getElementById("audio");
+            var musiIocn = document.getElementById("music-iocn");
+            var off = document.getElementById("off");
+
+            off.onclick = function(){
+                if(off.className == "paly"){  //如果当前播放
+                    audio.pause(); //停止（暂停）
+                    off.className="stop"; //暂停
+                    musiIocn.src = "img/music130.png";  //暂停图片
+                    musiIocn.className = " "; //取消图片360旋转CSS3动画
+                }else if(off.className == "stop"){  //如果当前暂停
+                    audio.play();  //开始播放
+                    off.className="paly";  //开始播放
+                    musiIocn.src = "img/music131.png"; //播放图片
+                    musiIocn.className = "rota";  //追加图片360旋转CSS3动画
+                }
+            }
+        })();
+    }
+</script>
+</body>
+</html>

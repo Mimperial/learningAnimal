@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #mybtn{
+            width: 100px;
+            height: 30px;
+            font-size: 18px;
+            background-color: lightcoral;
+            text-align: center;
+        }
+    </style>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<video src="https://www.bilibili.com/edf609f5-5e5b-46c4-8310-d6390a20180b" controls autoplay></video>
+<video src="https://www.bilibili.com/bangumi/play/ep11348?from=search&seid=7436669999706040306" controls autoplay></video>
+<input type="file" name="myfile" id="myfile" value="" />
+<button id="mybtn">点击</button>
+</body>
+<script type="text/javascript">
+    //获取一个上传文件的扩展名
+    var myfile = document.getElementById('myfile');
+    var mybtn = document.getElementById('mybtn');
+    mybtn.onclick = function(){
+        //获取文件上传文件的文件名和扩展名
+        if(myfile.files[0] == undefined){
+            alert('未上传文件！');
+        }else{
+            //获取上传文件的文件名
+            var str = `${myfile.files[0].name}`
+            alert(str);
+        }
+    }
+</script>
+</html>

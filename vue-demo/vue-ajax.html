@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p id="app">{{users.gender}}</p>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.2.3/jquery.min.js"></script>
+<script>
+    var vum = new Vue({
+        el:"#app",
+        data:{
+            users:""
+        },
+        created () {
+            $.ajax({
+                url:"data.json",
+                type:"get",
+                dataType:"json",
+                success:function(result){
+                    console.log(result);
+                    vum.users = result;
+                },
+                error:function(){
+                    alert("请求失败");
+                }
+            });
+        },
+        methods:{
+
+        }
+    });
+
+
+</script>
+</body>
+</html>

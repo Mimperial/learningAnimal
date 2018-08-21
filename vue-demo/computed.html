@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--computed 依赖缓存， methods 却不是。当Dom每次需要渲染computed的值，这个值已经处于缓存之中，
+不需要再重复的经历一遍计算过程，只有当computed依赖的数据变量发生变化，这个计算属性会自动更新，不需要渲染触发。
+methods 的值被获取的时候就会每次都会重新经历一遍计算过程。
+computed和methods 的应用场景 和 计算过程的复杂程度有关， 如果计算过程复杂庞杂，而且计算属性会被经常调用（getter），那么最好使用缓存；
+如果，需要的值，计算简单，调用不频繁，实时性比较高（存在异步请求）,会比较适合methods.
+如果你不希望有缓存，请用方法来替代。-->
+</head>
+<body>
+<div id="example">
+    <p>Original message : "{{ message}}"</p>
+    <p>Computed reversed message: "{{ reversedMessage}}"</p>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#example",
+        data:{
+            message:'hello'
+        },
+        computed:{
+            reversedMessage:function(){
+                return this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

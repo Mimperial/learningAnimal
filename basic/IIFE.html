@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*(function print(text) {
+        var msg = `hello IIFE ${text}`;
+       console.log(msg);
+    })("我是外来的")*/
+
+
+    (function print(root) {
+        console.log("开始执行立即函数")
+       root.q = test1;
+
+        function test1() {
+            console.log("我是来自立即函数的");
+        }
+
+    })(window)
+
+    q();
+
+
+</script>
+
+</body>
+</html>

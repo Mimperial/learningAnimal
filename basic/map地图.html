@@ -75,7 +75,7 @@
             "北京景山学校北校区小学部": "116.424203,39.953129",
             "北京邮电大学-教学实验综合楼": "116.289499,40.161309",
             "良乡第二幼儿园": "116.136453,39.730744"
-        }
+        };
         //标注点数组
         var markerArr = [];
         for(key in getmapxy){
@@ -136,8 +136,7 @@
         //创建InfoWindow
         function createInfoWindow(i){
             var json = markerArr[i];
-            var iw = new
-            BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+            var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
             return iw;
         }
         //创建一个Icon

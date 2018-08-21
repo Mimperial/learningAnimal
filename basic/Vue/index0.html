@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue示例</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for = "book in books">{{ book.name }}</li>
+    </ul>
+</div>
+<!--实时时间-->
+<div id="two">{{ date }}</div>
+<!--输出HTML-->
+<div id="three">
+    <span v-html = "link"></span>
+</div>
+<!--不编译，{{}}中的运算-->
+<div id="appfour">
+    {{ number / 10}}
+    {{ isOK ? '确定' : '取消'}}
+    {{ text.split(',').reverse().join(',')}}
+</div>
+<!--过滤器-->
+<div id="appfive">
+    {{ date | formatDate }}
+</div>
+<div id="sixApp">
+    <!--<a v-bind:href="url">链接</a>-->
+    <!--<img v-bind:src="imgUrl">-->
+    <p v-if="show">this is a text</p>
+    <button v-on:click="show = false">点击隐藏</button>
+</div>
+
+<script>
+    var oneApp = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {name : '<1>'},
+                {name : '<12>'},
+                {name : '<13>'},
+            ]
+        }
+    })
+/*显示实时时间*/
+    var twoApp = new Vue({
+        el:'#two',
+        data: {
+            date :new Date()
+        },
+        mounted:function () {
+            var _this = this;//声明变量指向vue实例this,保持作用域一致
+            this.timer = setInterval(function () {
+                _this.date = new Date();   //修改数据
+            }, 1000);
+        },
+        beforeDestroy:function () {
+            if (this.timer) {
+                clearInterval(this.timer);//vue实例销毁前清除定时器
+            }
+        }
+    })
+    /*想输出html,*/
+    var threeApp = new Vue({
+        el: '#three',
+        data: {
+            link: '<a href ="#"> this is a link</a>'
+        }
+    })
+//    document.write(threeApp);
+    var four = new Vue({
+        el: '#appfour',
+        data:{
+            number :100,
+            isOK :false,
+            text :'123,456'
+
+        }
+    })
+//    在月份日期小于10时前边补零
+    var padDate = function(value) {
+        return value < 10 ? '0' + value : value;
+    };
+    var appfive = new Vue({
+        el : '#appfive',
+        data : {
+            date: new Date()
+        },
+        fliters: {
+            formatDate :function (value) {
+                var date = new Date(value);
+                var year = date.getFullYear();
+                var month = padDate(date.getMonth() + 1);
+                var day = padDate(date.getDate());
+                var hours = padDate(date.getHours());
+                var minutes = padDate(date.getMinutes());
+                var seconds = padDate(date.getSeconds());
+                //将整理好的数据返回
+                return year + '-'+ month + '-' + day + ' ' + hours + ":" + minutes + ":" + seconds;
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            this.timer = setInterval(function(){
+                _this.date = new Date();
+            }, 1000);
+        },
+        beforeDestroy :function (){
+            if (this.timer) {
+                clearInterval(this.timer);
+            }
+        }
+    })
+    /*动态更新html元素*/
+    var sixApp = new Vue({
+        el: '#sixApp',
+        data:{
+//            url: 'https://www.github.com',
+//            imgUrl: 'http://store.is.autonavi.com/showpic/206aad0ebc18eee532c8fa80dea23ef4'
+            show:true
+        },
+//        methods: {
+//            handleClose: function () {
+//                this.show = false;
+//            }
+//        }
+    })
+</script>
+</body>
+</html>

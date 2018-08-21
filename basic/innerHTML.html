@@ -28,13 +28,15 @@
     to a <span id="text">text</span> node.
 </p>
 <p>
-    This <button name="nada">button</button> does nothing.
+    This
+    <button name="nada">button</button>
+    does nothing.
 </p>
 
 <script>
     $( "p" ).click(function() {
         var htmlString = $( this ).html();
-        $( this ).text( htmlString );
+        $( this ).text( "回答正确" );
     });
 </script>
 

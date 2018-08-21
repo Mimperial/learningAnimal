@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var result = {
+        "resultObj": {
+            "data": [
+                {
+                    "content": {
+                        "c129_OpejNjzj": [
+                            "c177_WG6C4mhB",
+                            "c177_ufklyp4i",
+                            "c177_uiCPExJh",
+                            "c177_sI6AqzXZ",
+                            "c177_iyKhvuyZ",
+                            "c177_sU6Ob0TL",
+                            "c177_MLltd4sd",
+                            "c177_7_T05OXa",
+                            "c177_wYdfomtl",
+                            "c177_6ucKHirX"
+                        ],
+                        "c129_GaFIx5q4": [
+                            "c177_3gREe9b-",
+                            "c177_Ji1JR-SV",
+                            "c177_cP4K5PtF",
+                            "c177_w8TYBXE4",
+                            "c177_BFGI1SZU",
+                            "c177_h_AVrapR",
+                            "c177_3_Evh1Xg"
+                        ],
+                        "c129_9BgVBoby": [
+                            "c177_qHW577fP",
+                            "c177_ibKLtrYt"
+                        ]
+                    },
+                    "index": {
+                        "c129_OpejNjzj": {
+                            "concept": "市",
+                            "resource": "",
+                            "name": "杭州市",
+                            "value": "",
+                            "key": "c129_OpejNjzj",
+                            "aka": "杭州",
+                            "structure": ""
+                        },
+
+                        "c129_9BgVBoby": {
+                            "concept": "市",
+                            "resource": "",
+                            "name": "金华市",
+                            "value": "",
+                            "key": "c129_9BgVBoby",
+                            "aka": "金华",
+                            "structure": ""
+                        },
+                        "c129_GaFIx5q4": {
+                            "concept": "市",
+                            "resource": "",
+                            "name": "宁波市",
+                            "value": "",
+                            "key": "c129_GaFIx5q4",
+                            "aka": "宁波",
+                            "structure": ""
+                        }
+                    },
+                    "fronttype": "映射,文字#市,列表文字#区",
+                }
+            ]
+        }
+    }
+    var contentObj = result.resultObj.data[0].content;
+    var indexObj = result.resultObj.data[0].index;
+    for(var idKey in contentObj){
+        var arr = []
+        for(var indexKey in indexObj){
+            idKey =indexObj[indexKey].name;
+            arr.push(idKey)
+        }
+    }
+    console.log(arr);
+//    for(var a = 0 ;a <arr.length; a++){
+        var objNew = {};
+
+        objNew.key = arr[0];
+//        objNew.key: "[{1},{2}]"
+    console.log(objNew)
+//    }
+
+    console.log(idKey);
+</script>
+
+</body>
+</html>

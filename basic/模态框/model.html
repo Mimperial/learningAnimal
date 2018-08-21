@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框实现</title>
+    <link rel="stylesheet" href="modal.css" type="text/css">
+</head>
+<body>
+<button class="btn-m" id="showModel-m">详情</button>
+<div id="modal-m" class="modal-m">
+    <div class="modal-content-m">
+        <header class="modal-header-m"></header>
+        <div class="modal-body-m">
+            <p>HTML+CSS+JS原生实现响应式模态框演示！</p>
+        </div>
+        <footer class="modal-footer-m">
+            <button id="cancel-m">取消</button>
+        </footer>
+    </div>
+</div>
+<script>
+    var btn = document.getElementById('showModel-m');
+    var cancel = document.getElementById('cancel-m');
+    var modal = document.getElementById('modal-m');
+    btn.addEventListener('click', function(){
+        modal.style.display = "block";
+    });
+    cancel.addEventListener('click', function(){
+        modal.style.display = "none";
+    });
+</script>
+</body>
+</html>
