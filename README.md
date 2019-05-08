@@ -20,7 +20,7 @@ https://mimperial.github.io/learningAnimal/staticPage/
 
 ->发布测试环境  
 
-->产品领导审核  
+->产品/测试审核  
 
 ->发布上线  
 
