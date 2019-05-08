@@ -2,106 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>lineDot</title>
+    <title>数轴</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/css.css">
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/modelNumber.js"></script>
 </head>
 <body>
 <!--/*距离 = (图表总宽度/最大数值) * 当前数值*/-->
-<div class="line"></div>
-<div class="contain-dot" ></div>
+
+<div class="contain-dot"></div>
+<div class="line">数值</div>
 
 <script>
-    $(function () {
-//        var aNumber = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
-        var aNumber = [1,2,4,6,7,10];
-//        var aNumber = [10,20,50,60,100]
-//        var aNumber = [3,7,10,20,50,100]
 
-        /*将浮点数组转为整数数组*/
-        var aNewNumber = [];
-        for(var i = 0 ; i < aNumber.length ; i++){
-
-            aNewNumber.push(parseInt(aNumber[i]));
-        }/*end*/
-
-        var divWidth = $('.line').width()
-        /*计算点距离坐标原点的距离*/
-        var aDotDistance = [];
-        for(var i = 0 ; i<aNewNumber.length; i++ ){
-            var dotDistance = divWidth / parseInt(aNewNumber[aNewNumber.length-1]) * aNewNumber[i];
-
-            aDotDistance.push(dotDistance)
-        }
-        console.log(aDotDistance);
-
-        /*画点和点对应的内容*/
-        var aDotStr = [];
-        function getDot(){
-//            aNumber = [3.9,5.7,7.6,8.0, 8.1,9,9.5,9.9,10]
-            var aNumber = [1,2,4,6,7,10];
-//            aNumber = [10,20,50,60,100]
-//                        var aNumber = [3,7,10,20,50,100]
-
-            for(var k = 0 ; k<aDotDistance.length; k++){
+   (function numberAxle(root){
 
 
-                var dotStr = `<div class="dots dots-odd" id="dot${k}">
+       root.ModelNumber = test1;
 
-                                <div class="numberSelf-odd">${aNewNumber[k]}</div>
-                                <div class="beeline-odd"></div>
-                                <div class="numberLine-content-bottom" id=${k}>
-                                    <p class="text-align-center">标题：</p>
-                                    <img src="imgs/pts.jpg" alt="">
-                                </div>
+       function test1(aNumber){
 
-                            </div>`
-                if(k % 2 !== 0){
-                    var dotStr = `<div class="dots-even" id="dot${k}">
+         var aNumber = aNumber;//数字数组为传入参数
+         /*将浮点数组转为整数数组*/
+         var aNewNumber = [];
+         for (var i = 0; i < aNumber.length; i++) {
+             aNewNumber.push(parseInt(aNumber[i]));
+         }/*end*/
+         /*数组排序*/
+         function sequence(a, b) {
+             if (a > b) {
+                 return 1;
+             } else if (a < b) {
+                 return -1
+             } else {
+                 return 0;
+             }
+         }
+         aNewNumber.sort(sequence)
 
-                                <div class="numberLine-content-bottom numberLine-content-bottom-even" id=${k}>
-                                    <p class="text-align-center">标题：</p>
-                                    <img src="imgs/pts.jpg" alt="">
-                                </div>
-                                <div class="beeline-even"></div>
-                                <div class="dots" style="top: 17.5rem;">
-                                    <div class="numberSelf-even">${aNewNumber[k]}</div>
-                                </div>
+         /*计算点距离坐标原点的距离*/
+         var aDotDistance = [];
 
-                            </div>`
-                }
-                aDotStr.push(dotStr);
-            }
-            return aDotStr.join(" ")
-        }
+         var last_number = aNewNumber[aNewNumber.length - 1];
+         var first_number = aNewNumber[0];
+         var total_dist = last_number - first_number;
 
-        $('.contain-dot').append(getDot())
+         var ratio = 1300.0 / total_dist //被除数为传入参数，不超过屏幕宽度为最佳显示方式
 
-        /*按照距离动态改变style.left属性使点水平移动*/
-        var nAdjoinDiff = 0;
-        function doMove() {
+         for (var i = 0; i < aNewNumber.length; i++) {
+             var dotDistance = ratio * aNewNumber[i];
+             aDotDistance.push(dotDistance)
+         }
 
-            for(var j=0; j<aDotDistance.length; j++) {
-                var divDots=document.getElementById("dot"+j);
-                var leftDis = divDots.style.left;
-                divDots.style.left = aDotDistance[j]+"px"; //每次循环的距离给到圆点，现在情况是每次只给1个节点定left，所以只出来一个，
-                nAdjoinDiff = parseInt(aDotDistance[j+1]+"px")-parseInt( aDotDistance[j]+"px");
+         /*画点和点对应的内容*/
+         var aDotStr = [];
 
-                if(j % 2 !== 0){
-                    divDots.style.cssText = " top: -19rem;";
-                    divDots.style.left = aDotDistance[j]+"px";
-                }
-//                if(nAdjoinDiff < 260){
-//                    console.log("相邻小于260")
-//                    divDots.style.left = parseInt(aDotDistance[j])+300 + "px";
-//
-//                }
-            }
-        }
-        doMove()
+         function getDot() {
+             var dotStr = ``
+             for (var k = 0; k < aDotDistance.length; k++) {
+                 dotStr = `<div class="dots dots-odd" id="dot${k}">
+                                 <!--<div class="dotself"></div>-->
+                                 <div class="numberSelf-odd">${aNewNumber[k]}</div>
+                                 <div class="beeline-odd"></div>
+                                 <div class="numberLine-content-bottom" id=${k}>
+                                     <p class="text-align-center">标题：</p>
+                                     <img src="imgs/pts.jpg" alt="">
+                                 </div>
 
-    })
+                             </div>`
+                 if (k % 2 !== 0) {//作用的是id,所以保证整个区域是对应作用的id就不会乱 ，
+                     dotStr = `<div class="dots-even" id="dot${k}">
+                                     <!--<div class="dotself"></div>-->
+                                     <div class="numberLine-content-bottom numberLine-content-bottom-even" id=${k}>
+                                         <p class="text-align-center">标题：</p>
+                                         <img src="imgs/pts.jpg" alt="">
+                                     </div>
+                                     <div class="beeline-even"></div>
+                                     <div class="dots" style="top: 17.8rem;">
+                                         <div class="numberSelf-even">${aNewNumber[k]}</div>
+                                     </div>
+
+                             </div>`
+                 }
+                 aDotStr.push(dotStr);
+             }
+             return aDotStr.join(" ")
+         }
+
+         $('.contain-dot').append(getDot())
+
+         /*按照距离动态改变style.left属性使点水平移动*/
+         var nAdjoinDiff = 0;
+
+         function doMove() {
+
+             for (var j = 0; j < aDotDistance.length; j++) {
+                 var divDots = document.getElementById("dot" + j);
+                 var leftDis = divDots.style.left;
+                 divDots.style.left = aDotDistance[j] + "px"; //每次循环的距离给到圆点，现在情况是每次只给1个节点定left，所以只出来一个，
+                 nAdjoinDiff = parseInt(aDotDistance[j + 1] + "px") - parseInt(aDotDistance[j] + "px");
+
+                 if (j % 2 !== 0) {
+                     divDots.style.cssText = " top: -19rem;";
+                     divDots.style.left = aDotDistance[j] + "px";
+                 }
+ //                if(nAdjoinDiff < 260){
+ //                    console.log("相邻小于260")
+ //                    divDots.style.left = parseInt(aDotDistance[j])+300 + "px";
+ //
+ //                }
+             }
+         }
+
+         doMove()
+
+     }
+
+   })(window)
+    ModelNumber([ 24, 100000, 45, 100, 110, 200, 150, 50])
 
 </script>
 </body>

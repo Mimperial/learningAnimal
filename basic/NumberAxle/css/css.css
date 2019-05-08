@@ -1,36 +1,52 @@
-
-body{
-    background-color: #1c1c1c;
+body {
+    background-color: #5de3;
 }
-.line{
+
+.line {
     margin-top: 300px;
     height: 5px;
     background: #5b6e8c;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
 }
-.dots{
+
+.dots {
     position: absolute;
-    top:-1.2rem;
-    border-radius: 20px;
-    border:4px solid #5b6e8c;
+    top: -1.2rem;
+    border-radius: 6px;
+    border: 2px solid #5b6e8c;
     width: 30px;
     height: 30px;
     background: #69c0e7;
     display: inline-block;
     text-align: center;
 }
-.dots-even{
-    position:absolute;
+.dotself{
+    width: 10px;
+    height:10px;
+    border-radius: 5px;
+    background-color: #69c0e7;
+    border:1px solid #5b6e8c;
+}
+
+.dots-even {
+    position: absolute;
+    border-radius: 6px;
     background: #69c0e7;
     display: inline-block;
     text-align: center;
 }
-.dots-even img{
+
+.dots-even img {
     width: 100px;
 }
-.contain-dot{
-    position:relative;
+
+.contain-dot {
+    position: relative;
 }
-.numberSelf-odd,.numberSelf-even{
+
+.numberSelf-odd, .numberSelf-even {
     font-size: 14px;
     font-weight: bold;
     color: #fff;
@@ -38,22 +54,25 @@ body{
     line-height: 30px;
 
 }
-.beeline-odd{
+
+.beeline-odd {
     border: 0.5px solid #ccc;
     height: 60px;
-    width: 1px;
-
-
+    width: 3px;
+    margin-left: 14px;
+    background-color: #ccc;
 }
-.beeline-even{
-     position: absolute;
-     top: 210px;
-     height: 60px;
-     width: 1px;
-     background-color: #ccc;
- }
 
-.numberLine-content-bottom{
+.beeline-even {
+    position: absolute;
+    top: 225px;
+    left: 17px;
+    height: 60px;
+    width: 3px;
+    background-color: #ccc;
+}
+
+.numberLine-content-bottom {
     width: 100px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -61,14 +80,16 @@ body{
     color: #333;
     display: block;
     padding: 1.25rem;
-    margin-top: 1rem;
+    /*margin-top: 1rem;*/
     position: absolute;
-    left: -341%;
+    left: -52px;
 }
-.numberLine-content-bottom-even{
-    margin-top: 4rem;
+
+.numberLine-content-bottom-even {
+    margin-top: 5.6rem;
 }
-.dots img{
+
+.dots img {
     width: 100px;
 }
 
