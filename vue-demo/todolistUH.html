@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todoList父子组件传值</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="todo-list-example">
+    <form v-on:submit.prevent="addNewTodo">
+        <label for="new-todo"> Add a todo</label>
+        <input v-model="newTodoText"
+               id="new-todo"
+               placeholder="E.g. Fed the cat">
+        <button>Add</button>
+    </form>
+    <ul>
+        <li
+                is="todo-item"
+                v-for="(todo, index) in todos"
+                v-bind:key="todo.id"
+                v-bind:title="todo.title"
+                v-on:remove="todos.splice(index, 1)">
+
+        </li>
+    </ul>
+</div>
+<!--emit向外传值用-->
+<script>
+    Vue.component('todo-item',{
+        template:'\
+            <li>\
+              {{ title }}\
+              <button v-on:click="$emit(\'remove\')">Remove</button>\
+            </li>\
+            ',
+
+        props:['title']
+    })
+    var add = new Vue({
+        el:'#todo-list-example',
+        data:{
+            newTodoText:'',
+            todos:[ //data中不能再包含data,data包含dom所需的数据
+                {
+                    id:1,
+                    title:'卧龙'
+                },
+                {
+                    id:2,
+                    title:'驻海'
+                },
+                {
+                    id:3,
+                    title:'波澜'
+                },
+            ],
+            inputValue:'',
+            nextTodoId:4
+
+        },
+        methods:{
+            addNewTodo:function(){
+                this.todos.push({ //push到对象数组中
+                    id:this.nextTodoId++,
+                    title:this.newTodoText
+                })
+                this.newTodoText = ''
+            }
+        }
+    })
+</script>
+</body>
+</html>

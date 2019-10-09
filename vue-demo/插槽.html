@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽（slot）</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--<child content="<p>world</p>"></child>--><!--冗余写法-->
+    <child> <!--简便写法-->
+        <p>hq</p> <!--插入内容-->
+        <h2>hq</h2>
+    </child>
+    <!--命名插槽-->
+    <body-content>
+        <div class = "header" slot = "header">header</div>
+        <div class = "footer" slot = "footer">footer</div>
+    </body-content>
+
+</div>
+<script>
+    /*var slotTest = new Vue;*/
+    Vue.component('child', {
+        props: ['content'],
+        template: `<div>
+                        <p>Hello</p>
+                        <!--<div v-html="this.content"></div>-->
+                        <slot></slot>
+                   </div>` //v-html防止转义
+    })
+   /*插槽命名*/
+    Vue.component('body-content', {
+
+        template:`<div>
+                    <slot name="header"></slot>
+                    <p class="content">content</p>
+                    <slot name="footer"></slot>
+</div>`
+    })
+    var vm = new Vue({
+        el: '#root'
+    })
+</script>
+
+</body>
+</html>

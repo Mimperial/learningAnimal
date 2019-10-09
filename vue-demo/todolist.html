@@ -26,6 +26,7 @@
         </li>
     </ul>
 </div>
+<!--emit向外传值用-->
 <script>
     Vue.component('todo-item',{
         template:'\
@@ -34,6 +35,7 @@
               <button v-on:click="$emit(\'remove\')">Remove</button>\
             </li>\
             ',
+
         props:['title']
     })
     var add = new Vue({
@@ -43,17 +45,18 @@
             todos:[ //data中不能再包含data,data包含dom所需的数据
                 {
                     id:1,
-                    title:'听风'
+                    title:'卧龙'
                 },
                 {
                     id:2,
-                    title:'凭澜'
+                    title:'驻海'
                 },
                 {
                     id:3,
-                    title:'看海'
+                    title:'波澜'
                 },
             ],
+            inputValue:'',
             nextTodoId:4
 
         },

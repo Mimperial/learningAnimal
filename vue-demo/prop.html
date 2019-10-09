@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过 Prop 向子组件传递数据</title>
+    <script src="vue.js"></script>
+
+</head>
+<body>
+
+    <div id="root">
+        <child content="dell"></child>
+        <child content="lee"></child>
+    </div>
+
+<script>
+
+    Vue.prototype.bus = new Vue(); //每个vue实例都有bus属性
+    Vue.component('child', {
+
+        data: function () {
+            return {
+                selfContent: this.content
+            }
+        },
+        props: {
+            content: String
+        },
+        template: `<div @click="handleClick">{{selfContent}}</div>`,
+        methods: {
+            handleClick: function () {
+                this.bus.$emit('change', this.selfContent) //传值
+            }
+        },
+        mounted: function(){
+            var this_ = this
+            this.bus.$on('change', function (msg) {//监听change事件
+                this_.selfContent = msg
+            })
+        }
+    })
+    var vm = new Vue({ //调用，
+        el: '#root'
+    })
+</script>
+
+</body>
+</html>

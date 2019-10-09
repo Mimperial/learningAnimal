@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{ message }}
+
+    <span v-bind:title="spanTitle">我是一个span</span>
+    <img v-bind:src="imgSrc" v-bind:alt="imgAlt">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            spanTitle: '我是span的title',
+            imgAlt: '我是一个img',
+            imgSrc: 'https://avatar.csdn.net/6/F/4/3_u011068996.jpg'
+        }
+    })
+
+</script>
+
+</body>
+</html>

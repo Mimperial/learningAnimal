@@ -1,0 +1,236 @@
+/*通用hack*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*font: inherit;*/
+    /*vertical-align: baseline;*/
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*清除浮动*/
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    clear: both;
+    *zoom: 1;
+}
+
+.l {
+    float: left
+}
+
+.r {
+    float: right
+}
+
+.clearfix {
+    clear: both;
+}
+
+.wp {
+    width: 1480px;
+    margin: 0 auto
+}
+
+/*@media screen and (max-width: 2560px) {*/
+/*.wp{*/
+/*!*用%会出现滚动条*!*/
+/*width: 1920px;*/
+/*margin: 0 auto*/
+/*}*/
+/*}*/
+
+.grid {
+    /*用%会出现滚动条*/
+    width: 1660px;
+    margin: 0 auto
+}
+
+/*登录注册公用css */
+.login-bg {
+    position: relative;
+    background: url(../image/bg_1.png);
+    width: 1903px;
+    height: 948px;
+    overflow: hidden;
+    /*filter:Alpha(opacity=50);/* 只支持IE6、7、8、9 */
+    /*position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    /**zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+}
+
+.login-title {
+    margin: 0 0 45px 6px;
+    font-size: 22px;
+    color: #fff;
+    border-bottom: 1px solid;
+    height: 45px;
+}
+
+.login-title a {
+    padding-bottom: 20px;
+    margin-right: 50px;
+    color: #fff;
+}
+
+.login-box {
+    width: 690px;
+    height: 460px;
+    position: absolute;
+    left: 31%;
+    top: 25%;
+    padding: 80px 120px;
+    border: solid 1px #ddd;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))
+}
+
+.btn-login {
+    width: 450px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #74c1dd, #616cd5)
+
+}
+
+.remark {
+    margin-top: 850px;
+    font-size: 14px;
+    color: #696969;
+    text-align: center;
+    line-height: 24px;
+}
+
+.input-up {
+    height: 40px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    width: 450px;
+}
+
+.input-group {
+    margin: 25px 0;
+}
+
+.margin-l {
+    margin-left: 5.333333%;
+}
+
+.width-22 {
+    width: 22%;
+}
+
+.light-blue {
+    color: #5cb8ff;
+}
+
+.h45 {
+    height: 45px;
+}
+
+/*background-color*/
+.light-blue {
+    background-color: lightblue;
+}
+
+.light-pink {
+    background-color: lightpink;
+}
+
+.light-purpal {
+    background-color: lightsalmon;
+}
+
+.gold {
+    background-color: gold;
+}
+
+.dark {
+    background-color: #000;
+    color: #fff;
+}
+
+.green {
+    background-color: #5cb85c
+}
+
+/*行间距*/
+.lh-24 {
+    line-height: 24px;
+}
+
+.p5 {
+    padding: 5px 0;
+}
+
+.p10 {
+    padding: 10px 0;
+}
+
+.pl-16 {
+    padding-left: 16px;
+}
+
+.ml22-6 {
+    margin-left: 22.666667%;
+}
+
+.inline-block {
+    display: inline-block !important;
+}
+.color-black{
+    color:#000;
+}
+
+/*fontawsome 显示*/
+.fontaw {
+    font-family: 'FontAwesome' !important;
+}

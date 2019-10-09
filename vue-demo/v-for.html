@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<!--提供第二个的参数为键名-->
+<div id="demo">
+    <div v-for="(value, key) in object">
+        {{ key }} : {{ value }}
+    </div>
+</div>
+
+
+<script>
+
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            object:{
+                firstName: 'hb',
+                lastName: 'l',
+                age: '30'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

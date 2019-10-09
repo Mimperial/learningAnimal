@@ -1,0 +1,249 @@
+.team_head{
+    width: 100%;
+    height: 80px;
+    background: #353b4c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.head_content{
+    height: 100%;
+    width: 767px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.head_content li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.head_content .head_add_color a{
+    color: #90d5ff;
+}
+.team_body{
+    width: 1405px;
+    margin: 0 auto;
+}
+
+.team_body_informate_title{
+    height: 60px;
+    width: 100%;
+    margin-top: 100px;
+    border-left: 5px solid #6bcbff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.team_body_title_china{
+    font-size: 28px;
+    color: #333333;
+    padding-left: 25px;
+    box-sizing: border-box;
+    letter-spacing: 3px;
+}
+.team_body_title_english{
+    font-size: 15px;
+    color: #333333;
+    font-weight: bold;
+    padding-left: 25px;
+    box-sizing: border-box;
+    padding-bottom: 2px;
+}
+.team_people_boss{
+    height: 325px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.team_people_photo{
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.team_people_photo img{
+    height: 100%;
+    width: auto;
+}
+.team_people_information{
+    flex: 1;
+    height: 192px;
+    margin-left: 40px;
+}
+.team_people_information_top{
+    height: 36px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.team_people_information_name{
+    height: 36px;
+    color: #084a9b;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 36px;
+}
+.team_people_information_line:before{
+    height: 8px;
+    width: 8px;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    background: #084a9b;
+    left: -8px;
+    top: -4px;
+}
+
+.team_people_information_line{
+    flex: 1;
+    margin-left: 35px;
+    height: 1px;
+    background: #084a9b;
+    position: relative;
+}
+.team_people_information_center{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.team_people_job{
+    height: 45px;
+    padding: 11px 17px 11px 17px;
+    box-sizing: border-box;
+    background: #353b4c;
+    letter-spacing: 2px;
+    font-size: 22px;
+    color: #ffffff;
+}
+.team_people_China_name{
+    font-size: 70px;
+    /*font-weight: bold;*/
+    margin-top: -60px;
+    color: #cedbeb;
+    letter-spacing: 7px;
+}
+.team_people_information_bottom{
+    width: 100%;
+    padding: 0px 0px 0px 80px;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-size: 16px;
+    line-height: 30px;
+    text-indent: 2em;
+    color: #333333;
+}
+.team_people_div{
+    height: 170px;
+    width: 100%;
+    background: #e8f4fa;
+}
+.team_footer{
+    height: 400px;
+    width: 100%;
+    background: #22293a;
+}
+.team_footer_content{
+    width: 1405px;
+    height: 100%;
+    margin: 0 auto;
+}
+.team_footer_navigation{
+    height: 200px;
+    padding: 75px 0px 25px 0px;
+    box-sizing: border-box;
+    border-bottom: #656a75 1px solid;
+    display: flex;
+}
+.team_footer_navigation_left{
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+}
+.footer_message{
+    width: 96px;
+    font-size: 16px;
+    color: #b7b7b7;
+    position: relative;
+    letter-spacing: 2px;
+}
+.footer_message:before{
+    content:"";
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background: #b7b7b7;
+    position: absolute;
+    right: 0px;
+    top: 6px;
+}
+.footer_reset_distance{
+    margin-left: 20px;
+    color: #b7b7b7;
+    letter-spacing: 2px;
+}
+.team_footer_navigation_right{
+    height: 100%;
+    width: 180px;
+    font-size: 16px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #6bcbff;
+    letter-spacing: 2px;
+}
+.team_footer_information{
+    height: 200px;
+    width: 100%;
+    padding: 48px 0px 0px 0px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.team_footer_information_left p{
+    color: #b7b7b7;
+    font-size: 16px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    letter-spacing: 1px;
+}
+.team_icon_first{
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background: url(../images/footer_icon_03.jpg) center center;
+    margin-right: 6px;
+
+}
+.footer_icon_second{
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background: url(../images/footer_icon_07.jpg) center center;
+    margin-right: 6px;
+
+}
+.footer_icon_third{
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/footer_icon_08.jpg) center center;
+    margin-right: 6px;
+}
+.team_footer_information_right{
+    height: 112px;
+    width: 112px;
+    background: url(../images/dimensional.jpg) center center;
+    background-size: 112px 112px;
+}
+.footer_reset_firstPage{
+    width: 60px;
+}

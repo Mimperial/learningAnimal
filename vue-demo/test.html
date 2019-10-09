@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--<div id="app">
+    &lt;!&ndash; 我们可以通过v-model绑定input的输入值，当input的输入值发生变化的时候，intputMessage也会同步发生变化 &ndash;&gt;
+    <input type="text" v-model="intputMessage">
+    <p>{{intputMessage}}</p>
+    <br>
+    &lt;!&ndash; 我们可以通过v-model绑定textarea的输入值，当textarea的输入值发生变化的时候，textareaMessage也会同步发生变化 &ndash;&gt;
+    <textarea v-model="textareaMessage"></textarea>
+    <p>{{textareaMessage}}</p>
+    <br>
+    &lt;!&ndash; 当我们使用v-model绑定多选框的时候，如果我们的声明值（checkedMessage）为数组的话，那么v-model会绑定多选框的value值，
+      当多选框的checked为true的时候，则会把对应的value添加到数组中。如果我们的声明值为字符串的话，那么v-model会绑定多选框的checked值，
+    当多选框的checked为true的时候，则所有多选框的绑定值也变为true &ndash;&gt;
+    <div>
+        <input type="checkbox" id="android" value="android" v-model="checkedMessage">
+        <label for="android">android</label>
+        <input type="checkbox" id="ios" value="ios" v-model="checkedMessage">
+        <label for="ios">ios</label>
+        <input type="checkbox" id="javaScript" value="javaScript" v-model="checkedMessage">
+        <label for="javaScript">javaScript</label>
+        <br>
+        <p>checked  message: {{ checkedMessage }}</p>
+    </div>
+    <br>
+    &lt;!&ndash; 当我们使用v-model去绑定单选框的时候，v-model会自动绑定单选框的value值，当单选框的checked变为true的时候，对应的绑定值会变为该单选框的vlaue &ndash;&gt;
+    <div>
+        <input type="radio" id="javaScript" value="javaScript" name="testRadio" v-model="radioMessage">
+        <label for="javaScript">javaScript</label>
+        <br>
+        <input type="radio" id="Vue" value="Vue" name="testRadio" v-model="radioMessage">
+        <label for="Vue">Vue</label>
+        <br>
+        <p>radio message: {{ radioMessage }}</p>
+    </div>
+    <br>
+    &lt;!&ndash; 当我们使用v-model去绑定select的时候，如果select为多选的，那么我们的绑定值（selectedMessage），为数组类型。
+    如果select为单选的，那么我们的绑定值（selectedMessage）为字符串类型 &ndash;&gt;
+    <select v-model="selectedMessage" multiple  style="width: 100px;">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <br>
+    <span>selected  message: {{ selectedMessage }}</span>
+</div>
+
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            intputMessage: '这是我们默认的input信息',
+            textareaMessage: '这是我们默认的textarea信息',
+            checkedMessage: [],
+            radioMessage: '',
+            selectedMessage: []
+        }
+    });
+</script>-->
+<div id="app">
+    <!-- .lazy修饰符作用为：改变数据同步时机。当执行 change 事件时进行数据同步 -->
+    <input v-model.lazy="testlazy" >
+    <p>{{testlazy}}</p>
+    <br>
+    <!-- .number修饰符作用为：同步数据将输入的值改变为number类型 -->
+    <input v-model.number="testnumber" type="number">
+    <p>{{testnumber}}</p>
+    <br>
+    <!-- .trim修饰符作用为：同步数据去掉输入值前后的空格 -->
+    <input v-model.trim="testTrim">
+    <p>{{testTrim}}</p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            testlazy: '',
+            testnumber: '',
+            testTrim: ''
+        }
+    });
+</script>
+</body>
+</html>
