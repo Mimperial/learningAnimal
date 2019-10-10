@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+    <style>
+
+    </style>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <p></p>
+    <span></span>
+
+    <script>
+        var array = []
+
+        function sort(array) {
+            var tmp = 0;
+            for (let i = 0; i < array.length; i++) {
+                for (let j = 0; j < array.length - i - 1; j++) {
+                    if (array[j] > array[j + 1]) {
+                        tmp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = tmp;
+                    }
+                }
+            }
+        }
+        console.log(sort([5, 8, 6, 3, 9, 2, 1, 7]))
+    </script>
+
+</body>
+
+</html>
