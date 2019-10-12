@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script type="text/javascript" language="javasrcipt">
+        function test(resolve, reject) {
+            var timeOut = Math.random() * 2
+            console.log('set timeout to:' + timeOut + 'seconds.');
+            setTimeout(function() {
+                if (timeOut < 1) {
+                    console.log('call resolve()');
+                    resolve('200 OK');
+                } else {
+                    console.log('call reject()');
+                    reject('timeout in:' + timeOut + 'seconds.')
+                }
+            }, timeOut * 1000);
+        }
+        var p1 = new Promise(test);
+        var p2 = p1.then(function(result) {
+            console.log('成功：' + result);
+        })
+        var p3 = p2.catch(function(reson) {
+            console.log('失败' + reson)
+        })
+
+
+        var name = '123'
+
+        function foo() {
+            console.log(this.name)
+        }
+        foo()
+        var name = '123'
+
+        function bar() {
+            var name = '321'
+            console.log(this.name)
+        }
+        bar()
+        var obj = {
+            name: '231',
+            foo: foo(),
+        }
+        console.log(obj.name)
+    </script>
+
+</body>
+
+</html>
