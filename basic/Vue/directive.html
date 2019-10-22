@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>代码复用和抽象的主要形式--组件；对普通dom元素进行底层操作——自定义指令</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div id="hook-arguments-example" v-demo="message"></div>
+        <!-- 函数字面量 -->
+        <div v-zml="{ color: 'white', text: 'hello!' }"></div>
+        <!-- 动态指令参数-更新竖直位置像素值的自定义指令 -->
+        <div id="baseexample">
+            <p>Scroll down the page</p>
+            <p v-pin="200">Stick me 200px from the top of the page</p>
+        </div>
+        <!-- 动态指令参数-把元素固定在左侧而不是顶部 -->
+        <div id="dynamicexample">
+            <h3>Scroll down inside this section ↓</h3>
+            <p v-pin:[direction]="200">I am pinned onto the page at 200px to the left.</p>
+        </div>
+    </div>
+    <script>
+        // 全局指令
+        Vue.directive('demo', {
+                // 钩子函数
+                bind: function(el, binding, vnode) {
+                    var s = JSON.stringify
+                    el.innerHTML =
+                        'name: ' + s(binding.name) + '<br>' +
+                        'value: ' + s(binding.value) + '<br>' +
+                        'expression: ' + s(binding.expression) + '<br>' +
+                        'argument: ' + s(binding.arg) + '<br>' +
+                        'modifiers: ' + s(binding.modifiers) + '<br>' +
+                        'vnode keys: ' + Object.keys(vnode).join(', ')
+                },
+                inserted: function() {},
+                update: function() {},
+                componentUpdated: function() {},
+                unbind: function() {},
+
+            })
+            // 函数简写
+        Vue.directive('color-swatch', function(el, binding) {
+                el.style.backgroundColor = binding.value
+            })
+            // 函数字面量
+        Vue.directive('zml', function(el, binding) {
+                console.log(binding.value.color) // => "white"
+                console.log(binding.value.text) // => "hello!"
+            })
+            // 动态指令-更新竖直位置像素值
+        Vue.directive('pin', {
+                bind: function(el, binding, vnode) {
+                    el.style.position = 'fixed'
+                    el.style.top = binding.value + 'px'
+                }
+            })
+            // 动态-把元素固定在左侧而不是顶部
+        Vue.directive('pin', {
+            bind: function(el, binding, vnode) {
+                el.style.position = 'fixed'
+                var s = (binding.arg == 'left' ? 'left' : 'top')
+                el.style[s] = binding.value + 'px'
+            }
+        })
+
+        new Vue({
+            el: '#dynamicexample',
+            data: function() {
+                return {
+                    direction: 'left'
+                }
+            }
+        })
+
+        new Vue({
+            el: '#baseexample'
+        })
+
+        new Vue({
+            el: '#hook-arguments-example',
+            data: {
+                message: 'hello!'
+            },
+            // 局部指令
+            directives: {
+                focus: {
+                    // 指令的定义
+                    inserted: function(el) {
+                        el.focus()
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
